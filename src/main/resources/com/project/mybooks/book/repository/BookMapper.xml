@@ -17,7 +17,7 @@
         VALUES (TO_CHAR(SYSDATE, 'YYMMDD') || LPAD(seq_prj_book.nextval, 4, '0')
         , #{platformId}, #{bookTitle}, #{writer}, #{starRate}, #{bookComment}
         , #{curPage}, #{totalPage}, substr(upper('#{theEnd}'), 1, 1)
-        );
+            )
     </insert>
 
     <!-- 게시글 정보 삭제 -->

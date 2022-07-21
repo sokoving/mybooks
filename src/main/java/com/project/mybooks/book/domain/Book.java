@@ -5,7 +5,6 @@ import lombok.*;
 @Setter
 @Getter
 @ToString
-@EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
 public class Book {
@@ -23,4 +22,5 @@ public class Book {
     private int totalPage; // 총 회차
     private boolean theEnd; // 완결 여부
     private Data regDate; // 등록 날짜
+
 }
