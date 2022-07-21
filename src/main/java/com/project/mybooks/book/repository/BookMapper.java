@@ -14,14 +14,14 @@ public interface BookMapper {
         boolean save(Book book);
 
         // 게시글 전체 조회
-        List<BookPlatform> findAll(Book book);
+        List<BookPlatform> findAll();
 //        List<Board> findAll2(Search search);
 
         // 게시글 상세 조회
-        BookPlatform findOne(int bookNo);
+        BookPlatform findOne(String bookNo);
 
         // 게시글 삭제
-        boolean remove(int bookNo);
+        boolean remove(String bookNo);
 
         // 게시글 수정
         boolean modify(Book book);
