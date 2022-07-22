@@ -34,7 +34,7 @@
 
     <div class="modi-remo-list">
         <a href="/book/modify?bookNo=${book.bookNo}">수정</a>
-        <a href="/book/delete">삭제</a>
+        <a href="/book/delete?bookNo=${book.bookNo}">삭제</a>
         <a href="/book/list">목록</a>
     </div>
 

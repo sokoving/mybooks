@@ -81,7 +81,7 @@ public class MainController {
 
     // ===============================
 
-    // 수정화면 get
+    // 4.수정화면 get
     @GetMapping("/modify")
     public String modify(String bookNo, Model model){
         log.info("modify GET - 요청이 들어옴- {}", bookNo);
@@ -90,7 +90,7 @@ public class MainController {
         return "book/book-modify";
     }
 
-    // 수정화면 post
+    // 5. 수정화면 post
 
     @PostMapping("/modify")
     public String modify(Book book){
@@ -99,6 +99,14 @@ public class MainController {
         return result ? "redirect:/book/detail?bookNo=" + book.getBookNo() : "redirect:/";
 
 
+    }
+
+    // 6. 삭제기능
+    @RequestMapping("/delete")
+    public String delete(String bookNo){
+        log.info("mainController req GET - {}", bookNo);
+        boolean delete = bdts.detailDelete(bookNo);
+        return delete ? "redirect:/book/list" : "redirect:/";
     }
 
 

@@ -50,5 +50,8 @@ public class BookDetailService {
     }
 
 
-
+    public boolean detailDelete(String bookNo) {
+        log.info("bookDetail service req - {}", bookNo);
+        return bMapper.remove(bookNo);
+    }
 }
