@@ -84,6 +84,7 @@
         FROM prj_book a
         LEFT OUTER JOIN prj_platform b
         ON a.platform_id = b.platform_id
+        ORDER BY a.book_no DESC
     </select>
 
     <select id="findOne" resultMap="bookPlatMap">
