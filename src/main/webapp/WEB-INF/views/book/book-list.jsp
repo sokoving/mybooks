@@ -37,7 +37,7 @@
             <tr>
                 <td>${bp.bookNo} / ${bp.theEnd}</td>
                 <td>${bp.platformName}</td>
-                <td>${bp.bookTitle}</td>
+                <td><a href="/book/detail?bookNo=${bp.bookNo}">${bp.bookTitle}</a></td>
                 <td>${bp.writer}</td>
                 <td>${bp.curPage} / ${bp.totalPage}</td>
                 <td>${bp.starRate}점</td>
@@ -50,9 +50,23 @@
     </table>
 
     <a href="/book/write">글쓰기</a>
-    <a href="/book/detail?bookNo=2207220002">이동</a>
 
 
+    <!-- <script>
+        function alertServerMessage() {
+            const msg = '${msg}';
+            // console.log('msg: ', msg);
+            if (msg === 'reg-success') {
+                alert('게시물이 정상 등록되었습니다.');
+            }
+        }
+
+        (function () {
+
+            alertServerMessage();
+
+        })();
+    </script> -->
 
 
 

@@ -16,30 +16,80 @@
 <body>
     <h1> book-save.jsp </h1>
 
-    <form action="/book/write" method="post">
-        # 플랫폼 아이디: <input type="text" name="platformId">
+    <form action="/book/write" method="post" id="write-form">
+        # 플랫폼 :
+        <select name="platformId">
+            <option value="1">카카오 페이지</option>
+            <option value="2">네이버 시리즈</option>
+            <option value="3">리디북스</option>
+            <option value="4">문피아</option>
+            <option value="5">조아라</option>
+            <option value="6">기타</option>
+        </select>
         <br>
-        # 책 제목 : <input type="text" name="bookTitle">
+        # 책 제목 : <input id="book-name-input" type="text" name="bookTitle">
         <br>
-        # 작가 : <input type="text" name="writer">
+        # 작가 : <input id="writer-input" type="text" name="writer">
         <br>
         # 현재 회차 : <input type="text" name="curPage">
         <br>
         # 총 회차 : <input type="text" name="totalPage">
         <br>
-        # 완결 <input type="radio" name="theEnd" value="0">
-        연재중 <input type="radio" name="theEnd" value="1" checked>
-        
+        # 연재중 <input type="radio" name="theEnd" value="1" checked>
+        완결 <input type="radio" name="theEnd" value="0">
         <br>
         # 별점 : <input type="text" name="starRate">
         <br>
         # 한줄평
         <textarea name="bookComment" cols="30" rows="2"></textarea>
         <br>
-        <button type="submit">등록</button>
+        <button id="reg-btn" type="button">등록</button>
 
     </form>
+
     <a href="/book/list">목록</a>
+
+
+
+
+
+    <script>
+        (function () {
+            function validateFormValue() {
+
+                const $bookNameInput = document.getElementById('book-name-input');
+                const $writerInput = document.getElementById('writer-input');
+                let flag = false;
+
+                console.log('b: ', $bookNameInput.value);
+                console.log('w: ', $writerInput.value);
+                if ($bookNameInput.value.trim() === '') {
+                    alert('제목은 필수값입니다');
+                } else if ($writerInput.value.trim() === '') {
+                    alert('작가는 필수값입니다');
+                } else {
+                    flag = true;
+                }
+                return flag;
+            }
+
+            // 게시물 입력값 검증
+            const $regBtn = document.getElementById('reg-btn');
+
+            $regBtn.onclick = e => {
+                // 입력값을 제대로 채우지 않았는지 확인
+                if (!validateFormValue()) {
+                    return;
+                }
+
+                // 필수 입력값을 잘 채웠으면 폼을 서브밋한다.
+                const $form = document.getElementById('write-form');
+                $form.submit();
+            };
+
+
+        })();
+    </script>
 
 </body>
 
