@@ -49,10 +49,11 @@
         </c:forEach>
     </table>
 
-    <a href="/write">글쓰기</a>
+    <a href="/book/write">글쓰기</a>
+    <a href="/book/detail?bookNo=2207220001">이동</a>
 
 
-    
+
     
 
 
