@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- mapper태그는 sql을 매핑할때 사용하는 태그
+     namespace속성에는 사용할 인터페이스의 풀 패키지경로 + 인터페이스이름
+  -->
+<mapper namespace="com.project.mybooks.bookMemo.repository.BookMemoMapper">
+
+    <!-- 제품 등록 SQL 작성 :  id속성에는 추상메서드 이름  -->
+    <resultMap id="bookMemoMap" type="com.project.mybooks.bookMemo.domain.BookMemo">
+        <result property="BookMemoNo" column="bookmemo_no" />
+        <result property="BookNo" column="book_no" />
+        <result property="RegDate" column="reg_date" />
+        <result property="BookMemoContent" column="bookmemo_content" />
+    </resultMap>
+
+    <!--    #{필드값 넣기!!!}-->
+    <insert id="save">
+        INSERT INTO prj_bookmemo
+        (bookmemo_no, book_no, bookmemo_content)
+        VALUES
+        (seq_book_bookmemo.NEXTVAL, #{bookNo}, #{BookMemoContent})
+    </insert>
+
+</mapper>

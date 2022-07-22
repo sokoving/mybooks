@@ -60,3 +60,9 @@ ALTER TABLE prj_bookmemo
 ADD CONSTRAINT fk_book_no2
 FOREIGN KEY (book_no)
 REFERENCES prj_book(book_no);
+
+-- prj_bookmemo 의 seq 생성
+-- bookmemo에 seq 추가
+CREATE SEQUENCE seq_book_bookmemo;
+
+commit;
