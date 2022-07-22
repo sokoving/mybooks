@@ -48,4 +48,14 @@ class BookMemoMapperTest {
 
         assertEquals(result.getBookMemoNo(), 4);
     }
+
+    @Test
+    @DisplayName("지정된 값을 수정해야한다")
+    void modifyTest(){
+        BookMemo one = mapper.findOne(4);
+        one.setBookMemoContent("하하하하");
+        boolean modify = mapper.modify(one);
+        System.out.println(one);
+        assertTrue(modify);
+    }
 }
