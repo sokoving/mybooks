@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -54,7 +55,7 @@ public class MainController {
     // 1. 책 리스트 /list (get)
     @GetMapping("/list")
     public String list(Model model) {
-        log.info("Main Controller - list GET 요청");
+        log.debug("Main Controller - list GET 요청");
         List<BookPlatform> bookPlatformList = bService.findAllService();
         log.info(bookPlatformList);
 
@@ -92,9 +93,24 @@ public class MainController {
 
         Map<String, Object> detailPageListMap = bdts.detailPageListMap(bookNo);
 
+//        BookPlatform book = (BookPlatform) detailPageListMap.get("book");
+//        List<Bookmark> bmkl = new ArrayList<>();
+
+
+
         model.addAttribute("book", detailPageListMap.get("book"));
-        model.addAttribute("bmkl",detailPageListMap.get("bookMarkList"));
+        model.addAttribute("bmkl", detailPageListMap.get("bookMarkList"));
         model.addAttribute("bmml", detailPageListMap.get("bookMemoList"));
+
+
+        System.out.println("!!!!");
+        System.out.println(model.getAttribute("book"));
+        System.out.println("================================");
+        Object bmkl = model.getAttribute("bmkl");
+
+        System.out.println("================================");
+        System.out.println(model.getAttribute("bmml"));
+
 
         return "book/book-detail";
     }

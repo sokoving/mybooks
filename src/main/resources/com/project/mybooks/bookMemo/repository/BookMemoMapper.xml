@@ -10,10 +10,10 @@
 
     <!-- 제품 등록 SQL 작성 :  id속성에는 추상메서드 이름  -->
     <resultMap id="bookMemoMap" type="com.project.mybooks.bookMemo.domain.BookMemo">
-        <result property="BookMemoNo" column="bookmemo_no" />
-        <result property="BookNo" column="book_no" />
-        <result property="RegDate" column="reg_date" />
-        <result property="BookMemoContent" column="bookmemo_content" />
+        <result property="bookMemoNo" column="bookmemo_no" />
+        <result property="bookNo" column="book_no" />
+        <result property="regDate" column="reg_date" />
+        <result property="bookMemoContent" column="bookmemo_content" />
     </resultMap>
 
     <!--    #{필드값 넣기!!!}-->
@@ -22,32 +22,34 @@
         INSERT INTO prj_bookmemo
         (bookmemo_no, book_no, bookmemo_content)
         VALUES
-        (seq_book_bookmemo.NEXTVAL, #{bookNo}, #{BookMemoContent})
+        (seq_book_bookmemo.NEXTVAL, #{bookNo}, #{bookMemoContent})
     </insert>
 
 <!--    삭제-->
     <delete id="remove">
         DELETE FROM prj_bookmemo
-        WHERE bookmemo_no = #{BookMemoNo}
+        WHERE bookmemo_no = #{bookMemoNo}
     </delete>
 <!-- 전제조회-->
     <select id="findAll" resultMap="bookMemoMap">
-        SELECT * FROM prj_bookmemo
+        SELECT *
+        FROM prj_bookmemo
         WHERE book_no = #{bookNo}
+        ORDER BY bookmemo_no DESC
     </select>
 
 <!--    부분조회-->
     <select id="findOne" resultMap="bookMemoMap">
         SELECT * FROM prj_bookmemo
-        WHERE bookmemo_no= #{BookMemoNo}
+        WHERE bookmemo_no= #{bookMemoNo}
     </select>
 
 <!--    수정-->
     <update id="modify">
         UPDATE prj_bookmemo
         SET
-        bookmemo_content=#{BookMemoContent}
-        WHERE bookmemo_no=#{BookMemoNo}
+        bookmemo_content=#{bookMemoContent}
+        WHERE bookmemo_no=#{bookMemoNo}
     </update>
 
     <select id="getTotalCount" resultType="int">

@@ -38,6 +38,17 @@
         <a href="/book/list">목록</a>
     </div>
 
+<%-- <ul>
+    <li>${bmkl.bookmarkNo}</li>
+</ul> --%>
+
+
+
+<ul>
+    <c:forEach var="mk" items="${bmkl}">
+        <li> ${mk.bookmarkContent} </li>
+    </c:forEach>
+</ul>
 
 
 </body>

@@ -47,7 +47,10 @@
     </delete>
 
     <select id="findAll" resultMap="bookmarkMap">
-        SELECT * FROM prj_bookmark ORDER BY bookmark_no DESC
+        SELECT *
+        FROM prj_bookmark
+        WHERE book_no = #{bookNo}
+        ORDER BY bookmark_no DESC
     </select>
 
     <select id="findOne" resultMap="bookmarkMap">
