@@ -39,7 +39,7 @@ class BookMapperTest {
         b.setBookComment("test comment1");
         b.setCurPage(10);
         b.setTotalPage(100);
-        b.setTheEnd(true);
+        b.setTheEnd(0);
         System.out.println("b = " + b);
 
         boolean flag = mapper.save(b);
@@ -58,19 +58,8 @@ class BookMapperTest {
     @Test
     @DisplayName("DB에서 정보가 수정돼야 한다")
     void modifyTest(){
-        System.out.println("startstart");
-        Book b = new Book();
-        System.out.println("b = " + b);
-        b.setBookNo("2207220026");
-        b.setPlatformId(1);
-        b.setBookTitle("test title2");
-        b.setWriter("test writer2");
-        b.setStarRate(4);
-        b.setBookComment("test comment2");
-        b.setCurPage(5);
-        b.setTotalPage(50);
-        b.setTheEnd(false);
-        System.out.println("b = " + b);
+        Book b = mapper.findBookOne("2207220002");
+        b.setBookTitle("test");
 
         boolean flag = mapper.modify(b);
         assertTrue(flag);

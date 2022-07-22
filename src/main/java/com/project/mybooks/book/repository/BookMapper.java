@@ -29,4 +29,6 @@ public interface BookMapper {
         // 전체 게시물 수 조회
         int getTotalCount();
 //        int getTotalCount(Search search);
+
+        Book findBookOne(String bookNo);
 }

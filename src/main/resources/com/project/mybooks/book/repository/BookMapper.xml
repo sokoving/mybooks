@@ -104,4 +104,10 @@
         FROM prj_book
     </select>
 
+    <!--    BOOK findOne-->
+    <select id="findBookOne" resultMap="bookMap">
+        SELECT * FROM prj_book
+        WHERE BOOK_NO = #{bookNo}
+    </select>
+
 </mapper>
