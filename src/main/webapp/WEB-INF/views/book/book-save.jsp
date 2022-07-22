@@ -16,7 +16,7 @@
 <body>
     <h1> book-save.jsp </h1>
 
-    <form action="/write" method="post">
+    <form action="/book/write" method="post">
         # 플랫폼 아이디: <input type="text" name="platformId">
         <br>
         # 책 제목 : <input type="text" name="bookTitle">
@@ -38,7 +38,7 @@
         <button type="submit">등록</button>
 
     </form>
-    <a href="/list">목록</a>
+    <a href="/book/list">목록</a>
 
 </body>
 

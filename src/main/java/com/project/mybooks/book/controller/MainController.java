@@ -76,7 +76,7 @@ public class MainController {
         log.info("Main Controller : write POST 요청 - {}", book);
         boolean b = bService.saveService(book);
         log.info("flag - {}", b);
-        return "redirect:/book/list";
+        return "redirect:/list";
     }
 
 
@@ -96,18 +96,18 @@ public class MainController {
         model.addAttribute("bmkl",detailPageListMap.get("bookMarkList"));
         model.addAttribute("bmml", detailPageListMap.get("bookMemoList"));
 
-        return "/book/book-detail";
+        return "/book/detail";
     }
 
 
     //     * 8. 북마크내용 수정요청 /bookmark-modify (post)
     @PostMapping("/bookmark-modify")
-    public String bookmarkModify(Bookmark bookmark) {
+    public String bookmarkModify(@RequestBody Bookmark bookmark) {
         log.info("controller request /book/bookmark-modify POST - {}", bookmark);
 
         boolean flag = bmks.modifyService(bookmark);
 
-        return  flag ? "redirect:/book/book-detail" : "redirect:/";
+        return  flag ? "redirect:/book/detail" : "redirect:/";
 
     }
 
@@ -119,7 +119,7 @@ public class MainController {
         log.info("controller request /book/bookmark-delete POST - {}", bookmarkNo);
         boolean flag = bmks.removeService(bookmarkNo);
 
-        return flag ? "redirect:/book/book-detail" : "redirect:/";
+        return flag ? "redirect:/book/detail" : "redirect:/";
     }
 
 
@@ -130,7 +130,7 @@ public class MainController {
 
         boolean flag = bmks.saveService(bookmark);
 
-        return flag ? "redirect:/book/book-detail" : "redirect:/";
+        return flag ? "redirect:/book/detail" : "redirect:/";
     }
 
 
@@ -142,7 +142,7 @@ public class MainController {
 
         boolean flag = bmms.modifyService(bookMemo);
 
-        return  flag ? "redirect:/book/book-detail" : "redirect:/";
+        return  flag ? "redirect:/book/detail" : "redirect:/";
 
     }
 
@@ -154,7 +154,7 @@ public class MainController {
 
         boolean flag = bmms.removeService(bookmemeoNo);
 
-        return flag ? "redirect:/book/book-detail" : "redirect:/";
+        return flag ? "redirect:/book/detail" : "redirect:/";
     }
 
     //     * 13. 메모내용 등록요청 /bookmark-save (post)
@@ -164,7 +164,7 @@ public class MainController {
 
         boolean flag = bmms.saveService(bookMemo);
 
-        return flag ? "redirect:/book/book-detail" : "redirect:/";
+        return flag ? "redirect:/book/detail" : "redirect:/";
     }
 
 
