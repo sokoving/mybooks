@@ -64,6 +64,6 @@ class BookMemoMapperTest {
     void getAllcountTest(){
         int totalCount = mapper.getTotalCount();
         System.out.println(totalCount);
-        assertEquals(totalCount, 2);
+        assertEquals(totalCount, 4);
     }
 }

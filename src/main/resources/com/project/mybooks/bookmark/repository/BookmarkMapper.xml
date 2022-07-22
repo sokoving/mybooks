@@ -33,7 +33,7 @@
 
     <insert id="save">
         INSERT INTO prj_bookmark (bookmark_no, book_no, bookmark_page, bookmark_content)
-        VALUES ( #{bookmarkNo}, #{bookNo}, #{bookmarkPage}, #{bookmarkContent})
+        VALUES ( seq_book_bookmark.nextval, #{bookNo}, #{bookmarkPage}, #{bookmarkContent})
     </insert>
 
     <update id="modify">

@@ -1,4 +1,8 @@
-drop SEQUENCE seq_tbl_book;
+----------- drop ----------- 
+
+drop SEQUENCE seq_prj_book;
+drop SEQUENCE seq_prj_platform;
+drop SEQUENCE seq_book_bookmark;
 drop table prj_book;
 drop TABLE prj_platform;
 drop TABLE prj_bookmark;
@@ -6,7 +10,11 @@ drop TABLE prj_bookmemo;
 
 commit;
 
+----------- create ----------- 
 CREATE SEQUENCE seq_prj_book;
+CREATE SEQUENCE seq_prj_platform;
+CREATE SEQUENCE seq_book_bookmemo;
+CREATE SEQUENCE seq_book_bookmark;
 
 CREATE TABLE prj_book (
 user_id VARCHAR2(20) --userID
@@ -47,7 +55,9 @@ CREATE TABLE prj_bookmemo(
     , bookmemo_content CLOB not null
     , CONSTRAINT pk_bookmemo_no PRIMARY KEY (bookmemo_no)
 );
-----------------------------
+
+
+------------ Foreign key ----------------
 
 
 ALTER TABLE prj_book
@@ -67,3 +77,54 @@ FOREIGN KEY (book_no)
 REFERENCES prj_book(book_no);
 
 commit;
+
+----------- insert into ----------- 
+
+insert into prj_platform VALUES (seq_prj_platform.nextval, '카카오 페이지');
+insert into prj_platform VALUES (seq_prj_platform.nextval, '네이버 시리즈');
+insert into prj_platform VALUES (seq_prj_platform.nextval, '리디북스');
+insert into prj_platform VALUES (seq_prj_platform.nextval, '문피아');
+insert into prj_platform VALUES (seq_prj_platform.nextval, '조아라');
+insert into prj_platform VALUES (seq_prj_platform.nextval, '기타');
+commit;
+
+
+INSERT INTO prj_book
+(user_id, importance, book_no, platform_id
+, book_title, writer, star_rate , book_comment ,cur_page, total_page
+, the_end
+)
+VALUES ('aaa123',100, '220721aa', 3, '괴물공작가의 계약 공녀','민작', 4
+, '재미있었다', 30 , 400, 'T');
+
+INSERT INTO prj_book
+    (
+    book_no
+    , platform_id, book_title, writer, star_rate, book_comment
+    , cur_page, total_page, the_end
+    )
+VALUES (
+        TO_CHAR(SYSDATE, 'YYMMDD') || LPAD(seq_prj_book.nextval, 4, '0')
+        , 1, 'bookTitle', 'writer', 5, 'bookComment'
+        , 10, 100, substr(upper('true'), 1, 1)
+        )
+;
+    
+            
+            
+                    SELECT
+        user_id, importance
+        , book_no, a.platform_id, b.platform_name
+        , book_title, writer, star_rate, book_comment
+        , cur_page, total_page, the_end, reg_date
+        FROM prj_book a
+        LEFT OUTER JOIN prj_platform b
+        ON a.platform_id = b.platform_id
+        ;
+        
+        
+                SELECT count(*)
+        FROM prj_book
+        ;
+        
+        

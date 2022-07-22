@@ -1,5 +1,6 @@
 package com.project.mybooks.bookmark.repository;
 
+import com.project.mybooks.book.repository.BookMapper;
 import com.project.mybooks.bookmark.domain.Bookmark;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -16,15 +17,21 @@ class BookmarkMapperTest {
 
     @Autowired
     BookmarkMapper mapper;
+    @Autowired
+    BookMapper bMapper;
 
 
     @Test
     @DisplayName("저장되어야 한다.")
     @Rollback
     void saveTest() {
-        Bookmark bookmark = new Bookmark(1, "111", 100, "여기까지 읽음~~");
+        Bookmark bookmark = new Bookmark();
+        bookmark.setBookNo("2207220001");
+        bookmark.setBookmarkPage(100);
+        bookmark.setBookmarkContent("여기까지 읽음~~");
         boolean result = mapper.save(bookmark);
         assertTrue(result);
+
     }
 
 //    boolean save(Bookmark bookmark);
@@ -62,7 +69,7 @@ class BookmarkMapperTest {
     @Test
     @DisplayName("해당 번호의 북마크가 삭제되어야 한다.")
     void removeTest() {
-        boolean flag = mapper.remove(1);
+        boolean flag = mapper.remove(7);
         assertTrue(flag);
     }
 
