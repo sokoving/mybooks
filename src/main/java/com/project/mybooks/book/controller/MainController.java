@@ -6,6 +6,7 @@ import com.project.mybooks.book.service.BookDetailService;
 import com.project.mybooks.book.service.BookService;
 import com.project.mybooks.bookMemo.domain.BookMemo;
 import com.project.mybooks.bookMemo.service.BookMemoService;
+import com.project.mybooks.bookmark.domain.Bookmark;
 import com.project.mybooks.bookmark.service.BookmarkService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -24,7 +25,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 @RequestMapping("/book")
 public class MainController {
-    private final BookService bs;
+    private final BookService bService;
     private final BookmarkService bmks;
     private final BookMemoService bmms;
     private final BookDetailService bdts;
@@ -33,19 +34,24 @@ public class MainController {
      * 1. 책 리스트 /list (get)
      * 2. 등록화면 /write (get)
      * 3. 등록요청 /write (post)
+
+     지현
+     * 4. 수정화면 /modify (get)
+     * 5. 수정요청 /modify (post)
+     * 6. 삭제요청 /delete (get)
+
+     성렬
+     * 7. 상세정보 /detail (get)
+     * 8. 북마크내용 수정요청 /bookmark-modify (post)
+     * 9. 북마크내용 삭제요청 /bookmark-delete (post)
+     * 10. 북마크내용 등록요청 /bookmark-save (post)
+     * 11. 메모내용 수정요청 /bookmemo-modify (post)
+     * 12. 메모내용 삭제요청 /bookmemo-delete (post)
+     * 13. 메모내용 등록요청 /bookmark-save (post)
      */
 
-    /* 성렬
-     * 1. 상세정보 /detail (get)
-     * 2. 북마크내용 수정요청 /bookmark-modify (post)
-     * 3. 북마크내용 삭제요청 /bookmark-delete (post)
-     * 4. 북마크내용 등록요청 /bookmark-save (post)
-     * 5. 메모내용 수정요청 /bookmemo-modify (post)
-     * 6. 메모내용 삭제요청 /bookmemo-delete (post)
-     * 7. 메모내용 등록요청 /bookmark-save (post)
-     */
 
-
+    // 1. 책 리스트 /list (get)
     @GetMapping("/list")
     public String list(Model model) {
         log.info("Main Controller - list GET 요청");
@@ -54,17 +60,17 @@ public class MainController {
 
         model.addAttribute("bpList", bookPlatformList);
 
-        boolean tyep = false;
-
         return "book-list";
     }
 
+    // 2. 등록화면 /write (get)
     @GetMapping("/write")
     public String write() {
         log.info("Main Controller : write GET 요청");
         return "book-save";
     }
 
+    // 3. 등록요청 /write (post)
     @PostMapping("/write")
     public String write(Book book) {
         log.info("Main Controller : write POST 요청 - {}", book);
@@ -79,7 +85,7 @@ public class MainController {
 
 
 
-
+//     * 7. 상세정보 /detail (get)
     @GetMapping("/detail")
     public String detail(String bookNo, Model model) {
         log.info("controller request /book/detail GET - {}", bookNo);
@@ -94,8 +100,7 @@ public class MainController {
     }
 
 
-    // bookmark
-
+    //     * 8. 북마크내용 수정요청 /bookmark-modify (post)
     @PostMapping("/bookmark-modify")
     public String bookmarkModify(@RequestBody Bookmark bookmark) {
         log.info("controller request /book/bookmark-modify POST - {}", bookmark);
@@ -106,6 +111,8 @@ public class MainController {
 
     }
 
+
+    //     * 9. 북마크내용 삭제요청 /bookmark-delete (post)
     @PostMapping("/bookmark-delete")
     public String bookmarkDelete(int bookmarkNo) {
 //        int bookmarkNo = 1;
@@ -115,6 +122,8 @@ public class MainController {
         return flag ? "redirect:/book/detail" : "redirect:/";
     }
 
+
+    //     * 10. 북마크내용 등록요청 /bookmark-save (post)
     @PostMapping("/bookmark-save")
     public String bookmarkSave(@RequestBody Bookmark bookmark) {
         log.info("controller request /book/bookmark-save POST - {}", bookmark);
@@ -126,7 +135,7 @@ public class MainController {
 
 
 
-    // bookmemo
+    //     * 11. 메모내용 수정요청 /bookmemo-modify (post)
     @PostMapping("/bookmemo-modify")
     public String bookmemoModify(@RequestBody BookMemo bookMemo) {
         log.info("controller request /book/bookmemo-modify POST - {}", bookMemo);
@@ -137,6 +146,7 @@ public class MainController {
 
     }
 
+    //     * 12. 메모내용 삭제요청 /bookmemo-delete (post)
     @PostMapping("/bookmemo-delete")
     public String bookmemoDelete() {
         int bookmemeoNo = 3;
@@ -147,6 +157,7 @@ public class MainController {
         return flag ? "redirect:/book/detail" : "redirect:/";
     }
 
+    //     * 13. 메모내용 등록요청 /bookmark-save (post)
     @PostMapping("/bookmemo-save")
     public String bookmemoSave(@RequestBody BookMemo bookMemo) {
         log.info("controller request /book/bookmemo-save POST - {}", bookMemo);
