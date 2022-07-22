@@ -1,5 +1,6 @@
 package com.project.mybooks.book.service;
 
+import com.project.mybooks.book.domain.Book;
 import com.project.mybooks.book.domain.BookPlatform;
 import com.project.mybooks.book.repository.BookMapper;
 import com.project.mybooks.bookMemo.domain.BookMemo;
@@ -37,18 +38,17 @@ public class BookDetailService {
         return detailMap;
     }
 
-    public BookPlatform detailFindOne(String bookNo){
-        BookPlatform findOneBook = bMapper.findOne(bookNo);
-        return findOneBook;
+    public Book detailFindBookOne(String bookNo){
+        Book findOneB = bMapper.findBookOne(bookNo);
+        return findOneB;
     }
 
-    /*
-    public boolean detailModify(BookPlatform bookPlatform) {
-       log.info("bookdetail service req - {}", bookPlatform);
 
-        return modify;
+    public boolean detailModify(Book book) {
+       log.info("bookdetail service req - {}", book);
+        return bMapper.modify(book);
     }
 
-     */
+
 
 }

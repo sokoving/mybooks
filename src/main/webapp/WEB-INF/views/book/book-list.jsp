@@ -50,7 +50,7 @@
     </table>
 
     <a href="/book/write">글쓰기</a>
-    <a href="/book/detail?bookNo=2207220002">이동</a>
+    <a href="/book/detail?bookNo=2207220001">이동</a>
 
 
 

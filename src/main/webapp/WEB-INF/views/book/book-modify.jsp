@@ -14,15 +14,10 @@
 
 
 <body>
-    <h1> # detial page </h1>
+    <h1> # modify page </h1>
 
-    <!-- 
-        "book", detailPageListMap.get("book"));
-        "bmkl",detailPageListMap.get("bookMarkList"));
-        "bmml", detailPageListMap.get("bookMemoList"));
 
- -->
-
+ <form action="/book/modify" method="post">
     <ul>
         <li>플랫폼: ${book.platformName} </li>
         <li>제목: ${book.bookTitle} (${book.theEnd})</li>
@@ -31,11 +26,14 @@
         <li> ${book.curPage}/${book.totalPage}</li>
         <li>한줄평 : ${book.bookComment}</li>
     </ul>
+    <button type="post">
+        버튼
+    </button>
+    
+    </form>
 
     <div class="modi-remo-list">
-        <a href="/book/modify?bookNo=${book.bookNo}">수정</a>
-        <a href="/book/delete">삭제</a>
-        <a href="/book/list">목록</a>
+        <a href="/book/list/">목록</a>
     </div>
 
 

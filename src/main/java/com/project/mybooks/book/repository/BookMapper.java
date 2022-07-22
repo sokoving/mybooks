@@ -32,5 +32,4 @@ public interface BookMapper {
         int getTotalCount();
 //        int getTotalCount(Search search);
 
-        Book findBookOne(String bookNo);
 }

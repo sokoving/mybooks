@@ -89,4 +89,13 @@ class BookMapperTest {
         assertEquals(3, totalCount);
     }
 
+    @Test
+    @DisplayName("FindBookOne이 실행되어야한다")
+    void findOneBook(){
+        Book bookOne = mapper.findBookOne("2207220001");
+
+        System.out.println(bookOne);
+
+    }
+
 }

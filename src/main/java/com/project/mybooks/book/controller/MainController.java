@@ -1,9 +1,12 @@
+package com.project.mybooks.book.controller;
+
 import com.project.mybooks.book.domain.Book;
 import com.project.mybooks.book.domain.BookPlatform;
 import com.project.mybooks.book.service.BookDetailService;
 import com.project.mybooks.book.service.BookService;
 import com.project.mybooks.bookMemo.domain.BookMemo;
 import com.project.mybooks.bookMemo.service.BookMemoService;
+import com.project.mybooks.bookmark.domain.Bookmark;
 import com.project.mybooks.bookmark.service.BookmarkService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -81,21 +84,21 @@ public class MainController {
     // 수정화면 get
     @GetMapping("/modify")
     public String modify(String bookNo, Model model){
-        log.info("modify GET - 요청이 들어옴");
-        BookPlatform BookPlatform = bookDetailService.detailFindOne(bookNo);
-        return "book-modify";
+        log.info("modify GET - 요청이 들어옴- {}", bookNo);
+        Book book = bdts.detailFindBookOne(bookNo);
+        model.addAttribute("modibook", book);
+        return "book/book-modify";
     }
 
     // 수정화면 post
-    /*
+
     @PostMapping("/modify")
     public String modify(Book book){
         log.info("controller req POST - {}", book);
-        boolean result = bookDetailService.detailModify(book);
-        return result ? "redirect:/board/detail" + book.getBookNo() : "redirect:/";
+        boolean result = bdts.detailModify(book);
+        return result ? "redirect:book/book-detail" + book.getBookNo() : "redirect:/";
     }
 
-     */
 
 
 

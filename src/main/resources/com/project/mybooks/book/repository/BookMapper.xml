@@ -77,36 +77,27 @@
 
     <select id="findAll" resultMap="bookPlatMap">
         SELECT
-            a.user_id, a.importance
-            , a.book_no, a.platform_id, b.platform_name
-            , a.book_title, a.writer, a.star_rate, a.book_comment
-            , a.cur_page, a.total_page, a.the_end, a.reg_date
+        a.user_id, a.importance
+        , a.book_no, a.platform_id, b.platform_name
+        , a.book_title, a.writer, a.star_rate, a.book_comment
+        , a.cur_page, a.total_page, a.the_end, a.reg_date
         FROM prj_book a
         LEFT OUTER JOIN prj_platform b
         ON a.platform_id = b.platform_id
         ORDER BY a.book_no DESC
     </select>
 
-<!--    bookPlatMap FindOne-->
-
     <select id="findOne" resultMap="bookPlatMap">
         SELECT
-            a.user_id, a.importance
-            , a.book_no, a.platform_id, b.platform_name
-            , a.book_title, a.writer, a.star_rate, a.book_comment
-            , a.cur_page, a.total_page, a.the_end, a.reg_date
+        a.user_id, a.importance
+        , a.book_no, a.platform_id, b.platform_name
+        , a.book_title, a.writer, a.star_rate, a.book_comment
+        , a.cur_page, a.total_page, a.the_end, a.reg_date
         FROM prj_book a
         LEFT OUTER JOIN prj_platform b
         ON a.platform_id = b.platform_id
         WHERE a.book_no=#{bookNO}
     </select>
-
-<!--    BOOK findOne-->
-    <select id="findBookOne" resultMap="bookMap">
-        SELECT * FROM prj_book
-        WHERE BOOK_NO = #{bookNo}
-    </select>
-
 
     <select id="getTotalCount" resultType="int">
         SELECT count(*)
