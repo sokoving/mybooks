@@ -19,6 +19,12 @@ class BookMapperTest {
 
     @Autowired
     BookMapper mapper;
+    
+    @Test
+    @DisplayName("테스트가 실행돼야 한다")
+    void test(){
+        System.out.println("!! test !!");
+    }
 
      @Test
     @DisplayName("Book이 DB에 등록돼야 한다")
@@ -26,16 +32,72 @@ class BookMapperTest {
         System.out.println("startstart");
         Book b = new Book();
         System.out.println("b = " + b);
-        b.setPlatformId(3);
-        b.setBookTitle("test title");
-        b.setWriter("test writer");
+        b.setPlatformId(1);
+        b.setBookTitle("test title1");
+        b.setWriter("test writer1");
         b.setStarRate(3);
-        b.setBookComment("test comment");
+        b.setBookComment("test comment1");
+        b.setCurPage(10);
+        b.setTotalPage(100);
+        b.setTheEnd(true);
         System.out.println("b = " + b);
 
         boolean flag = mapper.save(b);
 
         assertTrue(flag);
+    }
+
+    @Test
+    @DisplayName("DB에서 정보가 삭제돼야 한다")
+    void removeTest(){
+        String bookNo = "2207220025";
+        boolean flag = mapper.remove(bookNo);
+        assertTrue(flag);
+    }
+
+    @Test
+    @DisplayName("DB에서 정보가 수정돼야 한다")
+    void modifyTest(){
+        System.out.println("startstart");
+        Book b = new Book();
+        System.out.println("b = " + b);
+        b.setBookNo("2207220026");
+        b.setPlatformId(1);
+        b.setBookTitle("test title2");
+        b.setWriter("test writer2");
+        b.setStarRate(4);
+        b.setBookComment("test comment2");
+        b.setCurPage(5);
+        b.setTotalPage(50);
+        b.setTheEnd(false);
+        System.out.println("b = " + b);
+
+        boolean flag = mapper.modify(b);
+        assertTrue(flag);
+    }
+
+    @Test
+    @DisplayName("DB에서 prj_book과 prj_platform가 조인돼서 전체 조회돼야 한다")
+    void findAllTest(){
+        List<BookPlatform> all = mapper.findAll();
+        for (BookPlatform b : all) {
+            System.out.println(b);
+        }
+    }
+
+    @Test
+    @DisplayName("DB에서 특정 정보가 조회돼야 한다")
+    void findOneTest(){
+        String bn = "2207220027";
+        BookPlatform one = mapper.findOne(bn);
+        System.out.println(one);
+    }
+
+    @Test
+    @DisplayName("prj_book 테이블의 데이터 수 리턴")
+    void getTotalCount(){
+        int totalCount = mapper.getTotalCount();
+        assertEquals(3, totalCount);
     }
 
 }

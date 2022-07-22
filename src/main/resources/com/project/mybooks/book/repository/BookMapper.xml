@@ -11,13 +11,17 @@
     <!-- 게시글 등록 SQL 작성 :  id속성에는 추상메서드 이름  -->
     <insert id="save">
         INSERT INTO prj_book
-            (book_no
-            , platform_id, book_title, writer, star_rate, book_comment
-            , cur_page, total_page, the_end)
-        VALUES (TO_CHAR(SYSDATE, 'YYMMDD') || LPAD(seq_prj_book.nextval, 4, '0')
+        (
+        book_no
+        , platform_id, book_title, writer, star_rate, book_comment
+        , cur_page, total_page, the_end
+        )
+        VALUES
+        (
+        TO_CHAR(SYSDATE, 'YYMMDD') || LPAD(seq_prj_book.nextval, 4, '0')
         , #{platformId}, #{bookTitle}, #{writer}, #{starRate}, #{bookComment}
-        , #{curPage}, #{totalPage}, substr(upper('#{theEnd}'), 1, 1)
-            )
+        , #{curPage}, #{totalPage}, substr(upper(#{theEnd}), 1, 1)
+        )
     </insert>
 
     <!-- 게시글 정보 삭제 -->
@@ -37,61 +41,66 @@
         , book_comment = #{bookComment}
         , cur_page = #{curPage}
         , total_page = #{totalPage}
-        , the_end = substr(upper('#{theEnd}'), 1, 1)
+        , the_end = substr(upper(#{theEnd}), 1, 1)
         WHERE book_no = #{bookNo}
     </update>
 
+
     <resultMap id="bookMap" type="com.project.mybooks.book.domain.Book">
-        <result property="userId" column="user_id"/>
-        <result property="bookNo" column="book_no"/>
-        <result property="platformId" column="platform_id"/>
-        <result property="bookTitle" column="book_title"/>
-        <result property="starRate" column="star_rate"/>
-        <result property="bookComment" column="book_comment"/>
-        <result property="curPage" column="cur_page"/>
-        <result property="totalPage" column="total_page"/>
-        <result property="theEnd" column="the_end"/>
-        <result property="regDate" column="reg_date"/>
+        <result property="userId" column="USER_ID"/>
+        <result property="bookNo" column="BOOK_NO"/>
+        <result property="platformId" column="PLATFORM_ID"/>
+        <result property="bookTitle" column="BOOK_TITLE"/>
+        <result property="starRate" column="STAR_RATE"/>
+        <result property="bookComment" column="BOOK_COMMENT"/>
+        <result property="curPage" column="CUR_PAGE"/>
+        <result property="totalPage" column="TOTAL_PAGE"/>
+        <result property="theEnd" column="THE_END"/>
+        <result property="regDate" column="REG_DATE"/>
     </resultMap>
 
     <resultMap id="bookPlatMap" type="com.project.mybooks.book.domain.BookPlatform">
-        <result property="userId" column="user_id"/>
-        <result property="bookNo" column="book_no"/>
-        <result property="platformId" column="platform_id"/>
-        <result property="platformName" column="platform_name"/>
-        <result property="bookTitle" column="book_title"/>
-        <result property="starRate" column="star_rate"/>
-        <result property="bookComment" column="book_comment"/>
-        <result property="curPage" column="cur_page"/>
-        <result property="totalPage" column="total_page"/>
-        <result property="theEnd" column="the_end"/>
-        <result property="regDate" column="reg_date"/>
+        <result property="userId" column="USER_ID"/>
+        <result property="bookNo" column="BOOK_NO"/>
+        <result property="platformId" column="PLATFORM_ID"/>
+        <result property="platformName" column="PLATFORM_NAME"/>
+        <result property="bookTitle" column="BOOK_TITLE"/>
+        <result property="starRate" column="STAR_RATE"/>
+        <result property="bookComment" column="BOOK_COMMENT"/>
+        <result property="curPage" column="CUR_PAGE"/>
+        <result property="totalPage" column="TOTAL_PAGE"/>
+        <result property="theEnd" column="THE_END"/>
+        <result property="regDate" column="REG_DATE"/>
     </resultMap>
 
+    <!--  전체 조회  -->
 
     <select id="findAll" resultMap="bookPlatMap">
         SELECT
-            user_id, importance
-            , book_no, a.platform_id, b.platform_name
-            , book_title, writer, star_rate, book_comment
-            , cur_page, total_page, the_end, reg_date
+            a.user_id, a.importance
+            , a.book_no, a.platform_id, b.platform_name
+            , a.book_title, a.writer, a.star_rate, a.book_comment
+            , a.cur_page, a.total_page, a.the_end, a.reg_date
         FROM prj_book a
         LEFT OUTER JOIN prj_platform b
         ON a.platform_id = b.platform_id
     </select>
 
     <select id="findOne" resultMap="bookPlatMap">
-
+        SELECT
+            a.user_id, a.importance
+            , a.book_no, a.platform_id, b.platform_name
+            , a.book_title, a.writer, a.star_rate, a.book_comment
+            , a.cur_page, a.total_page, a.the_end, a.reg_date
+        FROM prj_book a
+        LEFT OUTER JOIN prj_platform b
+        ON a.platform_id = b.platform_id
+        WHERE a.book_no=#{bookNO}
     </select>
 
     <select id="getTotalCount" resultType="int">
-
+        SELECT count(*)
+        FROM prj_book
     </select>
-
-    <update id="upViewCount">
-
-    </update>
-
-
 
 </mapper>

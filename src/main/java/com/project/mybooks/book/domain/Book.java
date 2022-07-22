@@ -2,6 +2,8 @@ package com.project.mybooks.book.domain;
 
 import lombok.*;
 
+import java.util.Date;
+
 @Setter
 @Getter
 @ToString
@@ -21,6 +23,6 @@ public class Book {
     private int curPage; // 현재 회차
     private int totalPage; // 총 회차
     private boolean theEnd; // 완결 여부
-    private Data regDate; // 등록 날짜
+    private Date regDate; // 등록 날짜
 
 }
