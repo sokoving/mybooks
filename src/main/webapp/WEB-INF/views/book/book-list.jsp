@@ -52,24 +52,6 @@
     <a href="/book/write">글쓰기</a>
 
 
-    <!-- <script>
-        function alertServerMessage() {
-            const msg = '${msg}';
-            // console.log('msg: ', msg);
-            if (msg === 'reg-success') {
-                alert('게시물이 정상 등록되었습니다.');
-            }
-        }
-
-        (function () {
-
-            alertServerMessage();
-
-        })();
-    </script> -->
-
-
-
 
 
 </body>

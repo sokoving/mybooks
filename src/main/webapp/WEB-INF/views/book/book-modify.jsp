@@ -19,31 +19,34 @@
 
  <form action="/book/modify" method="post">
         <ul>
-                <input type="hidden" value="${modibook.bookNo}" name="bookNo">
-            <label>
-                <input type="text" name="${modibook.platformId}" name="platformId">
-            </label>            
+            <input type="hidden" value="${modibook.bookNo}" name="bookNo">        
 
             <label>
-                <input type="text" value="${modibook.platformId}" name="platformId">
+                플랫폼 아이디 : <input type="text" value="${modibook.platformId}" name="platformId">
             </label>
+            <br>
             <label>
-                <input type="text" value="${modibook.bookTitle}" name="bookTitle">
+                책 제목 : <input type="text" value="${modibook.bookTitle}" name="bookTitle">
             </label>
+            <br>
             <label>
-                <input type="text" value="${modibook.writer}" name="writer">
+                작가 : <input type="text" value="${modibook.writer}" name="writer">
             </label>
+            <br>
             <label>
-                <input type="text" value="${modibook.starRate}" name="starRate">
+                별점 : <input type="text" value="${modibook.starRate}" name="starRate">
             </label>
+            <br>
             <label>
-                <input type="text" value="${modibook.curPage}" name="curPage">
+                현재 페이지 : <input type="text" value="${modibook.curPage}" name="curPage">
             </label>
+            <br>
             <label>
-                <input type="text" value="${modibook.totalPage}" name="totalPage">
+                총 페이지 : <input type="text" value="${modibook.totalPage}" name="totalPage">
             </label>
+            <br>
             <label>
-                <input type="text" value="${modibook.bookComment}" name="bookComment">
+                한줄평 <input type="text" value="${modibook.bookComment}" name="bookComment">
             </label>
         </ul>
         <button type="post">
