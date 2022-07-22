@@ -17,6 +17,7 @@
     </resultMap>
 
     <!--    #{필드값 넣기!!!}-->
+<!--    저장-->
     <insert id="save">
         INSERT INTO prj_bookmemo
         (bookmemo_no, book_no, bookmemo_content)
@@ -24,13 +25,22 @@
         (seq_book_bookmemo.NEXTVAL, #{bookNo}, #{BookMemoContent})
     </insert>
 
+<!--    삭제-->
     <delete id="remove">
         DELETE FROM prj_bookmemo
         WHERE bookmemo_no = #{BookMemoNo}
     </delete>
-
+<!-- 전제조회-->
     <select id="findAll" resultMap="bookMemoMap">
         SELECT * FROM prj_bookmemo
     </select>
+
+<!--    부분조회-->
+    <select id="findOne" resultMap="bookMemoMap">
+        SELECT * FROM prj_bookmemo
+        WHERE bookmemo_no= #{BookMemoNo}
+    </select>
+
+<!--    수정-->
 
 </mapper>

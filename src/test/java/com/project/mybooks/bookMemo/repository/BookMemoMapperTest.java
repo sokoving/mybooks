@@ -38,4 +38,14 @@ class BookMemoMapperTest {
     void findAllTest(){
         mapper.findAll().forEach(System.out::println);
     }
+
+    @Test
+    @DisplayName("지정한 하나의 값을 불러와야한다")
+    void findOneTest(){
+        int find = 4;
+        BookMemo result = mapper.findOne(find);
+        System.out.println(result);
+
+        assertEquals(result.getBookMemoNo(), 4);
+    }
 }
