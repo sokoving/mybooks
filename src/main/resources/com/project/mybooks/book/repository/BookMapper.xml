@@ -20,7 +20,7 @@
         (
         TO_CHAR(SYSDATE, 'YYMMDD') || LPAD(seq_prj_book.nextval, 4, '0')
         , #{platformId}, #{bookTitle}, #{writer}, #{starRate}, #{bookComment}
-        , #{curPage}, #{totalPage}, substr(upper(#{theEnd}), 1, 1)
+        , #{curPage}, #{totalPage},#{theEnd}
         )
     </insert>
 
@@ -41,7 +41,7 @@
         , book_comment = #{bookComment}
         , cur_page = #{curPage}
         , total_page = #{totalPage}
-        , the_end = substr(upper(#{theEnd}), 1, 1)
+        , the_end = #{theEnd}
         WHERE book_no = #{bookNo}
     </update>
 
@@ -84,6 +84,7 @@
         FROM prj_book a
         LEFT OUTER JOIN prj_platform b
         ON a.platform_id = b.platform_id
+        ORDER BY a.book_no DESC
     </select>
 
 <!--    bookPlatMap FindOne-->
@@ -110,6 +111,12 @@
     <select id="getTotalCount" resultType="int">
         SELECT count(*)
         FROM prj_book
+    </select>
+
+    <!--    BOOK findOne-->
+    <select id="findBookOne" resultMap="bookMap">
+        SELECT * FROM prj_book
+        WHERE BOOK_NO = #{bookNo}
     </select>
 
 </mapper>

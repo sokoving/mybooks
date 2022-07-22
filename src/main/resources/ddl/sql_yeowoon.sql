@@ -3,14 +3,15 @@
 drop SEQUENCE seq_prj_book;
 drop SEQUENCE seq_prj_platform;
 drop SEQUENCE seq_book_bookmark;
-drop table prj_book;
-drop TABLE prj_platform;
+drop SEQUENCE seq_book_bookmemo;
 drop TABLE prj_bookmark;
 drop TABLE prj_bookmemo;
+drop table prj_book;
+drop TABLE prj_platform;
 
 commit;
 
------------ create ----------- 
+----------- create -----------
 CREATE SEQUENCE seq_prj_book;
 CREATE SEQUENCE seq_prj_platform;
 CREATE SEQUENCE seq_book_bookmemo;
@@ -27,7 +28,7 @@ user_id VARCHAR2(20) --userID
 , book_comment VARCHAR2(100) --한줄평
 , cur_page NUMBER(5) DEFAULT 0 --현재 회차
 , total_page NUMBER(5) DEFAULT 0 --총 회차
-, the_end CHAR(2) DEFAULT 'F' --완결 여부
+, the_end NUMBER(1) DEFAULT 1 --완결 0 연재중 1
 , reg_date DATE DEFAULT SYSDATE    -- 등록 날짜
 , CONSTRAINT pk_book_no PRIMARY KEY (book_no)
 );
@@ -78,7 +79,7 @@ REFERENCES prj_book(book_no);
 
 commit;
 
------------ insert into ----------- 
+----------- insert into -----------
 
 insert into prj_platform VALUES (seq_prj_platform.nextval, '카카오 페이지');
 insert into prj_platform VALUES (seq_prj_platform.nextval, '네이버 시리즈');
@@ -92,13 +93,12 @@ commit;
 INSERT INTO prj_book
 (user_id, importance, book_no, platform_id
 , book_title, writer, star_rate , book_comment ,cur_page, total_page
-, the_end
-)
+, the_end)
 VALUES ('aaa123',100, '220721aa', 3, '괴물공작가의 계약 공녀','민작', 4
-, '재미있었다', 30 , 400, 'T');
+, '재미있었다', 30 , 400, 0);
 
 INSERT INTO prj_book
-    (
+(
     book_no
     , platform_id, book_title, writer, star_rate, book_comment
     , cur_page, total_page, the_end
@@ -106,25 +106,38 @@ INSERT INTO prj_book
 VALUES (
         TO_CHAR(SYSDATE, 'YYMMDD') || LPAD(seq_prj_book.nextval, 4, '0')
         , 1, 'bookTitle', 'writer', 5, 'bookComment'
-        , 10, 100, substr(upper('true'), 1, 1)
-        )
-;
-    
-            
-            
-                    SELECT
-        user_id, importance
-        , book_no, a.platform_id, b.platform_name
-        , book_title, writer, star_rate, book_comment
-        , cur_page, total_page, the_end, reg_date
+        , 10, 100, 1
+        );
+commit;
+
+INSERT INTO prj_bookmemo
+(bookmemo_no, book_no, bookmemo_content)
+VALUES
+(seq_book_bookmemo.NEXTVAL, '220721aa', '재미있다');
+commit;
+
+INSERT INTO prj_bookmark (bookmark_no, book_no, bookmark_page, bookmark_content)
+VALUES ( seq_book_bookmark.nextval, '2207220001', '300', '300300300');
+commit;
+------------
+        SELECT
+            a.user_id, a.importance
+            , a.book_no, a.platform_id, b.platform_name
+            , a.book_title, a.writer, a.star_rate, a.book_comment
+            , a.cur_page, a.total_page, a.the_end, a.reg_date
         FROM prj_book a
         LEFT OUTER JOIN prj_platform b
         ON a.platform_id = b.platform_id
+        ORDER BY a.book_no DESC
         ;
-        
-        
-                SELECT count(*)
+
+        SELECT
+        *
         FROM prj_book
-        ;
+        WHERE book_no='220721aa';
+
+SELECT count(*)
+FROM prj_book
+;
         
         

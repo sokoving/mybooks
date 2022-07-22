@@ -1,6 +1,6 @@
 package com.project.mybooks.bookmark.repository;
 
-import com.project.mybooks.bookmark.domain.Bookmemo;
+import com.project.mybooks.bookmark.domain.Bookmark;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -15,10 +15,10 @@ public interface BookmarkMapper {
 //    상세 조회 Book findOne(int book_no)
 //// 전체 게시물 수 조회 int getTotalCount(Search search
 
-    boolean save(Bookmemo bookmark);
-    boolean modify(Bookmemo bookmark);
+    boolean save(Bookmark bookmark);
+    boolean modify(Bookmark bookmark);
     boolean remove(int bookNo);
-    List<Bookmemo> findAll(String bookNo);
-    Bookmemo findOne(int bookNo);
+    List<Bookmark> findAll(String bookNo);
+    Bookmark findOne(int bookNo);
 
 }
