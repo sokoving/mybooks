@@ -24,4 +24,12 @@ class BookMemoMapperTest {
 
         assertTrue(result);
     }
+
+    @Test
+    @DisplayName("값을 삭제해야 한다")
+    void deleteTest(){
+        boolean result = mapper.remove(5);
+
+        assertTrue(result);
+    }
 }

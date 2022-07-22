@@ -24,4 +24,9 @@
         (seq_book_bookmemo.NEXTVAL, #{bookNo}, #{BookMemoContent})
     </insert>
 
+    <delete id="remove">
+        DELETE FROM prj_bookmemo
+        WHERE bookmemo_no = #{BookMemoNo}
+    </delete>
+
 </mapper>
