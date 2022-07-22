@@ -8,8 +8,12 @@
 
 # CSS 소스
 - 카카오페이지 : https://page.kakao.com/main
-- 
 - 폰트 네이버 : https://hangeul.naver.com/2021/fonts/nanum
 - 폰트 눈누 : https://noonnu.cc/
 - 특수문자 : https://snskeyboard.com/specialfont/
 - 컬러 코드 : https://encycolorpedia.kr/f0a6b1
+
+# 부트스트랩
+- card : https://getbootstrap.com/docs/5.2/components/card/
+- table : https://getbootstrap.com/docs/5.2/content/tables/#overview
+
