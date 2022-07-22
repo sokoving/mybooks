@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Getter @Setter @ToString
 @NoArgsConstructor @AllArgsConstructor
-public class Bookmark {
+public class Bookmemo {
 
 //    bookmark_no NUMBER(5)
 //    , book_no VARCHAR2(100)
@@ -22,7 +22,7 @@ public class Bookmark {
     private Date regDate;
     private String bookmarkContent;
 
-    public Bookmark(int bookmarkNo, String bookNo, int bookmarkPage, String bookmarkContent) {
+    public Bookmemo(int bookmarkNo, String bookNo, int bookmarkPage, String bookmarkContent) {
         this.bookmarkNo = bookmarkNo;
         this.bookNo = bookNo;
         this.bookmarkPage = bookmarkPage;

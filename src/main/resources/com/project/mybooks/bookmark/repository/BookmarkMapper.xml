@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.project.mybooks.bookmark.repository.BookmarkMapper">
 
-    <resultMap id="bookmarkMap" type="com.project.mybooks.bookmark.domain.Bookmark">
+    <resultMap id="bookmarkMap" type="com.project.mybooks.bookmark.domain.Bookmemo">
         <result property="bookmarkNo" column="bookmark_no"/>
         <result property="bookNo" column="book_no"/>
         <result property="bookmarkPage" column="bookmark_page"/>
