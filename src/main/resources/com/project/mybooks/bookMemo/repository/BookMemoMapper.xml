@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- mapper태그는 sql을 매핑할때 사용하는 태그
+     namespace속성에는 사용할 인터페이스의 풀 패키지경로 + 인터페이스이름
+  -->
+<mapper namespace="com.project.mybooks.bookMemo.repository.BookMemoMapper">
+
+    <!-- 제품 등록 SQL 작성 :  id속성에는 추상메서드 이름  -->
+    <resultMap id="bookMemoMap" type="com.project.mybooks.bookMemo.domain.BookMemo">
+        <result property="BookMemoNo" column="bookmemo_no" />
+        <result property="BookNo" column="book_no" />
+        <result property="RegDate" column="reg_date" />
+        <result property="BookMemoContent" column="bookmemo_content" />
+    </resultMap>
+
+    <!--    #{필드값 넣기!!!}-->
+<!--    저장-->
+    <insert id="save">
+        INSERT INTO prj_bookmemo
+        (bookmemo_no, book_no, bookmemo_content)
+        VALUES
+        (seq_book_bookmemo.NEXTVAL, #{bookNo}, #{BookMemoContent})
+    </insert>
+
+<!--    삭제-->
+    <delete id="remove">
+        DELETE FROM prj_bookmemo
+        WHERE bookmemo_no = #{BookMemoNo}
+    </delete>
+<!-- 전제조회-->
+    <select id="findAll" resultMap="bookMemoMap">
+        SELECT * FROM prj_bookmemo
+    </select>
+
+<!--    부분조회-->
+    <select id="findOne" resultMap="bookMemoMap">
+        SELECT * FROM prj_bookmemo
+        WHERE bookmemo_no= #{BookMemoNo}
+    </select>
+
+<!--    수정-->
+    <update id="modify">
+        UPDATE prj_bookmemo
+        SET
+        bookmemo_content=#{BookMemoContent}
+        WHERE bookmemo_no=#{BookMemoNo}
+    </update>
+
+    <select id="getTotalCount" resultType="int">
+        SELECT COUNT(*)
+        FROM prj_bookmemo
+    </select>
+
+
+</mapper>
