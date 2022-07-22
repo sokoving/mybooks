@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.mybooks.bookmark.repository.BookmarkMapper">
+
+    <resultMap id="bookmarkMap" type="com.project.mybooks.bookmark.domain.Bookmark">
+        <result property="bookmarkNo" column="bookmark_no"/>
+        <result property="bookNo" column="book_no"/>
+        <result property="bookmarkPage" column="bookmark_page"/>
+        <result property="regDate" column="reg_date"/>
+        <result property="bookmarkContent" column="bookmark_content"/>
+    </resultMap>
+
+<!--    book-->
+<!--    등록 boolean save(Book book)-->
+<!--    수정 boolean modify(Book book)-->
+<!--    삭제 boolean remove(int book_no)-->
+<!--    전체 조회 List<Book>findAll()-->
+<!--    상세 조회 Book findOne(int book_no)-->
+<!--    // 전체 게시물 수 조회 int getTotalCount(Search search-->
+
+
+<!--    CREATE TABLE prj_bookmark(-->
+<!--    bookmark_no NUMBER(5)-->
+<!--    , book_no VARCHAR2(100)-->
+<!--    , bookmark_page NUMBER(5)-->
+<!--    , reg_date DATE DEFAULT SYSDATE-->
+<!--    , bookmark_content CLOB-->
+<!--    , CONSTRAINT pk_bookmark_no PRIMARY KEY (bookmark_no)-->
+<!--    );-->
+
+
+    <insert id="save">
+        INSERT INTO prj_bookmark (bookmark_no, book_no, bookmark_page, bookmark_content)
+        VALUES ( #{bookmarkNo}, #{bookNo}, #{bookmarkPage}, #{bookmarkContent})
+    </insert>
+
+    <update id="modify">
+        UPDATE prj_bookmark
+        SET bookmark_page = #{bookmarkPage}, bookmark_content = #{bookmarkContent}
+        WHERE book_no = #{bookNo}
+    </update>
+
+    <delete id="remove">
+        DELETE FROM prj_bookmark WHERE bookmark_no = #{bookmarkNo}
+    </delete>
+
+    <select id="findAll" resultMap="bookmarkMap">
+        SELECT * FROM prj_bookmark ORDER BY bookmark_no DESC
+    </select>
+
+    <select id="findOne" resultMap="bookmarkMap">
+        SELECT * FROM prj_bookmark WHERE bookmark_no = #{bookmarkNo}
+    </select>
+
+    <select id="getTotalCount" resultType="int">
+        SELECT COUNT(*) FROM prj_bookmark
+    </select>
+
+
+</mapper>
