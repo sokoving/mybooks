@@ -20,9 +20,9 @@
  <form action="/book/modify" method="post">
         <ul>
                 <input type="hidden" value="${modibook.bookNo}" name="bookNo">
-            
-            <input type="hidden" name="${modibook.platformId}" name="platformId">
-            
+            <label>
+                <input type="text" name="${modibook.platformId}" name="platformId">
+            </label>            
 
             <label>
                 <input type="text" value="${modibook.platformId}" name="platformId">
