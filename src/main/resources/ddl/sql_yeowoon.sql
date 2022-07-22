@@ -11,7 +11,7 @@ drop TABLE prj_platform;
 
 commit;
 
------------ create -----------
+----------- create ----------- 
 CREATE SEQUENCE seq_prj_book;
 CREATE SEQUENCE seq_prj_platform;
 CREATE SEQUENCE seq_book_bookmemo;
@@ -79,7 +79,7 @@ REFERENCES prj_book(book_no);
 
 commit;
 
------------ insert into -----------
+----------- insert into ----------- 
 
 insert into prj_platform VALUES (seq_prj_platform.nextval, '카카오 페이지');
 insert into prj_platform VALUES (seq_prj_platform.nextval, '네이버 시리즈');
@@ -113,11 +113,14 @@ commit;
 INSERT INTO prj_bookmemo
 (bookmemo_no, book_no, bookmemo_content)
 VALUES
-(seq_book_bookmemo.NEXTVAL, '220721aa', '재미있다');
+(seq_book_bookmemo.NEXTVAL, '2207220002', '재미있다');
 commit;
 
 INSERT INTO prj_bookmark (bookmark_no, book_no, bookmark_page, bookmark_content)
-VALUES ( seq_book_bookmark.nextval, '2207220001', '300', '300300300');
+VALUES ( seq_book_bookmark.nextval, '2207220002', '300', '300300300');
+
+INSERT INTO prj_bookmark (bookmark_no, book_no, bookmark_page, bookmark_content)
+VALUES ( seq_book_bookmark.nextval, '220721aa', '300', '300300300');
 commit;
 ------------
         SELECT
@@ -131,11 +134,16 @@ commit;
         ORDER BY a.book_no DESC
         ;
 
-        SELECT
-        *
-        FROM prj_book
-        WHERE book_no='220721aa';
-
+        SELECT * 
+        FROM prj_bookmark
+        WHERE book_no = '2207220002'
+        ORDER BY bookmark_no DESC;
+        
+                SELECT * 
+        FROM prj_bookmemo
+        WHERE book_no = '2207220002'
+        ORDER BY bookmemo_no DESC;
+        
 SELECT count(*)
 FROM prj_book
 ;
