@@ -4,7 +4,7 @@ import com.project.mybooks.book.domain.BookPlatform;
 import com.project.mybooks.book.repository.BookMapper;
 import com.project.mybooks.bookMemo.domain.BookMemo;
 import com.project.mybooks.bookMemo.repository.BookMemoMapper;
-import com.project.mybooks.bookmark.domain.Bookmemo;
+import com.project.mybooks.bookmark.domain.Bookmark;
 import com.project.mybooks.bookmark.repository.BookmarkMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -23,7 +23,7 @@ public class BookDetailService {
     public Map<String, Object> detailPageListMap(String bookNo){
         BookPlatform book = bMapper.findOne(bookNo);
         // bookNo
-        List<Bookmemo> bookMarkList = mkMapper.findAll(bookNo);
+        List<Bookmark> bookMarkList = mkMapper.findAll(bookNo);
         List<BookMemo> bookMemoList = mmMapper.findAll(bookNo);
 
         Map<String, Object> detailMap = new HashMap<>();

@@ -2,7 +2,6 @@ package com.project.mybooks.bookMemo.service;
 
 import com.project.mybooks.bookMemo.domain.BookMemo;
 import com.project.mybooks.bookMemo.repository.BookMemoMapper;
-import com.project.mybooks.bookmark.domain.Bookmemo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
