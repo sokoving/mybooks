@@ -22,7 +22,7 @@ public class Book {
     private String bookComment; // 한줄평
     private int curPage; // 현재 회차
     private int totalPage; // 총 회차
-    private boolean theEnd; // 완결 여부
+    private int theEnd; // 완결 0 연재중 1
     private Date regDate; // 등록 날짜
 
 }

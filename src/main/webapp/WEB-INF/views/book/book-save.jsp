@@ -27,8 +27,9 @@
         <br>
         # 총 회차 : <input type="text" name="totalPage">
         <br>
-        # 연재중 <input type="radio" name="theEnd" value="false" checked>
-        완결 <input type="radio" name="theEnd" value="true">
+        # 완결 <input type="radio" name="theEnd" value="0">
+        연재중 <input type="radio" name="theEnd" value="1" checked>
+        
         <br>
         # 별점 : <input type="text" name="starRate">
         <br>
