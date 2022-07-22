@@ -11,8 +11,8 @@ import java.util.Date;
 @AllArgsConstructor
 public class BookMemo {
     // table 칼럼 필드
-    private int BookMemoNo;
-    private String BookNo;
-    private Date RegDate;
-    private String BookMemoContent;
+    private int bookMemoNo;
+    private String bookNo;
+    private Date regDate;
+    private String bookMemoContent;
 }

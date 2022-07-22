@@ -18,17 +18,37 @@
 
 
  <form action="/book/modify" method="post">
-    <ul>
-        <li>플랫폼: ${book.platformName} </li>
-        <li>제목: ${book.bookTitle} (${book.theEnd})</li>
-        <li>작가: ${book.writer}</li>
-        <li>별점: ${book.starRate}</li>
-        <li> ${book.curPage}/${book.totalPage}</li>
-        <li>한줄평 : ${book.bookComment}</li>
-    </ul>
-    <button type="post">
-        버튼
-    </button>
+        <ul>
+                <input type="hidden" value="${modibook.bookNo}" name="bookNo">
+            
+            <input type="hidden" name="${modibook.platformId}" name="platformId">
+            
+
+            <label>
+                <input type="text" value="${modibook.platformId}" name="platformId">
+            </label>
+            <label>
+                <input type="text" value="${modibook.bookTitle}" name="bookTitle">
+            </label>
+            <label>
+                <input type="text" value="${modibook.writer}" name="writer">
+            </label>
+            <label>
+                <input type="text" value="${modibook.starRate}" name="starRate">
+            </label>
+            <label>
+                <input type="text" value="${modibook.curPage}" name="curPage">
+            </label>
+            <label>
+                <input type="text" value="${modibook.totalPage}" name="totalPage">
+            </label>
+            <label>
+                <input type="text" value="${modibook.bookComment}" name="bookComment">
+            </label>
+        </ul>
+        <button type="post">
+            수정완료
+        </button>
     
     </form>
 

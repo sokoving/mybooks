@@ -96,7 +96,9 @@ public class MainController {
     public String modify(Book book){
         log.info("controller req POST - {}", book);
         boolean result = bdts.detailModify(book);
-        return result ? "redirect:book/book-detail" + book.getBookNo() : "redirect:/";
+        return result ? "redirect:/book/detail?bookNo=" + book.getBookNo() : "redirect:/";
+
+
     }
 
 
