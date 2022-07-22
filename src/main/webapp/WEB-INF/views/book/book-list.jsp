@@ -50,6 +50,9 @@
     </table>
 
     <a href="/write">글쓰기</a>
+
+
+    
     
 
 
