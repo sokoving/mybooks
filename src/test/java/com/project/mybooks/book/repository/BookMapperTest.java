@@ -39,7 +39,7 @@ class BookMapperTest {
         b.setBookComment("test comment1");
         b.setCurPage(10);
         b.setTotalPage(100);
-        b.setTheEnd(true);
+        b.setTheEnd(0);
         System.out.println("b = " + b);
 
         boolean flag = mapper.save(b);
@@ -58,6 +58,7 @@ class BookMapperTest {
     @Test
     @DisplayName("DB에서 정보가 수정돼야 한다")
     void modifyTest(){
+
         System.out.println("startstart");
         Book b = new Book();
         System.out.println("b = " + b);
@@ -66,14 +67,16 @@ class BookMapperTest {
         b.setBookTitle("test title2");
         b.setWriter("test writer2");
         b.setStarRate(4);
-        b.setBookComment("test comment2");
+        b.setBookComment("test comment333");
         b.setCurPage(5);
         b.setTotalPage(50);
-        b.setTheEnd(false);
+        b.setTheEnd(0);
         System.out.println("b = " + b);
+        boolean modify = mapper.modify(b);
 
-        boolean flag = mapper.modify(b);
-        assertTrue(flag);
+        assertTrue(modify);
+
+//        assertEquals(b.getBookTitle(), "test comment333");
     }
 
     @Test
@@ -94,10 +97,19 @@ class BookMapperTest {
     }
 
     @Test
+    @DisplayName("DB에서 특정한 Book을 조회해야한다")
+    void findBookOneTest(){
+        String bn = "220721aa";
+        Book book = mapper.findBookOne(bn);
+        System.out.println("book = " + book);
+//        assertEquals(book.getBookNo(), "220721aa");
+    }
+
+    @Test
     @DisplayName("prj_book 테이블의 데이터 수 리턴")
     void getTotalCount(){
         int totalCount = mapper.getTotalCount();
-        assertEquals(3, totalCount);
+        assertEquals(2, totalCount);
     }
 
 }

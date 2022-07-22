@@ -43,7 +43,8 @@ class BookmemoMapperTest {
     @Test
     @DisplayName("리스트 전체를 불러와야 한다")
     void findAllTest() {
-        List<Bookmemo> bookmarkList = mapper.findAll();
+
+        List<Bookmemo> bookmarkList = mapper.findAll("220721aa");
         for (Bookmemo bookmark : bookmarkList) {
             System.out.println(bookmark);
         }

@@ -4,11 +4,13 @@ import com.project.mybooks.book.domain.Book;
 import com.project.mybooks.book.domain.BookPlatform;
 import com.project.mybooks.book.repository.BookMapper;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@Log4j2
 @RequiredArgsConstructor
 public class BookService {
 
@@ -32,6 +34,10 @@ public class BookService {
 
     public BookPlatform findOneService(String bookNo) {
         return bMapper.findOne(bookNo);
+    }
+
+    public Book findBookOne(String bookNo){
+        return bMapper.findBookOne(bookNo);
     }
 
     public int getTotalService() {

@@ -36,7 +36,7 @@ class BookMemoMapperTest {
     @Test
     @DisplayName("저장된 모든 값을 불러와야한다")
     void findAllTest(){
-        mapper.findAll().forEach(System.out::println);
+        mapper.findAll("220721aa").forEach(System.out::println);
     }
 
     @Test

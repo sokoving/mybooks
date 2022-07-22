@@ -22,7 +22,7 @@ public class BookPlatform {
     private String bookComment; // 한줄평
     private int curPage; // 현재 회차
     private int totalPage; // 총 회차
-    private String theEnd; // 완결 여부
+    private int theEnd; // 완결 여부
     private Date regDate; // 등록 날짜
 
 }

@@ -7,6 +7,7 @@ import com.project.mybooks.bookMemo.repository.BookMemoMapper;
 import com.project.mybooks.bookmark.domain.Bookmemo;
 import com.project.mybooks.bookmark.repository.BookmarkMapper;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
+@Log4j2
 @RequiredArgsConstructor
 public class BookDetailService {
     private final BookMapper bMapper;
@@ -34,4 +36,19 @@ public class BookDetailService {
 
         return detailMap;
     }
+
+    public BookPlatform detailFindOne(String bookNo){
+        BookPlatform findOneBook = bMapper.findOne(bookNo);
+        return findOneBook;
+    }
+
+    /*
+    public boolean detailModify(BookPlatform bookPlatform) {
+       log.info("bookdetail service req - {}", bookPlatform);
+
+        return modify;
+    }
+
+     */
+
 }

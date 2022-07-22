@@ -86,6 +86,8 @@
         ON a.platform_id = b.platform_id
     </select>
 
+<!--    bookPlatMap FindOne-->
+
     <select id="findOne" resultMap="bookPlatMap">
         SELECT
             a.user_id, a.importance
@@ -97,6 +99,13 @@
         ON a.platform_id = b.platform_id
         WHERE a.book_no=#{bookNO}
     </select>
+
+<!--    BOOK findOne-->
+    <select id="findBookOne" resultMap="bookMap">
+        SELECT * FROM prj_book
+        WHERE BOOK_NO = #{bookNo}
+    </select>
+
 
     <select id="getTotalCount" resultType="int">
         SELECT count(*)
