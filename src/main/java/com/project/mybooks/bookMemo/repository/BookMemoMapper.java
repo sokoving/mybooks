@@ -14,7 +14,7 @@ public interface BookMemoMapper {
     // 수정
     boolean modify(BookMemo bookMemo);
     // 전체조회
-    List<BookMemo> findAll();
+    List<BookMemo> findAll(String bookNo);
     // 상세조회
     BookMemo findOne(int BookMemoNo);
     // 전체 게시물 수 조회

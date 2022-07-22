@@ -28,8 +28,8 @@ public class BookMemoService {
         return mapper.remove(bookMemoNo);
     }
 
-    public List<BookMemo> findAllService() {
-        return mapper.findAll();
+    public List<BookMemo> findAllService(String bookNo) {
+        return mapper.findAll(bookNo);
     }
 
     public BookMemo findOneService(int bookMemoNo) {

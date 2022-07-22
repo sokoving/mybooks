@@ -18,7 +18,7 @@ public interface BookmarkMapper {
     boolean save(Bookmemo bookmark);
     boolean modify(Bookmemo bookmark);
     boolean remove(int bookNo);
-    List<Bookmemo> findAll();
+    List<Bookmemo> findAll(String bookNo);
     Bookmemo findOne(int bookNo);
 
 }

@@ -33,6 +33,7 @@
 <!-- 전제조회-->
     <select id="findAll" resultMap="bookMemoMap">
         SELECT * FROM prj_bookmemo
+        WHERE book_no = #{bookNo}
     </select>
 
 <!--    부분조회-->

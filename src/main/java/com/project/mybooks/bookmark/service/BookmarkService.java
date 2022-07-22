@@ -27,8 +27,8 @@ public class BookmarkService {
         return mapper.remove(bookMemoNo);
     }
 
-    public List<Bookmemo> findAllService() {
-        return mapper.findAll();
+    public List<Bookmemo> findAllService(String bookNo) {
+        return mapper.findAll(bookNo);
     }
 
     public Bookmemo findOneService(int bookMemoNo) {
