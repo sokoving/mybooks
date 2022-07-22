@@ -49,7 +49,7 @@
         </c:forEach>
     </table>
 
-    <a href="/write">글쓰기</a>
+    <a href="/book/write">글쓰기</a>
 
 
     
