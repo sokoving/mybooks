@@ -1,6 +1,6 @@
 package com.project.mybooks.bookmark.service;
 
-import com.project.mybooks.bookmark.domain.Bookmemo;
+import com.project.mybooks.bookmark.domain.Bookmark;
 import com.project.mybooks.bookmark.repository.BookmarkMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -15,11 +15,11 @@ public class BookmarkService {
 
     private final BookmarkMapper mapper;
 
-    public boolean saveService(Bookmemo bookmark) {
+    public boolean saveService(Bookmark bookmark) {
         return mapper.save(bookmark);
     }
 
-    public boolean modifyService(Bookmemo bookmark) {
+    public boolean modifyService(Bookmark bookmark) {
         return mapper.modify(bookmark);
     }
 
@@ -27,11 +27,11 @@ public class BookmarkService {
         return mapper.remove(bookMemoNo);
     }
 
-    public List<Bookmemo> findAllService(String bookNo) {
+    public List<Bookmark> findAllService(String bookNo) {
         return mapper.findAll(bookNo);
     }
 
-    public Bookmemo findOneService(int bookMemoNo) {
+    public Bookmark findOneService(int bookMemoNo) {
         return mapper.findOne(bookMemoNo);
     }
 
