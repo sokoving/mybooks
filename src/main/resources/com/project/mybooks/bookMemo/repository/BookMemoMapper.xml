@@ -49,4 +49,10 @@
         WHERE bookmemo_no=#{BookMemoNo}
     </update>
 
+    <select id="getTotalCount" resultType="int">
+        SELECT COUNT(*)
+        FROM prj_bookmemo
+    </select>
+
+
 </mapper>
