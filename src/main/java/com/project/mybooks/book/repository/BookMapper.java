@@ -19,6 +19,8 @@ public interface BookMapper {
 
         // 게시글 상세 조회
         BookPlatform findOne(String bookNo);
+        // BOOK 조회
+        Book findBookOne(String bookNo);
 
         // 게시글 삭제
         boolean remove(String bookNo);
@@ -30,5 +32,4 @@ public interface BookMapper {
         int getTotalCount();
 //        int getTotalCount(Search search);
 
-        Book findBookOne(String bookNo);
 }

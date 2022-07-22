@@ -1,7 +1,9 @@
 package com.project.mybooks.bookmark.repository;
-
+/*
+import com.project.mybooks.book.domain.Book;
 import com.project.mybooks.book.repository.BookMapper;
-import com.project.mybooks.bookmark.domain.Bookmark;
+import com.project.mybooks.bookMemo.domain.BookMemo;
+import com.project.mybooks.bookmark.domain.Bookmemo;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +27,7 @@ class BookmemoMapperTest {
     @DisplayName("저장되어야 한다.")
     @Rollback
     void saveTest() {
-        Bookmark bookmark = new Bookmark();
+        Bookmemo bookmark = new Bookmemo();
         bookmark.setBookNo("2207220001");
         bookmark.setBookmarkPage(100);
         bookmark.setBookmarkContent("여기까지 읽음~~");
@@ -42,9 +44,10 @@ class BookmemoMapperTest {
 
     @Test
     @DisplayName("리스트 전체를 불러와야 한다")
-    void findAllTest(String bookNo) {
-        List<Bookmark> bookmarkList = mapper.findAll(bookNo);
-        for (Bookmark bookmark : bookmarkList) {
+    void findAllTest() {
+
+        List<Bookmemo> bookmarkList = mapper.findAll("220721aa");
+        for (Bookmemo bookmark : bookmarkList) {
             System.out.println(bookmark);
         }
     }
@@ -52,19 +55,22 @@ class BookmemoMapperTest {
     @Test
     @DisplayName("해당번호의 북마크를 불러와야한다.")
     void findOneTest() {
-        Bookmark one = mapper.findOne(1);
+        Bookmemo one = mapper.findOne(1);
         System.out.println(one);
     }
 
+    /*
     @Test
     @DisplayName("수정되어야 한다.")
     void modifyTest() {
-        Bookmark bookmark = mapper.findOne(1);
-        bookmark.setBookmarkContent("수정된 내용");
-        bookmark.setBookmarkPage(10);
+        BookMemo bookMemo = mapper.findOne(1);
+        bookMemo.setBookmarkContent("수정된 내용");
+        bookMemo.setBookmarkPage(10);
         boolean modify = mapper.modify(bookmark);
         assertTrue(modify);
     }
+
+
 
     @Test
     @DisplayName("해당 번호의 북마크가 삭제되어야 한다.")
@@ -75,3 +81,5 @@ class BookmemoMapperTest {
 
 
 }
+
+ */

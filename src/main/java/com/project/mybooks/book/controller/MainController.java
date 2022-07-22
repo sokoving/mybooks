@@ -80,13 +80,35 @@ public class MainController {
         return "redirect:/book/list";
     }
 
+    // ===============================
+
+    // 수정화면 get
+    @GetMapping("/modify")
+    public String modify(String bookNo, Model model){
+        log.info("modify GET - 요청이 들어옴- {}", bookNo);
+        Book book = bdts.detailFindBookOne(bookNo);
+        model.addAttribute("modibook", book);
+        return "book/book-modify";
+    }
+
+    // 수정화면 post
+
+    @PostMapping("/modify")
+    public String modify(Book book){
+        log.info("controller req POST - {}", book);
+        boolean result = bdts.detailModify(book);
+        return result ? "redirect:/book/detail?bookNo=" + book.getBookNo() : "redirect:/";
+
+
+    }
 
 
 
 
 
 
-//     * 7. 상세정보 /detail (get)
+
+    //     * 7. 상세정보 /detail (get)
     @GetMapping("/detail")
     public String detail(String bookNo, Model model) {
         log.info("controller request /book/detail GET - {}", bookNo);
