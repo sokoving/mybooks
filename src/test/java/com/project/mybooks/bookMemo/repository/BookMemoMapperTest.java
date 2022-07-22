@@ -32,4 +32,10 @@ class BookMemoMapperTest {
 
         assertTrue(result);
     }
+
+    @Test
+    @DisplayName("저장된 모든 값을 불러와야한다")
+    void findAllTest(){
+        mapper.findAll().forEach(System.out::println);
+    }
 }

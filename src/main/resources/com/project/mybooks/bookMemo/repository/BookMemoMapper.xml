@@ -29,4 +29,8 @@
         WHERE bookmemo_no = #{BookMemoNo}
     </delete>
 
+    <select id="findAll" resultMap="bookMemoMap">
+        SELECT * FROM prj_bookmemo
+    </select>
+
 </mapper>
