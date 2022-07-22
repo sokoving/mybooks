@@ -38,17 +38,41 @@
         <a href="/book/list">목록</a>
     </div>
 
-<%-- <ul>
+    <%-- <ul>
     <li>${bmkl.bookmarkNo}</li>
 </ul> --%>
 
 
 
-<ul>
-    <c:forEach var="mk" items="${bmkl}">
-        <li> ${mk.bookmarkContent} </li>
-    </c:forEach>
-</ul>
+    <ul>
+        <c:forEach var="mk" items="${bmkl}">
+            <li>
+                <form action="/book/bookmark-modify" method="post">
+                    bookno : <input type="text" name="bookNo" value="${mk.bookNo}">
+                    bookmarkNo : <input type="text" name="bookmarkNo" value="${mk.bookmarkNo}">
+                    <label>
+                        bookmarkContent : <input type="text" name="bookmarkContent" value="${mk.bookmarkContent}">
+                    </label>
+                    <button type="submit">수정</button>
+                </form>
+            </li>
+        </c:forEach>
+    </ul>
+
+    <ul>
+        <c:forEach var="ml" items="${bmml}">
+            <li>
+                <form action="/book/bookmemo-modify" method="post">
+                    bookno : <input type="text" name="bookNo" value="${ml.bookNo}">
+                    bookMemoNo : <input type="text" name="bookMemoNo" value="${ml.bookMemoNo}">
+                    <label>
+                        bookMemoContent : <input type="text" name="bookMemoContent" value="${ml.bookMemoContent}">
+                    </label>
+                    <button type="submit">수정</button>
+                </form>
+            </li>
+        </c:forEach>
+    </ul>
 
 
 </body>

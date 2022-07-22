@@ -152,8 +152,8 @@ public class MainController {
         log.info("controller request /book/bookmark-modify POST - {}", bookmark);
 
         boolean flag = bmks.modifyService(bookmark);
-
-        return  flag ? "redirect:/book/book-detail" : "redirect:/";
+        String bookNo = bookmark.getBookNo();
+        return  flag ? "redirect:/book/detail?bookNo="+bookNo : "redirect:/";
 
     }
 
@@ -188,7 +188,8 @@ public class MainController {
 
         boolean flag = bmms.modifyService(bookMemo);
 
-        return  flag ? "redirect:/book/book-detail" : "redirect:/";
+        String bookNo = bookMemo.getBookNo();
+        return  flag ? "redirect:/book/detail?bookNo="+bookNo : "redirect:/";
 
     }
 
