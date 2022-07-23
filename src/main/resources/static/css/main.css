@@ -17,10 +17,13 @@
      }
 
      #wrap {
-         /* background: #fff; */
+         background: #f8f9fa;
          width: 70%;
          height: 100vh;
          margin: auto;
+         border: 1px solid #f8f9fa;
+         display: flex;
+         flex-flow: column;
      }
 
 
@@ -36,6 +39,7 @@
 
      #book-wrap ul{
         margin-top: 30px;
+
      }
 
      #book-wrap .list-head {

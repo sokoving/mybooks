@@ -7,52 +7,103 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>MY BOOKS</title>
+
+    <!-- reset css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+
+    <!-- linear icons -->
+    <!-- https://linearicons.com/free#cdn -->
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <!-- fontawesome css: https://fontawesome.com -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+
+    <!-- naver font -->
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-round.css" rel="stylesheet">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-barun-gothic.css" rel="stylesheet">
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="/main/resources/static/css/main.css">
+    <!-- bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- custom js -->
+    <script src="/main/resources/static/js/config.js" defer></script>
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
+
+    <style>
+        body {
+            background-color: #eee !important;
+            color: inherit !important;
+            font-size: 18px !important;
+            font-family: 'NanumSquareRound', sans-serif;
+        }
+    </style>
+
 </head>
 
-<style>
-    tr {
-        margin-top: 10px;
-        border-top: 1px solid #000;
-    }
-</style>
-
 <body>
-    <h1> book-list.jsp </h1>
 
-
-    <table>
-        <tr>
-            <th>번호</th>
-            <th>플랫폼</th>
-            <th>제목</th>
-            <th>작가</th>
-            <th>진행도</th>
-            <th>별점</th>
-        </tr>
-
-        <c:forEach var="bp" items="${bpList}">
-            <tr>
-                <td>${bp.bookNo} / ${bp.theEnd}</td>
-                <td>${bp.platformName}</td>
-                <td><a href="/book/detail?bookNo=${bp.bookNo}">${bp.bookTitle}</a></td>
-                <td>${bp.writer}</td>
-                <td>${bp.curPage} / ${bp.totalPage}</td>
-                <td>${bp.starRate}점</td>
-            </tr>
-            <tr>
-                <td>${bp.bookComment}</td>
-                <td>${bp.regDate}</td>
-            </tr>
-        </c:forEach>
-    </table>
-
-    <a href="/book/write">글쓰기</a>
+    <div id="wrap">
+        <!-- 헤더 영역 (작업해야 함)-->
+        <header id="header">
+            <div class="inner-header">
+                <h1> logo</h1>
+            </div>
+        </header>
 
 
 
+        <!-- 책 목록 영역 -->
+        <div id="book-wrap">
+            <!-- 즐겨찾기 책 목록(작업해야 함) -->
+            <ul id="like-book" class="list-group">
+                <li class="list-head list-group-item d-flex justify-content-center">
+                    <h2 class="fs-3">즐겨찾기 목록</h2>
+                </li>
+                <li class="list-group-item list-group-item-action text-center fs-6">
+                    <a href="#">+ 펼치기</a>
+                </li>
+
+            </ul> <!-- end like-book -->
+
+
+            <!-- 전체 책 목록 -->
+            <ul id="all-book" class="list-group">
+                <li class="list-head list-group-item d-flex justify-content-center">
+                    <h2 class="fs-3">전체 목록</h2>
+                </li>
+                <li class="list-group-item list-group-item-action text-center fs-6">
+                    <a href="/book/write">+ 새 책 등록하기</a>
+                </li>
+                <c:forEach var="bp" items="${bpList}">
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="list-left d-flex flex-column ">
+                            <div class="img-book"></div>
+                            <div class="badge bg-warning text-dark">즐겨찾기</div>
+                        </div>
+                        <div class="ms-2 me-auto text-break">
+                            <h3 class="title fs-5 fw-bold">
+                                <a href="/book/detail?bookNo=${bp.bookNo}">
+                                    ${bp.bookTitle}
+                                </a>
+                            </h3>
+                            <div class="writer fs-6">${bp.writer}</div>
+                            <div class="star-rate mb-1">${bp.starRate}</div>
+                            <div class="page fs-6">${bp.curPage} / ${bp.totalPage}</div>
+                            <div class="comment fs-6">[${bp.bookComment}]</div>
+                        </div>
+
+                        <div class="list-right">
+                            <div class="platform badge bg-secondary">${bp.platformName}</div>
+                            <div class="the-end badge badge bg-secondary">${bp.theEnd}</div>
+                        </div>
+                    </li>
+                </c:forEach>
+            </ul><!-- end all-book -->
+        </div> <!-- end book-wrap -->
+    </div> <!-- end wrap -->
 
 </body>
 

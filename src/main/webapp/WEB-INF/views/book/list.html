@@ -30,8 +30,6 @@
     <!-- bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
 
-
-
     <style>
         body {
             background-color: #eee !important;
@@ -39,6 +37,96 @@
             font-size: 18px !important;
             font-family: 'NanumSquareRound', sans-serif;
         }
+
+
+
+             /* reset */
+     a {
+         color: inherit !important;
+         text-decoration: none !important;
+         cursor: pointer;
+     }
+
+     button,
+     input {
+         border: none;
+         background: inherit;
+     }
+
+     /* common style */
+     .hide {
+         display: none !important;
+     }
+
+     #wrap {
+         background: #f8f9fa;
+         width: 70%;
+         height: 100vh;
+         margin: auto;
+         border: 1px solid #f8f9fa;
+         display: flex;
+         flex-flow: column;
+     }
+
+
+     /* ----------- 헤더 영역(작업해야 함) ----------- */
+     #header {
+        height: 150px;
+        background: #fff;
+        color: #088F8F;
+     }
+
+
+     /* ----------- 책 목록 영역 ----------- */
+
+     #book-wrap ul{
+        margin-top: 30px;
+
+     }
+
+     #book-wrap .list-head {
+        color: #088F8F;
+        line-height: 1;
+        font-family: 'NanumBarunGothicBold';
+        padding-top: 20px;
+        box-sizing: border-box;
+     }
+     
+     #book-wrap .img-book {
+         width: 85px;
+         height: 110px;
+         margin-bottom: 3px;
+
+         background: #088F8F;
+        }
+
+     #book-wrap .title{
+        margin-bottom: 3px;
+     }
+
+     #book-wrap .writer {
+        margin-bottom: 5px;
+         color: #6c757d !important;
+         font-size: 0.9em;
+     }
+
+     #book-wrap .star-rate{
+        color: #088F8F;
+     }
+
+     #book-wrap .page {
+         color: #6c757d !important;
+         font-size: 0.9em;
+     }
+
+     #book-wrap .list-right{
+        width: 100px;
+        text-align: right;
+     }
+
+
+
+
     </style>
 
 </head>
@@ -62,24 +150,8 @@
                 <li class="list-head list-group-item d-flex justify-content-center">
                     <h2 class="fs-3">즐겨찾기 목록</h2>
                 </li>
-
-                <li class="list-group-item d-flex justify-content-between align-items-start">
-                    <div class="list-left d-flex flex-column ">
-                        <div class="img-book"></div>
-                        <div class="badge bg-warning text-dark">즐겨찾기</div>
-                    </div>
-                    <div class="ms-2 me-auto text-break">
-                        <h3 class="title fs-5 fw-bold"> 화산귀환</h3>
-                        <div class="writer fs-6">비가</div>
-                        <div class="star-rate mb-1">★★★★☆</div>
-                        <div class="page fs-6">10/1200</div>
-                        <div class="comment fs-6">[아이고, 청명아! 그래도 뚝배기를 깨버리면...]</div>
-                    </div>
-
-                    <div class="list-right">
-                        <div class="platform badge bg-secondary">네이버 시리즈</div>
-                        <div class="the-end badge badge bg-secondary">연재중</div>
-                    </div>
+                <li class="list-group-item list-group-item-action text-center fs-6">
+                    <a href="#">+ 펼치기</a>
                 </li>
 
             </ul> <!-- end like-book -->
@@ -89,6 +161,9 @@
             <ul id="all-book" class="list-group">
                 <li class="list-head list-group-item d-flex justify-content-center">
                     <h2 class="fs-3">전체 목록</h2>
+                </li>
+                <li class="list-group-item list-group-item-action text-center fs-6">
+                    <a href="#">+ 새 책 등록하기</a>
                 </li>
 
                 <li class="list-group-item d-flex justify-content-between align-items-start">
