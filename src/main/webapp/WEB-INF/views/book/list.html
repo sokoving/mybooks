@@ -16,6 +16,9 @@
     <!-- fontawesome css: https://fontawesome.com -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
 
+    <!-- naver font -->
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-round.css" rel="stylesheet">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-barun-gothic.css" rel="stylesheet">
 
     <!-- custom css -->
     <link rel="stylesheet" href="/main/resources/static/css/main.css">
@@ -27,66 +30,88 @@
     <!-- bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
 
+
+
     <style>
-        #all-wrapper {
-            display: flex;
-        }
-
-        /* --- 전체 목록 영역 --- */
-        #book-wrapper {
-            width: 70%;
-            margin: 150px auto;
-        }
-
-        #book-wrapper .img-book{
-            width: 50px;
-            height: 70px;
-
-            background: #000;
+        body {
+            background-color: #eee !important;
+            color: inherit !important;
+            font-size: 18px !important;
+            font-family: 'NanumSquareRound', sans-serif;
         }
     </style>
 
 </head>
 
 <body>
-    
-    <div id="all-wrapper">
 
-        <!-- 전체 목록 영역 -->
-        <div id="book-wrapper">
-            <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-start">
-                    <div class="img-book">표지</div>
-                    <div class="ms-2 me-auto">
-                        <div class="fw-bold">책 제목</div>
-                        작가 <br>
-                        현재 페이지/총 페이지  완결여부<br>
-                        한줄평 별점<br>
-                        등록날짜
-                    </div>
-                    <span class="badge bg-primary rounded-pill">플랫폼 이름</span>
+    <div id="wrap">
+        <!-- 헤더 영역 (작업해야 함)-->
+        <header id="header">
+            <div class="inner-header">
+                <h1> logo</h1>
+            </div>
+        </header>
+
+
+
+        <!-- 책 목록 영역 -->
+        <div id="book-wrap">
+            <!-- 즐겨찾기 책 목록(작업해야 함) -->
+            <ul id="like-book" class="list-group">
+                <li class="list-head list-group-item d-flex justify-content-center">
+                    <h2 class="fs-3">즐겨찾기 목록</h2>
                 </li>
+
                 <li class="list-group-item d-flex justify-content-between align-items-start">
-                    <div class="img-book">img</div>
-                    <div class="ms-2 me-auto">
-                        <div class="fw-bold">화산귀환</div>
-                        비가 <br>
-                        10/1200 (연재중) <br>
-                        청명아,  안 돼!   ★★★★☆ <br>
+                    <div class="list-left d-flex flex-column ">
+                        <div class="img-book"></div>
+                        <div class="badge bg-warning text-dark">즐겨찾기</div>
                     </div>
-                    <span class="badge bg-primary rounded-pill">네이버 시리즈</span>
+                    <div class="ms-2 me-auto text-break">
+                        <h3 class="title fs-5 fw-bold"> 화산귀환</h3>
+                        <div class="writer fs-6">비가</div>
+                        <div class="star-rate mb-1">★★★★☆</div>
+                        <div class="page fs-6">10/1200</div>
+                        <div class="comment fs-6">[아이고, 청명아! 그래도 뚝배기를 깨버리면...]</div>
+                    </div>
+
+                    <div class="list-right">
+                        <div class="platform badge bg-secondary">네이버 시리즈</div>
+                        <div class="the-end badge badge bg-secondary">연재중</div>
+                    </div>
                 </li>
+
+            </ul> <!-- end like-book -->
+
+
+            <!-- 전체 책 목록 -->
+            <ul id="all-book" class="list-group">
+                <li class="list-head list-group-item d-flex justify-content-center">
+                    <h2 class="fs-3">전체 목록</h2>
+                </li>
+
                 <li class="list-group-item d-flex justify-content-between align-items-start">
-                    <div class="img-book"></div>
-                    <div class="ms-2 me-auto">
-                        <div class="fw-bold">괴물공작가의 계약 공녀</div>
-                        꿀잼 보장. 강추!
+                    <div class="list-left d-flex flex-column ">
+                        <div class="img-book"></div>
+                        <div class="badge bg-warning text-dark">즐겨찾기</div>
                     </div>
-                    <span class="badge bg-primary rounded-pill">리디북스</span>
+                    <div class="ms-2 me-auto text-break">
+                        <h3 class="title fs-5 fw-bold"> 화산귀환</h3>
+                        <div class="writer fs-6">비가</div>
+                        <div class="star-rate mb-1">★★★★☆</div>
+                        <div class="page fs-6">10/1200</div>
+                        <div class="comment fs-6">[아이고, 청명아! 그래도 뚝배기를 깨버리면...]</div>
+                    </div>
+
+                    <div class="list-right">
+                        <div class="platform badge bg-secondary">네이버 시리즈</div>
+                        <div class="the-end badge badge bg-secondary">연재중</div>
+                    </div>
                 </li>
-            </ul>
+            </ul><!-- end all-book -->
         </div> <!-- end all-list-wrapper -->
-    </div> <!-- end all-wrapper -->
+    </div> <!-- end wrap -->
 
 </body>
 
