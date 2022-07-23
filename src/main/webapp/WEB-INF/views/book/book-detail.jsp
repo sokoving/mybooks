@@ -43,23 +43,48 @@
 </ul> --%>
 
 
+    <h1>북마크 / 북메모 등록기능</h1>
 
     <ul>
-        <c:forEach var="mk" items="${bmkl}">
+        
+
+        
             <li>
-                <form action="/book/bookmark-modify" method="post">
-                    bookno : <input type="text" name="bookNo" value="${mk.bookNo}">
-                    bookmarkNo : <input type="text" name="bookmarkNo" value="${mk.bookmarkNo}">
+                <form action="/book/bookmark-save" method="post">
+                    <br>
+                        <input type="hidden" name="bookNo" value="${book.bookNo}">
                     <label>
-                        bookmarkContent : <input type="text" name="bookmarkContent" value="${mk.bookmarkContent}">
+                        bookmarkPage : <input id="bookmarkPage-input" type="text" name="bookmarkPage">
                     </label>
-                    <button type="submit">수정</button>
+                    <label>
+                        bookmarkContent : <input type="text" id="bookmarkContent-input" name="bookmarkContent" >
+                    </label>
+                    <button type="submit">등록</button>
+
+                </form>
+                <form action="/book/bookmark-modify" method="post">
+                    <c:forEach var="mk" items="${bmkl}">
+                            <input type="hidden" name="bookNo" value="${mk.bookNo}">
+
+                        <label>
+                            bookmarkNo : <input type="text" name="bookmarkNo" value="${mk.bookmarkNo}">
+                        </label>
+
+                    
+                        <label>
+                            bookmarkContent : <input type="text" name="bookmarkContent" value="${mk.bookmarkContent}">
+                        </label>
+                        
+                        <button type="submit">수정</button>
+                        <br>
+                    </c:forEach>
                 </form>
             </li>
-        </c:forEach>
+        
     </ul>
 
     <ul>
+
         <c:forEach var="ml" items="${bmml}">
             <li>
                 <form action="/book/bookmemo-modify" method="post">

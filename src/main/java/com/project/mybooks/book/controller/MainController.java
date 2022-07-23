@@ -153,7 +153,7 @@ public class MainController {
 
         boolean flag = bmks.modifyService(bookmark);
         String bookNo = bookmark.getBookNo();
-        return  flag ? "redirect:/book/detail?bookNo="+bookNo : "redirect:/";
+        return  flag ? "redirect:/book/detail?bookNo=" + bookNo : "redirect:/";
 
     }
 
@@ -176,7 +176,7 @@ public class MainController {
 
         boolean flag = bmks.saveService(bookmark);
 
-        return flag ? "redirect:/book/book-detail" : "redirect:/";
+        return flag ? "redirect:/book/detail?bookNo="+ bookmark.getBookNo() : "redirect:/";
     }
 
 
