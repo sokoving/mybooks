@@ -153,7 +153,7 @@ public class MainController {
 
         boolean flag = bmks.modifyService(bookmark);
 
-        return  flag ? "redirect:/book/book-detail" : "redirect:/";
+        return  flag ? "redirect:/book/book-detail?bookNo="+bookmark.getBookNo() : "redirect:/";
 
     }
 
