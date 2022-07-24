@@ -21,14 +21,14 @@
     <!-- naver font -->
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-round.css" rel="stylesheet">
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-barun-gothic.css" rel="stylesheet">
-
+    
     <!-- custom css -->
-    <link rel="stylesheet" href="/main/resources/static/css/main.css">
+    <link rel="stylesheet" href="/css/main.css">
     <!-- bootstrap css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- custom js -->
-    <script src="/main/resources/static/js/config.js" defer></script>
+    <script src="/js/config.js" defer></script>
     <!-- bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
 
@@ -92,11 +92,11 @@
                             <div class="writer fs-6">${bp.writer}</div>
                             <div class="star-rate mb-1">${bp.starRate}</div>
                             <div class="page fs-6">${bp.curPage} / ${bp.totalPage}</div>
-                            <div class="comment fs-6">[${bp.bookComment}]</div>
+                            <div class="comment fs-6"># ${bp.bookComment}</div>
                         </div>
 
                         <div class="list-right">
-                            <div class="platform badge bg-secondary">${bp.platformName}</div>
+                            <div class="platform badge bg-auto" data-platform-id="${bp.platformId}">${bp.platformName}</div>
                             <div class="the-end badge badge bg-secondary">${bp.theEnd}</div>
                         </div>
                     </li>

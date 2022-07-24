@@ -1,6 +1,6 @@
      /* reset */
      a {
-         color: inherit !important;
+         color: inheritblu !important;
          text-decoration: none !important;
          cursor: pointer;
      }
@@ -8,7 +8,7 @@
      button,
      input {
          border: none;
-         background: inherit;
+         background-color: inherit;
      }
 
      /* common style */
@@ -17,7 +17,7 @@
      }
 
      #wrap {
-         background: #f8f9fa;
+         background-color: #f8f9fa;
          width: 70%;
          height: 100vh;
          margin: auto;
@@ -30,8 +30,15 @@
      /* ----------- 헤더 영역(작업해야 함) ----------- */
      #header {
         height: 150px;
-        background: #fff;
-        color: #088F8F;
+        background-color: #088F8F;
+        color: #ffc107;
+        font-family: 'NanumBarunGothicBold';
+     }
+
+     #header .inner-header{
+      padding: 20px;
+      box-sizing: border-box;
+      
      }
 
 
@@ -55,7 +62,7 @@
          height: 110px;
          margin-bottom: 3px;
 
-         background: #088F8F;
+         background-color: #088F8F;
         }
 
      #book-wrap .title{
@@ -75,6 +82,10 @@
      #book-wrap .page {
          color: #6c757d !important;
          font-size: 0.9em;
+     }
+
+     #book-wrap .comment{
+      color: #6c757d;
      }
 
      #book-wrap .list-right{

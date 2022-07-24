@@ -86,7 +86,7 @@ insert into prj_platform VALUES (seq_prj_platform.nextval, '네이버 시리즈'
 insert into prj_platform VALUES (seq_prj_platform.nextval, '리디북스');
 insert into prj_platform VALUES (seq_prj_platform.nextval, '문피아');
 insert into prj_platform VALUES (seq_prj_platform.nextval, '조아라');
-insert into prj_platform VALUES (seq_prj_platform.nextval, '기타');
+insert into prj_platform VALUES (seq_prj_platform.nextval, '미분류');
 commit;
 
 
