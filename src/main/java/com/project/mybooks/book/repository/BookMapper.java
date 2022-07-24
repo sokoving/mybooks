@@ -32,4 +32,20 @@ public interface BookMapper {
         int getTotalCount();
 //        int getTotalCount(Search search);
 
+
+
+        // 즐겨찾기 등록
+        boolean saveImportance(String bookNo);
+
+        //즐겨찾기 삭제
+        boolean removeImportance(String bookNo);
+
+        //즐겨찾기기 수정
+        boolean modifyImportance(String bookNo, int newImportance);
+
+        // 즐겨찾기 전체 조회
+        List<Integer> findAllImportance();
+
+        // 즐겨찾기 개별 조회
+        int findOneImportance();
 }

@@ -95,7 +95,35 @@ class BookMapperTest {
         Book bookOne = mapper.findBookOne("2207220001");
 
         System.out.println(bookOne);
-
     }
 
+    @Test
+    @DisplayName("즐겨찾기 등록: importance가 max+1로 수정돼야 한다")
+    void saveImportanceTest(){
+        String bn = "2207220002";
+        boolean flag = mapper.saveImportance(bn);
+        assertTrue(flag);
+    }
+
+    @Test
+    @DisplayName("즐겨찾기 삭제: importance가 0으로로 수정돼야 한다")
+    void removeImportanceTest(){
+        String bn = "2207240021";
+        boolean flag = mapper.removeImportance(bn);
+        assertTrue(flag);
+    }
+
+    @Test
+    @DisplayName("필드의 importance 컬럼이 원하는 숫자로 수정돼야 한다")
+    void modifyImportanceTest(){
+        String bn = "2207240021";
+        boolean flag = mapper.modifyImportance(bn, 2);
+        assertTrue(flag);
+    }
+
+    @Test
+    @DisplayName("select importance from prj_book")
+    void findAllImportance(){
+        mapper.findAllImportance();
+    }
 }

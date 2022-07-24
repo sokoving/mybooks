@@ -123,26 +123,26 @@ INSERT INTO prj_bookmark (bookmark_no, book_no, bookmark_page, bookmark_content)
 VALUES ( seq_book_bookmark.nextval, '220721aa', '300', '300300300');
 commit;
 ------------
-        SELECT
-            a.user_id, a.importance
-            , a.book_no, a.platform_id, b.platform_name
-            , a.book_title, a.writer, a.star_rate, a.book_comment
-            , a.cur_page, a.total_page, a.the_end, a.reg_date
-        FROM prj_book a
-        LEFT OUTER JOIN prj_platform b
-        ON a.platform_id = b.platform_id
-        ORDER BY a.book_no DESC
-        ;
+SELECT
+    a.user_id, a.importance
+    , a.book_no, a.platform_id, b.platform_name
+    , a.book_title, a.writer, a.star_rate, a.book_comment
+    , a.cur_page, a.total_page, a.the_end, a.reg_date
+FROM prj_book a
+LEFT OUTER JOIN prj_platform b
+ON a.platform_id = b.platform_id
+ORDER BY a.book_no DESC
+;
 
-        SELECT * 
-        FROM prj_bookmark
-        WHERE book_no = '2207220002'
-        ORDER BY bookmark_no DESC;
+SELECT *
+FROM prj_bookmark
+WHERE book_no = '2207220002'
+ORDER BY bookmark_no DESC;
         
-                SELECT * 
-        FROM prj_bookmemo
-        WHERE book_no = '2207220002'
-        ORDER BY bookmemo_no DESC;
+SELECT *
+FROM prj_bookmemo
+WHERE book_no = '2207220002'
+ORDER BY bookmemo_no DESC;
         
 SELECT count(*)
 FROM prj_book

@@ -11,17 +11,17 @@
     <!-- 게시글 등록 SQL 작성 :  id속성에는 추상메서드 이름  -->
     <insert id="save">
         INSERT INTO prj_book
-        (
-        book_no
-        , platform_id, book_title, writer, star_rate, book_comment
-        , cur_page, total_page, the_end
-        )
+            (
+            book_no
+            , platform_id, book_title, writer, star_rate, book_comment
+            , cur_page, total_page, the_end
+            )
         VALUES
-        (
-        TO_CHAR(SYSDATE, 'YYMMDD') || LPAD(seq_prj_book.nextval, 4, '0')
-        , #{platformId}, #{bookTitle}, #{writer}, #{starRate}, #{bookComment}
-        , #{curPage}, #{totalPage},#{theEnd}
-        )
+            (
+            TO_CHAR(SYSDATE, 'YYMMDD') || LPAD(seq_prj_book.nextval, 4, '0')
+            , #{platformId}, #{bookTitle}, #{writer}, #{starRate}, #{bookComment}
+            , #{curPage}, #{totalPage},#{theEnd}
+            )
     </insert>
 
     <!-- 게시글 정보 삭제 -->
@@ -34,14 +34,14 @@
     <update id="modify">
         UPDATE prj_book
         SET
-        platform_id = #{platformId}
-        , book_title = #{bookTitle}
-        , writer = #{writer}
-        , star_rate = #{starRate}
-        , book_comment = #{bookComment}
-        , cur_page = #{curPage}
-        , total_page = #{totalPage}
-        , the_end = #{theEnd}
+            platform_id = #{platformId}
+            , book_title = #{bookTitle}
+            , writer = #{writer}
+            , star_rate = #{starRate}
+            , book_comment = #{bookComment}
+            , cur_page = #{curPage}
+            , total_page = #{totalPage}
+            , the_end = #{theEnd}
         WHERE book_no = #{bookNo}
     </update>
 
@@ -110,4 +110,35 @@
         WHERE BOOK_NO = #{bookNo}
     </select>
 
+<!--  importance 필드 조작 sql  -->
+    <!-- 등록  -->
+    <update id="saveImportance">
+        update prj_book
+        set importance=(select max(importance)+1
+                        from prj_book
+                        )
+        WHERE book_no = #{bookNo}
+    </update>
+
+    <!--  삭제  -->
+    <update id="removeImportance">
+        update prj_book
+        set importance=0
+        WHERE book_no = #{bookNo}
+    </update>
+
+    <!--  수정  -->
+    <update id="modifyImportance">
+        update prj_book
+        set importance=#{newImportance}
+        WHERE book_no = #{bookNo}
+    </update>
+    
+    <!-- 전체 조회   -->
+    <select id="findAllImportance" resultMap="bookMap">
+        SELECT
+            book_no, importance
+        FROM prj_book
+        WHERE importance>0
+    </select>
 </mapper>
