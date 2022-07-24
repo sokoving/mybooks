@@ -17,8 +17,12 @@ public interface BookmarkMapper {
 
     boolean save(Bookmark bookmark);
     boolean modify(Bookmark bookmark);
-    boolean remove(int bookNo);
+    boolean remove(int bookmarkNo);
     List<Bookmark> findAll(String bookNo);
-    Bookmark findOne(int bookNo);
+    Bookmark findOne(int bookmarkNo);
+    int getTotalCount(String bookNo);
+
+    boolean removeToBookNo(String bookNo);
+
 
 }

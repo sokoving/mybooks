@@ -27,21 +27,30 @@
             <option value="6">기타</option>
         </select>
         <br>
-        # 책 제목 : <input id="book-name-input" type="text" name="bookTitle">
+        # 이미지 링크 : <input type="text" name="bookImg">
         <br>
-        # 작가 : <input id="writer-input" type="text" name="writer">
+        # 책 제목 : <input id="book-name-input" maxlength="50" type="text" name="bookTitle">
         <br>
-        # 현재 회차 : <input type="text" name="curPage">
+        # 작가 : <input id="writer-input" maxlength="50" type="text" name="writer">
         <br>
-        # 총 회차 : <input type="text" name="totalPage">
+        # 현재 회차 : <input id="cur-page" maxlength="5" type="text" name="curPage">
+        <br>
+        # 총 회차 : <input id="total-page" maxlength="5" type="text" name="totalPage">
         <br>
         # 연재중 <input type="radio" name="theEnd" value="1" checked>
         완결 <input type="radio" name="theEnd" value="0">
         <br>
-        # 별점 : <input type="text" name="starRate">
+        # 별점 : 
+        <select name="starRate">
+            <option value="1">*</option>
+            <option value="2">**</option>
+            <option value="3">***</option>
+            <option value="4">****</option>
+            <option value="5">*****</option>
+        </select>
         <br>
         # 한줄평
-        <textarea name="bookComment" cols="30" rows="2"></textarea>
+        <textarea id="book-comment" name="bookComment" maxlength="50" cols="30" rows="2"></textarea>
         <br>
         <button id="reg-btn" type="button">등록</button>
 
@@ -73,6 +82,26 @@
                 return flag;
             }
 
+            // function checkStringCnt() {
+
+            //     let flag = false;
+
+            //     const $bookNameInput = document.getElementById('book-name-input');
+            //     const $writerinput = document.getElementById('writer-input');
+            //     const $curPage = document.getElementById('cur-page');
+            //     const $totalPage = document.getElementById('total-page');
+            //     const $bookComment = document.getElementById('book-comment');
+
+                
+
+            //     if ($bookNameInput.value > 50) {
+            //         alert("제목은 50글자 이하로 입력해주세요")
+            //     } else {
+            //         flag = true;
+            //     }
+            //     return flag;
+            // }
+
             // 게시물 입력값 검증
             const $regBtn = document.getElementById('reg-btn');
 
@@ -81,13 +110,14 @@
                 if (!validateFormValue()) {
                     return;
                 }
+                // if (!checkStringCnt()) {
+                //     return;
+                // }
 
                 // 필수 입력값을 잘 채웠으면 폼을 서브밋한다.
                 const $form = document.getElementById('write-form');
                 $form.submit();
             };
-
-
         })();
     </script>
 

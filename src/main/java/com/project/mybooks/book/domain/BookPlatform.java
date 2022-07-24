@@ -24,4 +24,6 @@ public class BookPlatform {
     private int totalPage; // 총 회차
     private int theEnd; // 완결 여부
     private Date regDate; // 등록 날짜
+    private String bookImg; // 책 표지 이미지
+    private String platformLink; // 플랫폼 링크
 }

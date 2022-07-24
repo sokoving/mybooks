@@ -18,6 +18,8 @@ public interface BookMemoMapper {
     // 상세조회
     BookMemo findOne(int BookMemoNo);
     // 전체 게시물 수 조회
-    int getTotalCount();
+    int getTotalCount(String bookNo);
+
+    boolean removeToBookNo(String bookNo);
 
 }

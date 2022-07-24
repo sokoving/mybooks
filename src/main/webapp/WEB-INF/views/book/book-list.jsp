@@ -17,6 +17,10 @@
         margin-top: 10px;
         border-top: 1px solid #000;
     }
+    .img-custom {
+        width: 50px;
+        height: 50px;
+    }
 </style>
 
 <body>
@@ -35,8 +39,9 @@
 
         <c:forEach var="bp" items="${bpList}">
             <tr>
+                <td><img class="img-custom" src="${bp.bookImg}" alt="책표지"></td>
                 <td>${bp.bookNo} / ${bp.theEnd}</td>
-                <td>${bp.platformName}</td>
+                <td><a href="${bp.platformLink}">${bp.platformName}</a></td>
                 <td><a href="/book/detail?bookNo=${bp.bookNo}">${bp.bookTitle}</a></td>
                 <td>${bp.writer}</td>
                 <td>${bp.curPage} / ${bp.totalPage}</td>
@@ -52,6 +57,12 @@
     <a href="/book/write">글쓰기</a>
 
 
+
+
+
+    <script>
+        
+    </script>
 
 
 </body>
