@@ -163,9 +163,10 @@ public class MainController {
     public String bookmarkDelete(int bookmarkNo) {
 //        int bookmarkNo = 1;
         log.info("controller request /book/bookmark-delete POST - {}", bookmarkNo);
+        String bookNo = bmks.findOneService(bookmarkNo).getBookNo();
         boolean flag = bmks.removeService(bookmarkNo);
 
-        return flag ? "redirect:/book/book-detail" : "redirect:/";
+        return flag ? "redirect:/book/detail?bookNo="+ bookNo : "redirect:/";
     }
 
 
@@ -195,13 +196,13 @@ public class MainController {
 
     //     * 12. 메모내용 삭제요청 /bookmemo-delete (post)
     @PostMapping("/bookmemo-delete")
-    public String bookmemoDelete() {
-        int bookmemeoNo = 3;
-        log.info("controller request /book/bookmemo-delete POST - {}", bookmemeoNo);
+    public String bookmemoDelete(int bookmemoNo) {
 
-        boolean flag = bmms.removeService(bookmemeoNo);
+        log.info("controller request /book/bookmemo-delete POST - {}", bookmemoNo);
+        String bookNo = bmms.findOneService(bookmemoNo).getBookNo();
+        boolean flag = bmms.removeService(bookmemoNo);
 
-        return flag ? "redirect:/book/book-detail" : "redirect:/";
+        return flag ? "redirect:/book/detail/detail?bookNo="+bookNo : "redirect:/";
     }
 
     //     * 13. 메모내용 등록요청 /bookmark-save (post)
@@ -211,7 +212,7 @@ public class MainController {
 
         boolean flag = bmms.saveService(bookMemo);
 
-        return flag ? "redirect:/book/book-detail" : "redirect:/";
+        return flag ? "redirect:/book/detail?bookNo="+bookMemo.getBookNo() : "redirect:/";
     }
 
 

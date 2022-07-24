@@ -139,7 +139,7 @@
                     <a href="/book/delete?bookNo=${book.bookNo}" class="btn-atag">
                         <button type="button" class="btn btn-warning btn-yellow btn-custom">삭제</button>
                     </a>
-                    
+
                 </li>
                 <li>
                     <a href="/book/list" class="btn-atag">
@@ -150,54 +150,105 @@
         </div>
         <h1>북마크 / 북메모 등록기능</h1>
 
+        <!-- 북마크 등록 -->
         <ul>
-
             <li>
                 <form action="/book/bookmark-save" method="post">
                     <br>
-                    <input type="hidden" name="bookNo" value="${book.bookNo}">
+                    <input type="hidden" name="bookNo" value="${book.bookNo}" readonly>
                     <label>
                         bookmarkPage : <input id="bookmarkPage-input" type="text" name="bookmarkPage">
                     </label>
+                    <br>
                     <label>
                         bookmarkContent : <input type="text" id="bookmarkContent-input" name="bookmarkContent">
                     </label>
                     <button type="submit">등록</button>
                 </form>
-
+            </li>
+        </ul>
+        <!-- 북마크 리스트 밑 수정 -->
+        <ul>
+            <li>
                 <c:forEach var="mk" items="${bmkl}">
                     <form action="/book/bookmark-modify" method="post">
-                        <input type="hidden" name="bookNo" value="${mk.bookNo}" readonly>
                         <label>
-                            bookmarkNo : <input type="text" name="bookmarkNo" value="${mk.bookmarkNo}">
+                            <input type="hidden" name="bookNo" value="${mk.bookNo}" readonly>
+                        </label>
+                        <label>
+                            bookmarkNo : <input type="text" name="bookmarkNo" value="${mk.bookmarkNo}" readonly>
+                        </label>
+                        <label>
+                            bookmarkPage : <input type="text" name="bookmarkPage" value="${mk.bookmarkPage}">
                         </label>
                         <label>
                             bookmarkContent : <input type="text" name="bookmarkContent" value="${mk.bookmarkContent}">
                         </label>
-                        <button type="submit">수정</button>
+                        <label>
+                            regDate : <input type="text" name="regDate" value="${regDate}" readonly>
+                        </label>
+                        <button type="button">수정</button>
                         <br>
                     </form>
                 </c:forEach>
             </li>
-
         </ul>
 
+
+        <ul>
+            <!-- 메모 등록 -->
+            <li>
+                <form action="/book/bookmemo-save" method="post">
+                    <br>
+                    <input type="hidden" name="bookNo" value="${book.bookNo}" readonly>
+                    <label>
+                        bookMemoContent : <input type="text" id="bookmemoContent-input" name="bookMemoContent">
+                    </label>
+                    <button type="submit">등록</button>
+                </form>
+            </li>
+        </ul>
+
+
+        <!-- 메모 리스트 밑 수정 -->
         <ul>
             <li>
                 <c:forEach var="ml" items="${bmml}">
                     <form action="/book/bookmemo-modify" method="post">
-                        <input type="hidden" name="bookNo" value="${ml.bookNo}" readonly>
-                        bookMemoNo : <input type="text" name="bookMemoNo" value="${ml.bookMemoNo}">
+                        <label>
+                            <input type="hidden" name="bookNo" value="${ml.bookNo}" readonly>
+                        </label>
+                        <label>
+                            bookMemoNo : <input type="text" name="bookMemoNo" value="${ml.bookMemoNo}" readonly>
+                        </label>
                         <label>
                             bookMemoContent : <input type="text" name="bookMemoContent" value="${ml.bookMemoContent}">
+                        </label>
+                        <label>
+                            reg_date : <input type="text" name="regDate" value="${ml.regDate}" disabled>
                         </label>
                         <button type="submit">수정</button>
                     </form>
                 </c:forEach>
             </li>
-        </ul>
-
+        </ul>   
     </div>
+
+
+    <script>
+        (function() {
+
+
+
+            
+        }())
+
+
+
+
+    </script>
+
+
 
 </body>
 

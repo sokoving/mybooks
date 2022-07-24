@@ -49,6 +49,7 @@
         UPDATE prj_bookmemo
         SET
         bookmemo_content=#{bookMemoContent}
+        , reg_date=SYSDATE
         WHERE bookmemo_no=#{bookMemoNo}
     </update>
 
