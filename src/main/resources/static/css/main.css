@@ -1,6 +1,6 @@
      /* reset */
      a {
-         color: inheritblu !important;
+         color: inherit !important;
          text-decoration: none !important;
          cursor: pointer;
      }
