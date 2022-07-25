@@ -107,11 +107,11 @@
                         <div class="right">
                             <select name="starRate" class="form-select" aria-label="Default select example">
                                 <option selected>별점을 선택해주세요</option>
-                                <option value="1">*</option>
-                                <option value="2">**</option>
-                                <option value="3">***</option>
-                                <option value="4">****</option>
-                                <option value="5">*****</option>
+                                <option value="1">★☆☆☆☆</option>
+                                <option value="2">★★☆☆☆</option>
+                                <option value="3">★★★☆☆</option>
+                                <option value="4">★★★★☆</option>
+                                <option value="5">★★★★★</option>
                             </select>
                         </div>
                         

@@ -71,7 +71,7 @@
                         </div>
                         <div class="ms-2 me-auto text-break">
                             <h3 class="title fs-5 fw-bold">
-                                <a href="/book/detail?bookNo=${bp.bookNo}">
+                                <a href="/book/detail?bookNo=${im.bookNo}">
                                     ${im.bookTitle}
                                 </a>
                             </h3>
