@@ -16,11 +16,22 @@
          display: none !important;
      }
 
+     body {
+      background-color: #eee !important;
+      color: inherit !important;
+      font-size: 18px !important;
+      font-family: 'NanumSquareRound', sans-serif;
+      }
+
+      div #page{
+         padding: 50px !important;
+      }
+
      #wrap {
          background-color: #f8f9fa;
          width: 70%;
          height: 100vh;
-         margin: auto;
+         margin: 40px auto;
          border: 1px solid #f8f9fa;
          display: flex;
          flex-flow: column;
