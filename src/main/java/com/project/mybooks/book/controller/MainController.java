@@ -14,10 +14,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +33,7 @@ public class MainController {
      * 1. 책 리스트 /list (get)
      * 2. 등록화면 /write (get)
      * 3. 등록요청 /write (post)
+     * 14. 즐겨찾기 요청 /importance (get)
 
      지현
      * 4. 수정화면 /modify (get)
@@ -55,11 +54,14 @@ public class MainController {
     // 1. 책 리스트 /list (get)
     @GetMapping("/list")
     public String list(Model model) {
-        log.debug("Main Controller - list GET 요청");
+        log.info("Main Controller - list GET 요청");
         List<BookPlatform> bookPlatformList = bService.findAllService();
-        log.info(bookPlatformList);
+        log.debug(bookPlatformList);
+        List<BookPlatform> importanceList = bService.findAllImportanceService();
+        log.debug(importanceList);
 
         model.addAttribute("bpList", bookPlatformList);
+        model.addAttribute("imList", importanceList);
 
         return "book/book-list";
     }
@@ -175,7 +177,7 @@ public class MainController {
 
         boolean flag = bmks.saveService(bookmark);
 
-        return flag ? "redirect:/book/book-detail" : "redirect:/";
+        return flag ? "redirect:/book/detail?bookNo="+bookmark.getBookNo() : "redirect:/";
     }
 
     //     * 11. 메모내용 수정요청 /bookmemo-modify (post)
@@ -208,7 +210,21 @@ public class MainController {
 
         boolean flag = bmms.saveService(bookMemo);
 
-        return flag ? "redirect:/book/book-detail" : "redirect:/";
+        return flag ? "redirect:/book/detail?bookNo="+bookMemo.getBookNo() : "redirect:/";
+    }
+
+    // * 14. 즐겨찾기 등록 요청 /importance/save (get)
+    @GetMapping("/importance/save")
+    public String importanceSave(String bookNo){
+        log.info("controller request /book/importance/save - {}", bookNo);
+        bService.importanceSaveService(bookNo);
+        return "redirect:/book/list";
+    }
+    @GetMapping("/importance/remove")
+    public String importanceRemove(String bookNo){
+        log.info("controller request /book/importance/remove - {}", bookNo);
+        bService.importanceRemoveService(bookNo);
+        return "redirect:/book/list";
     }
 
 }

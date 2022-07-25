@@ -62,7 +62,7 @@ class BookMemoMapperTest {
     @Test
     @DisplayName("저장된 전체 값 조회")
     void getAllcountTest(){
-        int totalCount = mapper.getTotalCount();
+        int totalCount = mapper.getTotalCount("2207250002");
         System.out.println(totalCount);
         assertEquals(totalCount, 4);
     }

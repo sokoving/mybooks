@@ -44,8 +44,8 @@ public interface BookMapper {
         boolean modifyImportance(String bookNo, int newImportance);
 
         // 즐겨찾기 전체 조회
-        List<Integer> findAllImportance();
+        List<BookPlatform> findAllImportance();
 
         // 즐겨찾기 개별 조회
-        int findOneImportance();
+//        BookPlatform findOneImportance();
 }

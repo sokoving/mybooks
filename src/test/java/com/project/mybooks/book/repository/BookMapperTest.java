@@ -114,7 +114,7 @@ class BookMapperTest {
     }
 
     @Test
-    @DisplayName("필드의 importance 컬럼이 원하는 숫자로 수정돼야 한다")
+    @DisplayName("즐겨찾기 수정: importance가 원하는 숫자로 수정돼야 한다")
     void modifyImportanceTest(){
         String bn = "2207240021";
         boolean flag = mapper.modifyImportance(bn, 2);
@@ -122,11 +122,11 @@ class BookMapperTest {
     }
 
     @Test
-    @DisplayName("importance가 0보다 큰 모든 데이터가 조회된다")
+    @DisplayName("즐겨찾기 전체 조회: importance가 0보다 큰 모든 데이터가 조회된다")
     void findAllImportance(){
-        List<Integer> allImportance = mapper.findAllImportance();
-        for (Integer integer : allImportance) {
-            System.out.println(integer);
+        List<BookPlatform> allImportance = mapper.findAllImportance();
+        for (BookPlatform b : allImportance) {
+            System.out.println(b);
         }
 
     }

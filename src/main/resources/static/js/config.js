@@ -37,11 +37,11 @@ function convertStarRate() {
 6 기타            배경: #088F8F 글자색: #fff
 */
 function convertPlatformBadge() {
-    console.log('convert Platform Badge 함수 시작');
+    // console.log('convert Platform Badge 함수 시작');
     const $platformArr = [...document.querySelectorAll('.platform')];
     for (let $platform of $platformArr) {
         const num = $platform.dataset.platformId;
-        console.log(num);
+        // console.log(num);
         switch (num) {
             case '1':
                 $platform.style.background = '#f9e000';
@@ -93,7 +93,49 @@ function convertTheEndBadge() {
         } else {
             $theEnd.textContent = '';
         }
+    }
+}
 
+//즐겨찾기 클래스 색칠하기
+// data-importance가 0보다 크면 importance badge bg-warning text-dark
+// 0이면 importance badge bg-secondary text-white 
+function convertImportance() {
+    // console.log("convertImportance 함수 작동");
+    const $importanceArr = [...document.querySelectorAll('.importance')];
+    for (let $im of $importanceArr) {
+        const imNo = $im.dataset.importance;
+        if (imNo > 0) {
+            $im.classList = 'importance badge bg-warning text-dark';
+        } else if (imNo == 0) {
+            $im.classList = 'importance badge bg-secondary text-white';
+        }
+
+    }
+}
+
+
+// 즐겨찾기 등록, 삭제 이벤트
+// .importance를 클릭하면
+// data-importance가 0보다 크면 remove
+//  data-importance가 0보다 작으면 save
+function switchImportance() {
+    console.log("switchImportanceBadge 함수 작동");
+    const $bookUlList = [...document.querySelectorAll('.list-group')]
+
+    for (let $bookUl of $bookUlList) {
+        $bookUl.addEventListener('click', e => {
+            if (!e.target.matches('.importance')) return;
+            console.log(e.target);
+            const bn = e.target.dataset.bookNo;
+            console.log(bn);
+
+            if (e.target.dataset.importance > 0) {
+                location.href = '/book/importance/remove?bookNo=' + bn;
+
+            } else if (e.target.dataset.importance == 0) {
+                location.href = '/book/importance/save?bookNo=' + bn;
+            }
+        })
     }
 }
 
@@ -106,6 +148,8 @@ function convertTheEndBadge() {
 (function () {
     test();
     convertStarRate();
-    convertTheEndBadge();
     convertPlatformBadge();
+    convertTheEndBadge();
+    convertImportance();
+    switchImportance();
 })();

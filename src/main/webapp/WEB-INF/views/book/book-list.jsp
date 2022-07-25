@@ -66,6 +66,31 @@
                     <a href="#">+ 펼치기</a>
                 </li>
 
+                <c:forEach var="im" items="${imList}">
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="list-left d-flex flex-column ">
+                            <div class="img-book"><img class="img-custom" src="${im.bookImg}" alt="책표지"></div>
+                            <div class="importance" data-book-no="${im.bookNo}" data-importance="${im.importance}">즐겨찾기</div>
+                        </div>
+                        <div class="ms-2 me-auto text-break">
+                            <h3 class="title fs-5 fw-bold">
+                                <a href="/book/detail?bookNo=${bp.bookNo}">
+                                    ${im.bookTitle}
+                                </a>
+                            </h3>
+                            <div class="writer fs-6">${im.writer}</div>
+                            <div class="star-rate mb-1">${im.starRate}</div>
+                            <div class="page fs-6">${im.curPage} / ${im.totalPage}</div>
+                            <div class="comment fs-6"># ${im.bookComment}</div>
+                        </div>
+
+                        <div class="list-right">
+                            <div class="platform badge bg-auto" data-platform-id="${im.platformId}">${im.platformName}</div>
+                            <div class="the-end badge badge bg-secondary">${im.theEnd}</div>
+                        </div>
+                    </li>
+                </c:forEach>
+
             </ul> <!-- end like-book -->
 
 
@@ -77,11 +102,12 @@
                 <li class="list-group-item list-group-item-action text-center fs-6">
                     <a href="/book/write">+ 새 책 등록하기</a>
                 </li>
+
                 <c:forEach var="bp" items="${bpList}">
                     <li class="list-group-item d-flex justify-content-between align-items-start">
                         <div class="list-left d-flex flex-column ">
                             <div class="img-book"><img class="img-custom" src="${bp.bookImg}" alt="책표지"></div>
-                            <div class="badge bg-warning text-dark">즐겨찾기</div>
+                            <div class="importance" data-book-no="${bp.bookNo}" data-importance="${bp.importance}">즐겨찾기</div>
                         </div>
                         <div class="ms-2 me-auto text-break">
                             <h3 class="title fs-5 fw-bold">
@@ -101,6 +127,7 @@
                         </div>
                     </li>
                 </c:forEach>
+
             </ul><!-- end all-book -->
         </div> <!-- end book-wrap -->
     </div> <!-- end wrap -->

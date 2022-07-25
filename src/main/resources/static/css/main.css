@@ -57,14 +57,26 @@
         box-sizing: border-box;
      }
      
+         /* list-left */
      #book-wrap .img-book {
          width: 85px;
          height: 110px;
          margin-bottom: 3px;
+         border-radius: 0.25rem;
+         overflow: hidden;
 
+         background: no-repeat center cover fixed;
+         background-position: center;
+         background-size: cover;
          background-color: #088F8F;
         }
+      
+      #book-wrap .importance{
+         cursor: pointer;
+      }
 
+
+        /* list-center */
      #book-wrap .title{
         margin-bottom: 3px;
      }
@@ -88,6 +100,7 @@
       color: #6c757d;
      }
 
+         /* list-right */
      #book-wrap .list-right{
         width: 100px;
         text-align: right;

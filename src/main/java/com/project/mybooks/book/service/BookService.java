@@ -47,4 +47,15 @@ public class BookService {
     public int getTotalService() {
         return bMapper.getTotalCount();
     }
+
+    public List<BookPlatform> findAllImportanceService() {
+        return bMapper.findAllImportance();
+    }
+
+    public boolean importanceSaveService(String bookNo){
+        return bMapper.saveImportance(bookNo);
+    }
+    public boolean importanceRemoveService(String bookNo){
+        return bMapper.removeImportance(bookNo);
+    }
 }

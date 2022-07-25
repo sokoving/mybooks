@@ -118,8 +118,8 @@
     <update id="saveImportance">
         update prj_book
         set importance=(select max(importance)+1
-        from prj_book
-        )
+                        from prj_book
+                        )
         WHERE book_no = #{bookNo}
     </update>
 
@@ -138,10 +138,20 @@
     </update>
 
     <!-- 전체 조회   -->
-    <select id="findAllImportance" resultMap="bookMap">
+    <select id="findAllImportance" resultMap="bookPlatMap">
         SELECT
-        book_no, importance
-        FROM prj_book
-        WHERE importance>0
+            a.user_id, a.importance
+            , a.book_no, a.platform_id, b.platform_name
+            , a.book_title, a.writer, a.star_rate, a.book_comment
+            , a.cur_page, a.total_page, a.the_end, a.reg_date, a.book_img, b.platform_link
+        FROM (
+            SELECT
+            *
+            FROM prj_book
+            WHERE importance>0
+            ) a
+        LEFT OUTER JOIN prj_platform b
+        ON a.platform_id = b.platform_id
+        ORDER BY a.importance DESC
     </select>
 </mapper>
