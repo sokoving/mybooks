@@ -69,13 +69,13 @@
                         
                         <div class="right">
                             <select name="platformId" class="form-select" aria-label="Default select example">
-                                <option selected>플랫폼을 선택해주세요</option>
-                                <option value="1">카카오 페이지</option>
-                                <option value="2">네이버 시리즈</option>
-                                <option value="3">리디북스</option>
-                                <option value="4">문피아</option>
-                                <option value="5">조아라</option>
-                                <option value="6">미분류</option>
+                                <option disabled>플랫폼을 선택해주세요</option>
+                                <option value="1" <c:if test="${modibook.platformId eq 1}">selected="selected"</c:if>>카카오 페이지</option>
+                                <option value="2" <c:if test="${modibook.platformId eq 2}">selected="selected"</c:if>>네이버 시리즈</option>
+                                <option value="3" <c:if test="${modibook.platformId eq 3}">selected="selected"</c:if>>리디북스</option>
+                                <option value="4" <c:if test="${modibook.platformId eq 4}">selected="selected"</c:if>>문피아</option>
+                                <option value="5" <c:if test="${modibook.platformId eq 5}">selected="selected"</c:if>>조아라</option>
+                                <option value="6" <c:if test="${modibook.platformId eq 6}">selected="selected"</c:if>>미분류</option>
                             </select>
                         </div>
                         
@@ -106,12 +106,12 @@
                         </div>
                         <div class="right">
                             <select name="starRate" class="form-select" aria-label="Default select example">
-                                <option selected>별점을 선택해주세요</option>
-                                <option value="1">★☆☆☆☆</option>
-                                <option value="2">★★☆☆☆</option>
-                                <option value="3">★★★☆☆</option>
-                                <option value="4">★★★★☆</option>
-                                <option value="5">★★★★★</option>
+                                <option disabled>별점을 선택해주세요</option>
+                                <option value="1" <c:if test="${modibook.starRate eq 1}">selected="selected"</c:if>> ★☆☆☆☆</option>
+                                <option value="2" <c:if test="${modibook.starRate eq 2}">selected="selected"</c:if>>★★☆☆☆</option>
+                                <option value="3" <c:if test="${modibook.starRate eq 3}">selected="selected"</c:if>>★★★☆☆</option>
+                                <option value="4" <c:if test="${modibook.starRate eq 4}">selected="selected"</c:if>>★★★★☆</option>
+                                <option value="5" <c:if test="${modibook.starRate eq 5}">selected="selected"</c:if>>★★★★★</option>
                             </select>
                         </div>
                         
@@ -122,16 +122,16 @@
                             <h3>현재 페이지</h3>
                             
                         </div>
-                        <div class="right">
+                        <div class="right" id="half">
                             <input type="text" maxlength="5" value="${modibook.curPage}" name="curPage">
                         </div>
                     <!-- </label> -->
                     <!-- <br> -->
                     <!-- <label> -->
-                        <div class="left">
+                        <div class="left" id="border">
                             <h3>총 페이지</h3>
                         </div>
-                        <div class="right">
+                        <div class="right" id="half">
                             <input type="text" maxlength="5" value="${modibook.totalPage}" name="totalPage">
                         </div>
                         
@@ -142,13 +142,13 @@
                                 <h3>연재중</h3>
                             </div>
                             <div class="right" id="half">
-                                <input type="radio" name="theEnd" value="1" checked>
+                                <input type="radio" name="theEnd" value="1" <c:if test="${modibook.theEnd eq 1}">checked="checked"</c:if>>
                             </div>
                             <div class="left" id="border">
                                 <h3>완결</h3>
                             </div>
                             <div class="right" id="half">
-                                <input type="radio" name="theEnd" value="0">
+                                <input type="radio" name="theEnd" value="0" <c:if test="${modibook.theEnd eq 0}">checked="checked"</c:if>>
                             </div>
                         </div>
                     <!-- <label> -->
