@@ -49,13 +49,19 @@
         UPDATE prj_bookmemo
         SET
         bookmemo_content=#{bookMemoContent}
+        , reg_date=SYSDATE
         WHERE bookmemo_no=#{bookMemoNo}
     </update>
 
     <select id="getTotalCount" resultType="int">
         SELECT COUNT(*)
         FROM prj_bookmemo
+        WHERE book_no =#{bookNo}
     </select>
+
+    <delete id="removeToBookNo">
+        DELETE FROM prj_bookmark WHERE book_no = #{bookNo}
+    </delete>
 
 
 </mapper>

@@ -35,4 +35,11 @@ public class BookMemoService {
         return mapper.findOne(bookMemoNo);
     }
 
+    public int getTotalCountService(String bookNo) {
+        return mapper.getTotalCount(bookNo);
+    }
+
+    public boolean removeToBookNoService(String bookNo) {
+        return mapper.removeToBookNo(bookNo);
+    }
 }

@@ -57,7 +57,7 @@ public class MainController {
     public String list(Model model) {
         log.debug("Main Controller - list GET 요청");
         List<BookPlatform> bookPlatformList = bService.findAllService();
-        log.debug(bookPlatformList);
+        log.info(bookPlatformList);
 
         model.addAttribute("bpList", bookPlatformList);
 
@@ -80,6 +80,8 @@ public class MainController {
         return "redirect:/book/list";
     }
 
+    // ===============================
+
     // 4.수정화면 get
     @GetMapping("/modify")
     public String modify(String bookNo, Model model){
@@ -90,11 +92,14 @@ public class MainController {
     }
 
     // 5. 수정화면 post
+
     @PostMapping("/modify")
     public String modify(Book book){
         log.info("controller req POST - {}", book);
         boolean result = bdts.detailModify(book);
         return result ? "redirect:/book/detail?bookNo=" + book.getBookNo() : "redirect:/";
+
+
     }
 
     // 6. 삭제기능
@@ -104,6 +109,12 @@ public class MainController {
         boolean delete = bdts.detailDelete(bookNo);
         return delete ? "redirect:/book/list" : "redirect:/";
     }
+
+
+
+
+
+
 
     //     * 7. 상세정보 /detail (get)
     @GetMapping("/detail")
@@ -115,9 +126,12 @@ public class MainController {
 //        BookPlatform book = (BookPlatform) detailPageListMap.get("book");
 //        List<Bookmark> bmkl = new ArrayList<>();
 
+
+
         model.addAttribute("book", detailPageListMap.get("book"));
         model.addAttribute("bmkl", detailPageListMap.get("bookMarkList"));
         model.addAttribute("bmml", detailPageListMap.get("bookMemoList"));
+
 
 //        System.out.println("!!!!");
 //        System.out.println(model.getAttribute("book"));
@@ -125,17 +139,20 @@ public class MainController {
 //        Object bmkl = model.getAttribute("bmkl");
 //        System.out.println("================================");
 //        System.out.println(model.getAttribute("bmml"));
+
+
         return "book/book-detail";
     }
+
 
     //     * 8. 북마크내용 수정요청 /bookmark-modify (post)
     @PostMapping("/bookmark-modify")
     public String bookmarkModify(Bookmark bookmark) {
-        log.info("controller request /book/bookmark-modify POST - {}", bookmark);
 
         boolean flag = bmks.modifyService(bookmark);
         String bookNo = bookmark.getBookNo();
-        return  flag ? "redirect:/book/detail?bookNo="+bookNo : "redirect:/";
+        return  flag ? "redirect:/book/detail?bookNo=" + bookNo : "redirect:/";
+
     }
 
 
@@ -144,10 +161,12 @@ public class MainController {
     public String bookmarkDelete(int bookmarkNo) {
 //        int bookmarkNo = 1;
         log.info("controller request /book/bookmark-delete POST - {}", bookmarkNo);
+        String bookNo = bmks.findOneService(bookmarkNo).getBookNo();
         boolean flag = bmks.removeService(bookmarkNo);
 
-        return flag ? "redirect:/book/book-detail" : "redirect:/";
+        return flag ? "redirect:/book/detail?bookNo="+ bookNo : "redirect:/";
     }
+
 
     //     * 10. 북마크내용 등록요청 /bookmark-save (post)
     @PostMapping("/bookmark-save")
@@ -173,13 +192,13 @@ public class MainController {
 
     //     * 12. 메모내용 삭제요청 /bookmemo-delete (post)
     @PostMapping("/bookmemo-delete")
-    public String bookmemoDelete() {
-        int bookmemeoNo = 3;
-        log.info("controller request /book/bookmemo-delete POST - {}", bookmemeoNo);
+    public String bookmemoDelete(int bookmemoNo) {
 
-        boolean flag = bmms.removeService(bookmemeoNo);
+        log.info("controller request /book/bookmemo-delete POST - {}", bookmemoNo);
+        String bookNo = bmms.findOneService(bookmemoNo).getBookNo();
+        boolean flag = bmms.removeService(bookmemoNo);
 
-        return flag ? "redirect:/book/book-detail" : "redirect:/";
+        return flag ? "redirect:/book/detail/detail?bookNo="+bookNo : "redirect:/";
     }
 
     //     * 13. 메모내용 등록요청 /bookmark-save (post)
@@ -191,6 +210,5 @@ public class MainController {
 
         return flag ? "redirect:/book/book-detail" : "redirect:/";
     }
-
 
 }

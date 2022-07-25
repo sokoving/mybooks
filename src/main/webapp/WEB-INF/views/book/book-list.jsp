@@ -21,7 +21,7 @@
     <!-- naver font -->
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-round.css" rel="stylesheet">
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-barun-gothic.css" rel="stylesheet">
-    
+
     <!-- custom css -->
     <link rel="stylesheet" href="/css/main.css">
     <!-- bootstrap css -->
@@ -80,7 +80,7 @@
                 <c:forEach var="bp" items="${bpList}">
                     <li class="list-group-item d-flex justify-content-between align-items-start">
                         <div class="list-left d-flex flex-column ">
-                            <div class="img-book"></div>
+                            <div class="img-book"><img class="img-custom" src="${bp.bookImg}" alt="책표지"></div>
                             <div class="badge bg-warning text-dark">즐겨찾기</div>
                         </div>
                         <div class="ms-2 me-auto text-break">

@@ -15,4 +15,10 @@ public class BookMemo {
     private String bookNo;
     private Date regDate;
     private String bookMemoContent;
+
+    public BookMemo(int bookMemoNo, String bookNo, String bookMemoContent) {
+        this.bookMemoNo = bookMemoNo;
+        this.bookNo = bookNo;
+        this.bookMemoContent = bookMemoContent;
+    }
 }

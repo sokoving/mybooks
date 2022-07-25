@@ -11,17 +11,17 @@
     <!-- 게시글 등록 SQL 작성 :  id속성에는 추상메서드 이름  -->
     <insert id="save">
         INSERT INTO prj_book
-            (
-            book_no
-            , platform_id, book_title, writer, star_rate, book_comment
-            , cur_page, total_page, the_end
-            )
+        (
+        book_no
+        , platform_id, book_title, writer, star_rate, book_comment
+        , cur_page, total_page, the_end, book_img
+        )
         VALUES
-            (
-            TO_CHAR(SYSDATE, 'YYMMDD') || LPAD(seq_prj_book.nextval, 4, '0')
-            , #{platformId}, #{bookTitle}, #{writer}, #{starRate}, #{bookComment}
-            , #{curPage}, #{totalPage},#{theEnd}
-            )
+        (
+        TO_CHAR(SYSDATE, 'YYMMDD') || LPAD(seq_prj_book.nextval, 4, '0')
+        , #{platformId}, #{bookTitle}, #{writer}, #{starRate}, #{bookComment}
+        , #{curPage}, #{totalPage}, #{theEnd}, #{bookImg}
+        )
     </insert>
 
     <!-- 게시글 정보 삭제 -->
@@ -34,14 +34,15 @@
     <update id="modify">
         UPDATE prj_book
         SET
-            platform_id = #{platformId}
-            , book_title = #{bookTitle}
-            , writer = #{writer}
-            , star_rate = #{starRate}
-            , book_comment = #{bookComment}
-            , cur_page = #{curPage}
-            , total_page = #{totalPage}
-            , the_end = #{theEnd}
+        platform_id = #{platformId}
+        , book_title = #{bookTitle}
+        , writer = #{writer}
+        , star_rate = #{starRate}
+        , book_comment = #{bookComment}
+        , cur_page = #{curPage}
+        , total_page = #{totalPage}
+        , the_end = #{theEnd}
+        , book_img = #{bookImg}
         WHERE book_no = #{bookNo}
     </update>
 
@@ -71,6 +72,8 @@
         <result property="totalPage" column="TOTAL_PAGE"/>
         <result property="theEnd" column="THE_END"/>
         <result property="regDate" column="REG_DATE"/>
+        <result property="bookImg" column="book_img"/>
+        <result property="platformLink" column="platform_link"/>
     </resultMap>
 
     <!--  전체 조회  -->
@@ -80,7 +83,7 @@
         a.user_id, a.importance
         , a.book_no, a.platform_id, b.platform_name
         , a.book_title, a.writer, a.star_rate, a.book_comment
-        , a.cur_page, a.total_page, a.the_end, a.reg_date
+        , a.cur_page, a.total_page, a.the_end, a.reg_date, a.book_img, b.platform_link
         FROM prj_book a
         LEFT OUTER JOIN prj_platform b
         ON a.platform_id = b.platform_id
@@ -92,7 +95,7 @@
         a.user_id, a.importance
         , a.book_no, a.platform_id, b.platform_name
         , a.book_title, a.writer, a.star_rate, a.book_comment
-        , a.cur_page, a.total_page, a.the_end, a.reg_date
+        , a.cur_page, a.total_page, a.the_end, a.reg_date ,a.book_img, b.platform_link
         FROM prj_book a
         LEFT OUTER JOIN prj_platform b
         ON a.platform_id = b.platform_id
@@ -110,13 +113,13 @@
         WHERE BOOK_NO = #{bookNo}
     </select>
 
-<!--  importance 필드 조작 sql  -->
+    <!--  importance 필드 조작 sql  -->
     <!-- 등록  -->
     <update id="saveImportance">
         update prj_book
         set importance=(select max(importance)+1
-                        from prj_book
-                        )
+        from prj_book
+        )
         WHERE book_no = #{bookNo}
     </update>
 
@@ -133,11 +136,11 @@
         set importance=#{newImportance}
         WHERE book_no = #{bookNo}
     </update>
-    
+
     <!-- 전체 조회   -->
     <select id="findAllImportance" resultMap="bookMap">
         SELECT
-            book_no, importance
+        book_no, importance
         FROM prj_book
         WHERE importance>0
     </select>
