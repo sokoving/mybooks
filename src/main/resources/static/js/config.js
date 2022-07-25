@@ -34,7 +34,7 @@ function convertStarRate() {
 3 리디북스        배경: #1E9EFF	글자색: #fff
 4 문피아          배경: #5aa2dd/ #5f9bd1 글자색: #333
 5 조아라          배경: #004c99 글자색: #a5f72c
-6 기타            배경: #088F8F 글자색: #fff
+6 미분류          배경: #088F8F 글자색: #fff
 */
 function convertPlatformBadge() {
     // console.log('convert Platform Badge 함수 시작');
@@ -77,7 +77,7 @@ function convertPlatformBadge() {
 
 /*
 0: 완결 .bg-danger / 
-1: 연재 .bg-secondary
+1: 연재중 .bg-secondary
 */
 function convertTheEndBadge() {
     // console.log('convert the end Badge 함수 시작');

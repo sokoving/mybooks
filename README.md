@@ -13,7 +13,6 @@
 - 특수문자 : https://snskeyboard.com/specialfont/
 - 컬러 코드 : https://encycolorpedia.kr/f0a6b1
 
-# 부트스트랩
+# 부트스트랩 (v5.1.3)
 - card : https://getbootstrap.com/docs/5.2/components/card/
 - table : https://getbootstrap.com/docs/5.2/content/tables/#overview
-
