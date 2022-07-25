@@ -88,7 +88,7 @@ insert into prj_platform VALUES (seq_prj_platform.nextval, '네이버 시리즈'
 insert into prj_platform VALUES (seq_prj_platform.nextval, '리디북스', 'https://ridibooks.com/webtoon/recommendation');
 insert into prj_platform VALUES (seq_prj_platform.nextval, '문피아', 'https://www.munpia.com/?NaPm=ct%3Dl5z6meny%7Cci%3Dcheckout%7Ctr%3Dds%7Ctrx%3D%7Chk%3De875374da6b62f00a05d7e68449faa3cced00dde');
 insert into prj_platform VALUES (seq_prj_platform.nextval, '조아라', 'https://www.joara.com/');
-insert into prj_platform (platform_id, platform_name) VALUES (seq_prj_platform.nextval, '기타');
+insert into prj_platform (platform_id, platform_name) VALUES (seq_prj_platform.nextval, '미분류');
 commit;
 
 
