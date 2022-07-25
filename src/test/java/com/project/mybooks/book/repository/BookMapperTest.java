@@ -100,7 +100,7 @@ class BookMapperTest {
     @Test
     @DisplayName("즐겨찾기 등록: importance가 max+1로 수정돼야 한다")
     void saveImportanceTest(){
-        String bn = "2207220002";
+        String bn = "2207250002";
         boolean flag = mapper.saveImportance(bn);
         assertTrue(flag);
     }
@@ -122,8 +122,12 @@ class BookMapperTest {
     }
 
     @Test
-    @DisplayName("select importance from prj_book")
+    @DisplayName("importance가 0보다 큰 모든 데이터가 조회된다")
     void findAllImportance(){
-        mapper.findAllImportance();
+        List<Integer> allImportance = mapper.findAllImportance();
+        for (Integer integer : allImportance) {
+            System.out.println(integer);
+        }
+
     }
 }
