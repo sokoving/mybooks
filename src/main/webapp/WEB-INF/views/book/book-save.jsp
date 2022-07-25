@@ -33,9 +33,9 @@
         <br>
         # 작가 : <input id="writer-input" maxlength="50" type="text" name="writer">
         <br>
-        # 현재 회차 : <input id="cur-page" maxlength="5" type="text" name="curPage">
+        # 현재 회차 : <input id="cur-page" maxlength="5" type="number" name="curPage">
         <br>
-        # 총 회차 : <input id="total-page" maxlength="5" type="text" name="totalPage">
+        # 총 회차 : <input id="total-page" maxlength="5" type="number" name="totalPage">
         <br>
         # 연재중 <input type="radio" name="theEnd" value="1" checked>
         완결 <input type="radio" name="theEnd" value="0">
@@ -70,6 +70,9 @@
                 const $writerInput = document.getElementById('writer-input');
                 let flag = false;
 
+                const $curPage = document.getElementById('cur-page');
+                const $totalPage = document.getElementById('total-page');
+
                 console.log('b: ', $bookNameInput.value);
                 console.log('w: ', $writerInput.value);
                 if ($bookNameInput.value.trim() === '') {
@@ -79,28 +82,38 @@
                 } else {
                     flag = true;
                 }
+
+                if($curPage.value.trim() === '') {
+                    $curPage.value = 0;
+                }
+                if($totalPage.value.trim() === '') {
+                    $totalPage.value = 0;
+                }
+
                 return flag;
             }
 
-            // function checkStringCnt() {
+//             function checkStringCnt() {
 
-            //     let flag = false;
+//                 let flag = false;
 
-            //     const $bookNameInput = document.getElementById('book-name-input');
-            //     const $writerinput = document.getElementById('writer-input');
-            //     const $curPage = document.getElementById('cur-page');
-            //     const $totalPage = document.getElementById('total-page');
-            //     const $bookComment = document.getElementById('book-comment');
+//                 const $bookNameInput = document.getElementById('book-name-input');
+//                 const $writerinput = document.getElementById('writer-input');
+//                 const $curPage = document.getElementById('cur-page');
+//                 const $totalPage = document.getElementById('total-page');
+//                 const $bookComment = document.getElementById('book-comment');
 
                 
-
-            //     if ($bookNameInput.value > 50) {
-            //         alert("제목은 50글자 이하로 입력해주세요")
-            //     } else {
-            //         flag = true;
-            //     }
-            //     return flag;
-            // }
+// while(true){
+//                 if ($bookNameInput.value.lenght > 50) {
+//                     alert("제목은 50글자 이하로 입력해주세요");
+                
+//                 } else {
+//                     flag = true;
+//                 }
+//             }
+//                 return flag;
+//             }
 
             // 게시물 입력값 검증
             const $regBtn = document.getElementById('reg-btn');

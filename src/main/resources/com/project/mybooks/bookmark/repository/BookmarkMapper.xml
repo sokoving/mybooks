@@ -39,7 +39,7 @@
     <update id="modify">
         UPDATE prj_bookmark
         SET bookmark_page = #{bookmarkPage}, bookmark_content = #{bookmarkContent}, reg_date=SYSDATE
-        WHERE book_no = #{bookNo}
+        WHERE book_no = #{bookNo} AND bookmark_no = #{bookmarkNo}
     </update>
 
     <delete id="remove">

@@ -75,6 +75,10 @@ public class MainController {
     @PostMapping("/write")
     public String write(Book book) {
         log.info("Main Controller : write POST 요청 - {}", book);
+        log.info("curpage 들어오는 값 : {}", book.getCurPage());
+        log.info("totalpage 들어오는 값 : {}", book.getTotalPage());
+
+
         boolean b = bService.saveService(book);
         log.info("flag - {}", b);
         return "redirect:/book/list";
@@ -86,7 +90,7 @@ public class MainController {
     @GetMapping("/modify")
     public String modify(String bookNo, Model model){
         log.info("modify GET - 요청이 들어옴- {}", bookNo);
-        Book book = bdts.detailFindBookOne(bookNo);
+        BookPlatform book = bdts.detailFindBookOne(bookNo);
         model.addAttribute("modibook", book);
         return "book/book-modify";
     }
@@ -149,6 +153,7 @@ public class MainController {
     @PostMapping("/bookmark-modify")
     public String bookmarkModify(Bookmark bookmark) {
 
+        log.info("북마크 넘어온값 : {}", bookmark);
         boolean flag = bmks.modifyService(bookmark);
         String bookNo = bookmark.getBookNo();
         return  flag ? "redirect:/book/detail?bookNo=" + bookNo : "redirect:/";
@@ -198,7 +203,7 @@ public class MainController {
         String bookNo = bmms.findOneService(bookmemoNo).getBookNo();
         boolean flag = bmms.removeService(bookmemoNo);
 
-        return flag ? "redirect:/book/detail/detail?bookNo="+bookNo : "redirect:/";
+        return flag ? "redirect:/book/detail?bookNo="+bookNo : "redirect:/";
     }
 
     //     * 13. 메모내용 등록요청 /bookmark-save (post)

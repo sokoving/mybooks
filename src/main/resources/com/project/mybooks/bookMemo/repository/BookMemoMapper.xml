@@ -50,7 +50,7 @@
         SET
         bookmemo_content=#{bookMemoContent}
         , reg_date=SYSDATE
-        WHERE bookmemo_no=#{bookMemoNo}
+        WHERE bookmemo_no=#{bookMemoNo} AND book_no = #{bookNo}
     </update>
 
     <select id="getTotalCount" resultType="int">

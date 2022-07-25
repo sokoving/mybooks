@@ -38,9 +38,9 @@ public class BookDetailService {
         return detailMap;
     }
 
-    public Book detailFindBookOne(String bookNo){
-        Book findOneB = bMapper.findBookOne(bookNo);
-        return findOneB;
+    public BookPlatform detailFindBookOne(String bookNo){
+        BookPlatform one = bMapper.findOne(bookNo);
+        return one;
     }
 
 

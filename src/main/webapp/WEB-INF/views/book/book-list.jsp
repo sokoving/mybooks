@@ -96,7 +96,9 @@
                         </div>
 
                         <div class="list-right">
-                            <div class="platform badge bg-auto" data-platform-id="${bp.platformId}">${bp.platformName}</div>
+                            <div class="platform badge bg-auto" data-platform-id="${bp.platformId}">
+                                <a href="${bp.platformLink}">${bp.platformName}</a>
+                            </div>
                             <div class="the-end badge badge bg-secondary">${bp.theEnd}</div>
                         </div>
                     </li>
