@@ -235,17 +235,17 @@
                             <input type="hidden" name="bookNo" value="${mk.bookNo}" readonly>
                         </label>
                         <label>
-                            No : <input type="text" name="bookmarkNo" value="${mk.bookmarkNo}" readonly>
-                             <!-- <span name="bookmarkNo">${mk.bookmarkNo}</span> -->
+                            <!--  <input type="text" name="bookmarkNo" value="${mk.bookmarkNo}" readonly> -->
+                            No : <span name="bookmarkNo">${mk.bookmarkNo}</span>
                         </label>
                         <label>
-                            Page : <input maxlength="5" type="text" name="bookmarkPage" value="${mk.bookmarkPage}">
-                             <!-- <span name="bookmarkPage">${mk.bookmarkPage}</span> -->
+                             <!-- <input maxlength="5" type="text" name="bookmarkPage" value="${mk.bookmarkPage}"> -->
+                             Page : <span name="bookmarkPage">${mk.bookmarkPage}</span>
                             <br>
                         </label>
                         <label>
-                            Content : <input type="text" name="bookmarkContent" value="${mk.bookmarkContent}">
-                            <!-- <span name="bookmarkContent">${mk.bookmarkContent}</span> -->
+                             <!-- <input type="text" name="bookmarkContent" value="${mk.bookmarkContent}"> -->
+                             Content : <span name="bookmarkContent">${mk.bookmarkContent}</span>
                         </label>
                         <label>
                             <input type="hidden" name="regDate" value="${mk.regDate}" readonly>
@@ -272,13 +272,13 @@
                             <input type="hidden" name="bookNo" value="${ml.bookNo}" readonly>
                         </label>
                         <label>
-                            No :  <input type="text" name="bookMemoNo" value="${ml.bookMemoNo}" readonly>
-                           <!-- <span name="bookMemoNo">${ml.bookMemoNo}</span> -->
+                             <!-- <input type="text" name="bookMemoNo" value="${ml.bookMemoNo}" readonly> -->
+                             No : <span name="bookMemoNo">${ml.bookMemoNo}</span>
                             <br>
                         </label>
                         <label>
-                            Content :  <input type="text" name="bookMemoContent" value="${ml.bookMemoContent}">
-                            <!-- <span name="bookMemoContent">${ml.bookMemoContent}</span> -->
+                              <!-- <input type="text" name="bookMemoContent" value="${ml.bookMemoContent}"> -->
+                              Content : <span name="bookMemoContent">${ml.bookMemoContent}</span>
                             <br>
                         </label>
                         <label>
@@ -396,9 +396,9 @@
             console.log($bmBookmarkContent.firstElementChild);
 
             $bfBookNo.firstElementChild.value = $bmBookNo.firstElementChild.value;
-            $bfBookmarkNo.firstElementChild.value = $bmBookmarkNo.firstElementChild.value;
-            $bfBookmarkPage.firstElementChild.value = $bmBookmarkPage.firstElementChild.value;
-            $bfBookConstent.firstElementChild.value = $bmBookmarkContent.firstElementChild.value;
+            $bfBookmarkNo.firstElementChild.value = $bmBookmarkNo.firstElementChild.textContent;
+            $bfBookmarkPage.firstElementChild.value = $bmBookmarkPage.firstElementChild.textContent;
+            $bfBookConstent.firstElementChild.value = $bmBookmarkContent.firstElementChild.textContent;
 
             console.log($bfBookNo.firstElementChild.value);
             console.log($bfBookmarkNo.firstElementChild.value);
@@ -427,8 +427,8 @@
             console.log($mmBookmemoNo);
             console.log($mmBookmemoContent.firstElementChild);
             $mmfBookNo.firstElementChild.value = $mmBookNo.firstElementChild.value;
-            $mmfBookMemoNo.firstElementChild.value = $mmBookmemoNo.firstElementChild.value;
-            $mmfBookConstent.firstElementChild.value = $mmBookmemoContent.firstElementChild.value;
+            $mmfBookMemoNo.firstElementChild.value = $mmBookmemoNo.firstElementChild.textContent;
+            $mmfBookConstent.firstElementChild.value = $mmBookmemoContent.firstElementChild.textContent;
 
 
             const $mmDelte = document.querySelector('#bookmemoDelete');
