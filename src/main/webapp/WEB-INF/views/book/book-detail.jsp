@@ -127,9 +127,9 @@
     .bookmemo-custom {
         width: 50%;
     }
-    #bookmark-reg-btn {
+    /* #bookmark-reg-btn {
         width: 100px;
-    }
+    } */
 
 </style>
 
@@ -190,15 +190,18 @@
                         <br>
                         <input type="hidden" name="bookNo" value="${book.bookNo}" readonly>
                         <label class="form-floating mb-3">
-                            <input class="form-control" id="bookmarkPage-input floatingInput" maxlength="5" type="text" name="bookmarkPage">
-                            <label for="floatingInput">Page</label>
+                            <input type="text" name="bookmarkPage" id="bookmarkPage-input" maxlength="5">
+                            <!-- <input class="form-control" id="bookmarkPage-input floatingInput" maxlength="5" type="text" name="bookmarkPage"> -->
+                            <!-- <label for="floatingInput">Page</label> -->
                         </label>
                         <br>
                         <label class="form-floating mb-3">
-                            <input class="form-control" type="text" id="bookmarkContent-input floatingInput" name="bookmarkContent">
-                            <label for="floatingInput">Content</label>
+                            <input type="text" id="bookmarkContent-input" name="bookmarkContent">
+                            <!-- <input class="form-control" type="text" id="bookmarkContent-input floatingInput" name="bookmarkContent"> -->
+                            <!-- <label for="floatingInput">Content</label> -->
                         </label>
-                        <button class="btn btn-warning" id="bookmark-reg-btn" type="button">등록</button>
+                        <button id="bookmark-reg-btn" type="button">등록</button>
+                        <!-- <button class="btn btn-warning" id="bookmark-reg-btn" type="button"></button> -->
                     </form>
                 </li>
             </ul>
@@ -232,17 +235,17 @@
                             <input type="hidden" name="bookNo" value="${mk.bookNo}" readonly>
                         </label>
                         <label>
-                            <!-- <input type="text" name="bookmarkNo" value="${mk.bookmarkNo}" readonly> -->
-                            No : <span name="bookmarkNo">${mk.bookmarkNo}</span>
+                            No : <input type="text" name="bookmarkNo" value="${mk.bookmarkNo}" readonly>
+                             <!-- <span name="bookmarkNo">${mk.bookmarkNo}</span> -->
                         </label>
                         <label>
-                            <!-- <input maxlength="5" type="text" name="bookmarkPage" value="${mk.bookmarkPage}"> -->
-                            Page : <span name="bookmarkPage">${mk.bookmarkPage}</span>
+                            Page : <input maxlength="5" type="text" name="bookmarkPage" value="${mk.bookmarkPage}">
+                             <!-- <span name="bookmarkPage">${mk.bookmarkPage}</span> -->
                             <br>
                         </label>
                         <label>
-                            <!-- <input type="text" name="bookmarkContent" value="${mk.bookmarkContent}"> -->
-                            Content : <span name="bookmarkContent">${mk.bookmarkContent}</span>
+                            Content : <input type="text" name="bookmarkContent" value="${mk.bookmarkContent}">
+                            <!-- <span name="bookmarkContent">${mk.bookmarkContent}</span> -->
                         </label>
                         <label>
                             <input type="hidden" name="regDate" value="${mk.regDate}" readonly>
@@ -269,13 +272,13 @@
                             <input type="hidden" name="bookNo" value="${ml.bookNo}" readonly>
                         </label>
                         <label>
-                            <!-- <input type="text" name="bookMemoNo" value="${ml.bookMemoNo}" readonly> -->
-                            No : <span name="bookMemoNo">${ml.bookMemoNo}</span>
+                            No :  <input type="text" name="bookMemoNo" value="${ml.bookMemoNo}" readonly>
+                           <!-- <span name="bookMemoNo">${ml.bookMemoNo}</span> -->
                             <br>
                         </label>
                         <label>
-                            <!--  <input type="text" name="bookMemoContent" value="${ml.bookMemoContent}"> -->
-                            Content : <span name="bookMemoContent">${ml.bookMemoContent}</span>
+                            Content :  <input type="text" name="bookMemoContent" value="${ml.bookMemoContent}">
+                            <!-- <span name="bookMemoContent">${ml.bookMemoContent}</span> -->
                             <br>
                         </label>
                         <label>
