@@ -175,7 +175,7 @@ public class MainController {
 
         boolean flag = bmks.saveService(bookmark);
 
-        return flag ? "redirect:/book/book-detail" : "redirect:/";
+        return flag ? "redirect:/book/detail?bookNo="+bookmark.getBookNo() : "redirect:/";
     }
 
     //     * 11. 메모내용 수정요청 /bookmemo-modify (post)
@@ -208,7 +208,7 @@ public class MainController {
 
         boolean flag = bmms.saveService(bookMemo);
 
-        return flag ? "redirect:/book/book-detail" : "redirect:/";
+        return flag ? "redirect:/book/detail?bookNo="+bookMemo.getBookNo() : "redirect:/";
     }
 
 }
