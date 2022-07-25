@@ -17,11 +17,11 @@
      }
 
      #wrap {
-         background-color: #f8f9fa;
+         background-color: #98c6c5;
          width: 70%;
          height: 100vh;
          margin: auto;
-         border: 1px solid #f8f9fa;
+         border: 1px solid #98c6c5;
          display: flex;
          flex-flow: column;
      }

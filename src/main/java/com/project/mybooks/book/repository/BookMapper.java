@@ -3,6 +3,8 @@ package com.project.mybooks.book.repository;
 
 import com.project.mybooks.book.domain.Book;
 import com.project.mybooks.book.domain.BookPlatform;
+import com.project.mybooks.common.paging.Page;
+import com.project.mybooks.common.search.Search;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -15,7 +17,7 @@ public interface BookMapper {
 
         // 게시글 전체 조회
         List<BookPlatform> findAll();
-//        List<Board> findAll2(Search search);
+        List<BookPlatform> findAll2(Search search);
 
         // 게시글 상세 조회
         BookPlatform findOne(String bookNo);
@@ -30,7 +32,7 @@ public interface BookMapper {
 
         // 전체 게시물 수 조회
         int getTotalCount();
-//        int getTotalCount(Search search);
+        int getTotalCount2(Search search);
 
 
 

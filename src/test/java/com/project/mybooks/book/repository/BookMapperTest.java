@@ -2,6 +2,8 @@ package com.project.mybooks.book.repository;
 
 import com.project.mybooks.book.domain.Book;
 import com.project.mybooks.book.domain.BookPlatform;
+import com.project.mybooks.common.paging.Page;
+import com.project.mybooks.common.search.Search;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -129,5 +131,24 @@ class BookMapperTest {
             System.out.println(b);
         }
 
+    }
+
+    @Test
+    @DisplayName("페이징과 서치를 추가한 findAll2")
+    void findAll2Test(){
+        Search search = new Search(2, 2, "platformId", "1");
+        List<BookPlatform> all2 = mapper.findAll2(search);
+        for (BookPlatform a : all2) {
+            System.out.println(a);
+        }
+    }
+
+    @Test
+    @DisplayName("서치를 매개변수로 준 getTotalCount2")
+    void getTotalCount2Test(){
+        Search search = new Search(1, 10, "platformId", "1");
+        int t = mapper.getTotalCount2(search);
+        System.out.println("t = " + t);
+        assertEquals(5, t);
     }
 }

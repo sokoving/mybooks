@@ -62,9 +62,6 @@
                 <li class="list-head list-group-item d-flex justify-content-center">
                     <h2 class="fs-3">즐겨찾기 목록</h2>
                 </li>
-                <li class="list-group-item list-group-item-action text-center fs-6">
-                    <a href="#">+ 펼치기</a>
-                </li>
 
                 <c:forEach var="im" items="${imList}">
                     <li class="list-group-item d-flex justify-content-between align-items-start">

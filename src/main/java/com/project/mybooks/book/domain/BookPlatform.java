@@ -12,7 +12,7 @@ import java.util.Date;
 public class BookPlatform {
 
     private String userId; // userID (나중에)
-    private int importance;  // 중요도 DEFAULT 0 (나중에)
+    private int importance;  // 중요도 DEFAULT 0
     private String bookNo;  // 글번호(PK)
     private int platformId; // 플랫폼 아이디
     private String platformName; // 플랫폼 이름

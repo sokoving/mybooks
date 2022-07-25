@@ -90,6 +90,30 @@
         ORDER BY a.book_no DESC
     </select>
 
+    <select id="findAll2" resultMap="bookPlatMap">
+        SELECT  *
+        FROM (
+            SELECT ROWNUM rn, v_board.*
+            FROM (
+                SELECT
+                    a.user_id, a.importance
+                    , a.book_no, a.platform_id, b.platform_name
+                    , a.book_title, a.writer, a.star_rate, a.book_comment
+                    , a.cur_page, a.total_page, a.the_end, a.reg_date, a.book_img, b.platform_link
+                FROM prj_book a
+                LEFT OUTER JOIN prj_platform b
+                ON a.platform_id = b.platform_id
+                <if test = "type == 'platformId'">where a.platform_id = #{keyword}</if>
+                <if test = "type == 'bookTitle'">where a.book_title LIKE '%' || #{keyword} || '%'</if>
+                <if test = "type == 'writer'">where a.writer LIKE '%' || #{keyword} || '%'</if>
+                <if test = "type == 'starRate'">where a.starRate = #{keyword}</if>
+                ORDER BY a.book_no DESC
+                ) v_board
+            )
+        WHERE rn BETWEEN (#{pageNum} - 1) * #{amount} + 1 AND (#{pageNum} * #{amount})
+    </select>
+
+
     <select id="findOne" resultMap="bookPlatMap">
         SELECT
         a.user_id, a.importance
@@ -105,6 +129,19 @@
     <select id="getTotalCount" resultType="int">
         SELECT count(*)
         FROM prj_book
+    </select>
+
+    <select id="getTotalCount2" resultType="int">
+        SELECT count(*)
+        FROM (
+            SELECT
+                    *
+            FROM prj_book
+            <if test = "type == 'platformId'">where platform_id = #{keyword}</if>
+            <if test = "type == 'bookTitle'">where book_title LIKE '%' || #{keyword} || '%'</if>
+            <if test = "type == 'writer'">where writer LIKE '%' || #{keyword} || '%'</if>
+            <if test = "type == 'starRate'">where starRate = #{keyword}</if>
+            )
     </select>
 
     <!--    BOOK findOne-->

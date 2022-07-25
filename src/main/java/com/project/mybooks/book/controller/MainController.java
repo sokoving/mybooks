@@ -8,11 +8,14 @@ import com.project.mybooks.bookMemo.domain.BookMemo;
 import com.project.mybooks.bookMemo.service.BookMemoService;
 import com.project.mybooks.bookmark.domain.Bookmark;
 import com.project.mybooks.bookmark.service.BookmarkService;
+import com.project.mybooks.common.paging.PageMaker;
+import com.project.mybooks.common.search.Search;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -53,15 +56,24 @@ public class MainController {
 
     // 1. 책 리스트 /list (get)
     @GetMapping("/list")
-    public String list(Model model) {
+    public String list(Model model, Search search) {
         log.info("Main Controller - list GET 요청");
-        List<BookPlatform> bookPlatformList = bService.findAllService();
-        log.debug(bookPlatformList);
+        // search를 적용한 리스트를 가진 맵 불러오기
+        List<BookPlatform> bList = bService.findAll2service(search);
+        log.info(bList);
+
+        // 페이지 정보 생성
+        PageMaker pm = new PageMaker(search, bService.getTotal2Service(search));
+        log.info("pageMaker return date = {}", pm);
+
+        // 즐겨찾기 추가된 리스트만 불러오기
         List<BookPlatform> importanceList = bService.findAllImportanceService();
         log.debug(importanceList);
 
-        model.addAttribute("bpList", bookPlatformList);
+        model.addAttribute("bpList", bList);
+        model.addAttribute("pm", pm);
         model.addAttribute("imList", importanceList);
+        model.addAttribute("search", search);
 
         return "book/book-list";
     }
