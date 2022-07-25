@@ -24,7 +24,7 @@
             <option value="3">리디북스</option>
             <option value="4">문피아</option>
             <option value="5">조아라</option>
-            <option value="6">기타</option>
+            <option value="6">미분류</option>
         </select>
         <br>
         # 이미지 링크 : <input type="text" name="bookImg">
