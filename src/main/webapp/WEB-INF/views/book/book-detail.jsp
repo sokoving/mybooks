@@ -4,75 +4,250 @@
 <html lang="ko">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <%@ include file="../include/static-head.jsp" %>
 </head>
+
+<style>
+    @font-face {
+        font-family: 'KOTRAHOPE';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+    .notosanskr * {
+        font-family: 'Noto Sans KR', sans-serif;
+    }
+
+
+    body {
+        position: relative;
+        background: #eee;
+    }
+
+    body a {
+        text-decoration: none;
+        color: #000;
+        font-weight: bold;
+    }
+
+    .wrap {
+        width: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        background: rgb(255, 255, 255);
+    }
+
+    .detail-page {
+        margin-top: 100px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .custom-img {
+        width: 300px;
+        height: 350px;
+        flex-grow: 1;
+        padding-left: 30px;
+    }
+
+    .detail-content {
+        flex-grow: 1;
+        width: 500px;
+    }
+
+    .detail-content li {
+        line-height: 70px;
+        font-weight: 700;
+        font-size: 20px;
+        font-family: 'Noto Sans KR';
+    }
+
+    .book-comment {
+        width: 100%;
+        font-weight: 700;
+        font-size: 20px;
+        font-family: 'Noto Sans KR';
+    }
+
+
+
+    .detail-btn {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        height: 50px;
+        margin-top: 30px;
+    }
+
+    .detail-btn li {
+        width: 150px;
+    }
+
+    .btn-yellow {
+        background: #fdc324;
+        color: #333 !important;
+        border: 1px solid #fdc324 !important;
+        width: 100px;
+        height: 40px;
+    }
+
+    .btn-custom {
+        font-weight: 700;
+        font-size: 20px;
+        font-family: 'Noto Sans KR';
+    }
+</style>
+
 
 
 <body>
-    <h1> # detial page </h1>
+    <div class="wrap">
 
-    <!-- 
-        "book", detailPageListMap.get("book"));
-        "bmkl",detailPageListMap.get("bookMarkList"));
-        "bmml", detailPageListMap.get("bookMemoList"));
 
- -->
+        <div class="detail-page">
+            <div>
+                <img src="${book.bookImg}" class="rounded mx-auto d-block custom-img" alt="책 표지">
+            </div>
 
-    <ul>
-        <li>플랫폼: ${book.platformName} </li>
-        <li>제목: ${book.bookTitle} (${book.theEnd})</li>
-        <li>작가: ${book.writer}</li>
-        <li>별점: ${book.starRate}</li>
-        <li> ${book.curPage}/${book.totalPage}</li>
-        <li>한줄평 : ${book.bookComment}</li>
-    </ul>
+            <ul class="detail-content">
+                <li>플랫폼: ${book.platformName} </li>
+                <li>제목: ${book.bookTitle} (${book.theEnd})</li>
+                <li>작가: ${book.writer}</li>
+                <li>별점: ${book.starRate}</li>
+                <li> ${book.curPage}/${book.totalPage}</li>
+            </ul>
 
-    <div class="modi-remo-list">
-        <a href="/book/modify?bookNo=${book.bookNo}">수정</a>
-        <a href="/book/delete?bookNo=${book.bookNo}">삭제</a>
-        <a href="/book/list">목록</a>
+            <ul class="book-comment">
+                <li>한줄평 : <br>
+                    ${book.bookComment}
+                </li>
+            </ul>
+
+
+            <ul class="modi-remo-list detail-btn">
+                <li>
+                    <a href="/book/modify?bookNo=${book.bookNo}" class="btn-atag">
+                        <button type="button" class="btn btn-warning btn-yellow btn-custom">수정</button>
+                    </a>
+                </li>
+                <li>
+                    <a href="/book/delete?bookNo=${book.bookNo}" class="btn-atag">
+                        <button type="button" class="btn btn-warning btn-yellow btn-custom">삭제</button>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="/book/list" class="btn-atag">
+                        <button type="button" class="btn btn-warning btn-yellow btn-custom">목록</button>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <h1>북마크 / 북메모 등록기능</h1>
+
+        <!-- 북마크 등록 -->
+        <ul>
+            <li>
+                <form action="/book/bookmark-save" method="post">
+                    <br>
+                    <input type="hidden" name="bookNo" value="${book.bookNo}" readonly>
+                    <label>
+                        bookmarkPage : <input id="bookmarkPage-input" type="text" name="bookmarkPage">
+                    </label>
+                    <br>
+                    <label>
+                        bookmarkContent : <input type="text" id="bookmarkContent-input" name="bookmarkContent">
+                    </label>
+                    <button type="submit">등록</button>
+                </form>
+            </li>
+        </ul>
+        <!-- 북마크 리스트 밑 수정 -->
+        <ul>
+            <li>
+                <c:forEach var="mk" items="${bmkl}">
+                    <form action="/book/bookmark-modify" method="post">
+                        <label>
+                            <input type="hidden" name="bookNo" value="${mk.bookNo}" readonly>
+                        </label>
+                        <label>
+                            bookmarkNo : <input type="text" name="bookmarkNo" value="${mk.bookmarkNo}" readonly>
+                        </label>
+                        <label>
+                            bookmarkPage : <input type="text" name="bookmarkPage" value="${mk.bookmarkPage}">
+                        </label>
+                        <label>
+                            bookmarkContent : <input type="text" name="bookmarkContent" value="${mk.bookmarkContent}">
+                        </label>
+                        <label>
+                            regDate : <input type="text" name="regDate" value="${regDate}" readonly>
+                        </label>
+                        <button type="button">수정</button>
+                        <br>
+                    </form>
+                </c:forEach>
+            </li>
+        </ul>
+
+
+        <ul>
+            <!-- 메모 등록 -->
+            <li>
+                <form action="/book/bookmemo-save" method="post">
+                    <br>
+                    <input type="hidden" name="bookNo" value="${book.bookNo}" readonly>
+                    <label>
+                        bookMemoContent : <input type="text" id="bookmemoContent-input" name="bookMemoContent">
+                    </label>
+                    <button type="submit">등록</button>
+                </form>
+            </li>
+        </ul>
+
+
+        <!-- 메모 리스트 밑 수정 -->
+        <ul>
+            <li>
+                <c:forEach var="ml" items="${bmml}">
+                    <form action="/book/bookmemo-modify" method="post">
+                        <label>
+                            <input type="hidden" name="bookNo" value="${ml.bookNo}" readonly>
+                        </label>
+                        <label>
+                            bookMemoNo : <input type="text" name="bookMemoNo" value="${ml.bookMemoNo}" readonly>
+                        </label>
+                        <label>
+                            bookMemoContent : <input type="text" name="bookMemoContent" value="${ml.bookMemoContent}">
+                        </label>
+                        <label>
+                            reg_date : <input type="text" name="regDate" value="${ml.regDate}" disabled>
+                        </label>
+                        <button type="submit">수정</button>
+                    </form>
+                </c:forEach>
+            </li>
+        </ul>   
     </div>
 
-    <%-- <ul>
-    <li>${bmkl.bookmarkNo}</li>
-</ul> --%>
+
+    <script>
+        (function() {
 
 
 
-    <ul>
-        <c:forEach var="mk" items="${bmkl}">
-            <li>
-                <form action="/book/bookmark-modify" method="post">
-                    bookno : <input type="text" name="bookNo" value="${mk.bookNo}">
-                    bookmarkNo : <input type="text" name="bookmarkNo" value="${mk.bookmarkNo}">
-                    <label>
-                        bookmarkContent : <input type="text" name="bookmarkContent" value="${mk.bookmarkContent}">
-                    </label>
-                    <button type="submit">수정</button>
-                </form>
-            </li>
-        </c:forEach>
-    </ul>
+            
+        }())
 
-    <ul>
-        <c:forEach var="ml" items="${bmml}">
-            <li>
-                <form action="/book/bookmemo-modify" method="post">
-                    bookno : <input type="text" name="bookNo" value="${ml.bookNo}">
-                    bookMemoNo : <input type="text" name="bookMemoNo" value="${ml.bookMemoNo}">
-                    <label>
-                        bookMemoContent : <input type="text" name="bookMemoContent" value="${ml.bookMemoContent}">
-                    </label>
-                    <button type="submit">수정</button>
-                </form>
-            </li>
-        </c:forEach>
-    </ul>
+
+
+
+    </script>
+
 
 
 </body>

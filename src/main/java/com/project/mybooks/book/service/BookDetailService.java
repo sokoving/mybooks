@@ -52,6 +52,15 @@ public class BookDetailService {
 
     public boolean detailDelete(String bookNo) {
         log.info("bookDetail service req - {}", bookNo);
+        log.info("삭제 들어옴1");
+        if (mkMapper.getTotalCount(bookNo) != 0) {
+            mkMapper.removeToBookNo(bookNo);
+        }
+        log.info("삭제 들어옴2");
+        if (mmMapper.getTotalCount(bookNo) != 0) {
+            mmMapper.removeToBookNo(bookNo);
+        }
+        log.info("삭제 들어옴3");
         return bMapper.remove(bookNo);
     }
 }

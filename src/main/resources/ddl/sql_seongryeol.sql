@@ -30,12 +30,14 @@ user_id VARCHAR2(20) --userID
 , total_page NUMBER(5) DEFAULT 0 --총 회차
 , the_end NUMBER(1) DEFAULT 1 --완결 0 연재중 1
 , reg_date DATE DEFAULT SYSDATE    -- 등록 날짜
+, book_img clob -- 책 표지 이미지
 , CONSTRAINT pk_book_no PRIMARY KEY (book_no)
 );
 
 CREATE TABLE prj_platform (
 platform_id NUMBER(2) --플랫폼 아이디
 , platform_name VARCHAR2(100) not null --플랫폼
+, platform_link clob -- 플랫폼 링크
 , CONSTRAINT pk_platform_no PRIMARY KEY (platform_id)
 );
 
@@ -79,14 +81,14 @@ REFERENCES prj_book(book_no);
 
 commit;
 
------------ insert into ----------- 
+----------- insert into -----------
 
-insert into prj_platform VALUES (seq_prj_platform.nextval, '카카오 페이지');
-insert into prj_platform VALUES (seq_prj_platform.nextval, '네이버 시리즈');
-insert into prj_platform VALUES (seq_prj_platform.nextval, '리디북스');
-insert into prj_platform VALUES (seq_prj_platform.nextval, '문피아');
-insert into prj_platform VALUES (seq_prj_platform.nextval, '조아라');
-insert into prj_platform VALUES (seq_prj_platform.nextval, '미분류');
+insert into prj_platform VALUES (seq_prj_platform.nextval, '카카오 페이지', 'https://page.kakao.com/main');
+insert into prj_platform VALUES (seq_prj_platform.nextval, '네이버 시리즈', 'https://series.naver.com/novel/home.series?isWebtoonAgreePopUp=true');
+insert into prj_platform VALUES (seq_prj_platform.nextval, '리디북스', 'https://ridibooks.com/webtoon/recommendation');
+insert into prj_platform VALUES (seq_prj_platform.nextval, '문피아', 'https://www.munpia.com/?NaPm=ct%3Dl5z6meny%7Cci%3Dcheckout%7Ctr%3Dds%7Ctrx%3D%7Chk%3De875374da6b62f00a05d7e68449faa3cced00dde');
+insert into prj_platform VALUES (seq_prj_platform.nextval, '조아라', 'https://www.joara.com/');
+insert into prj_platform (platform_id, platform_name) VALUES (seq_prj_platform.nextval, '기타');
 commit;
 
 
@@ -113,39 +115,39 @@ commit;
 INSERT INTO prj_bookmemo
 (bookmemo_no, book_no, bookmemo_content)
 VALUES
-(seq_book_bookmemo.NEXTVAL, '2207220002', '재미있다');
+(seq_book_bookmemo.NEXTVAL, '220721aa', '재미있다');
 commit;
 
 INSERT INTO prj_bookmark (bookmark_no, book_no, bookmark_page, bookmark_content)
-VALUES ( seq_book_bookmark.nextval, '2207220002', '300', '300300300');
-
-INSERT INTO prj_bookmark (bookmark_no, book_no, bookmark_page, bookmark_content)
-VALUES ( seq_book_bookmark.nextval, '220721aa', '300', '300300300');
+VALUES ( seq_book_bookmark.nextval, '2207220001', '300', '300300300');
 commit;
 ------------
-SELECT
-    a.user_id, a.importance
-    , a.book_no, a.platform_id, b.platform_name
-    , a.book_title, a.writer, a.star_rate, a.book_comment
-    , a.cur_page, a.total_page, a.the_end, a.reg_date
-FROM prj_book a
-LEFT OUTER JOIN prj_platform b
-ON a.platform_id = b.platform_id
-ORDER BY a.book_no DESC
-;
+        SELECT
+            a.user_id, a.importance
+            , a.book_no, a.platform_id, b.platform_name
+            , a.book_title, a.writer, a.star_rate, a.book_comment
+            , a.cur_page, a.total_page, a.the_end, a.reg_date
+        FROM prj_book a
+        LEFT OUTER JOIN prj_platform b
+        ON a.platform_id = b.platform_id
+        ORDER BY a.book_no DESC
+        ;
 
-SELECT *
-FROM prj_bookmark
-WHERE book_no = '2207220002'
-ORDER BY bookmark_no DESC;
-        
-SELECT *
-FROM prj_bookmemo
-WHERE book_no = '2207220002'
-ORDER BY bookmemo_no DESC;
-        
+        SELECT
+        *
+        FROM prj_book
+        WHERE book_no='220721aa';
+
 SELECT count(*)
 FROM prj_book
 ;
-        
-        
+
+
+SELECT * FROM prj_bookmark;
+SELECT * FROM prj_book;
+
+DELETE FROM prj_book
+WHERE book_no = '2207220004';
+
+
+
