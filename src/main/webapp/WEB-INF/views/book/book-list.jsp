@@ -104,17 +104,18 @@
                     <h2 class="fs-3">전체 목록</h2>
                     <span class="accordionBtn lnr lnr-chevron-up"></span>
                 </li>
-                <li class="list-group-item-warning text-center fs-6 input-book-bg" id="savebook">
-                    <a href="/book/write">+ 새 책 등록하기</a>
+                <li class="list-group-item-warning text-center input-book-bg" id="savebook">
+                    <a href="/book/write">새 책 등록하기 <i class="fas fa-plus"></i></a>
                 </li>
 
                 <!-- 검색 li -->
                 <li class="list-group-item list-group-item-action text-center fs-6 filter-section">
+                    <div>
                     <div class="filter-area">
                         <!-- change 이벤트 -->
                         <label>
                             <select name="platformId" class="form-select" id="p-select">
-                                <option value="0" ${search.platformId==0 ? 'selected' : '' }>플랫폼을 선택해주세요</option>
+                                <option value="0" ${search.platformId==0 ? 'selected' : '' }>플랫폼을 선택해 보세요</option>
                                 <option value="1" ${search.platformId==1 ? 'selected' : '' }>
                                     카카오 페이지
                                 </option>
@@ -138,7 +139,7 @@
                         <label>
                             <select name="starRate" class="form-select" id="s-select">
                                 <option value="0" ${search.starRate==0 ? 'selected' : '' }>
-                                    별점을 선택해주세요
+                                    별점을 선택해 보세요
                                 </option>
                                 <option value="1" ${search.starRate==1 ? 'selected' : '' }>
                                     ★☆☆☆☆
@@ -170,15 +171,17 @@
                                 value="${search.writer}">
                         </label>
                     </div>
-                    <div class="search-btn-group d-flex align-items-center text-end">
-                        <div>
-                            <span class="lnr lnr-magnifier" id="search-btn"></span>
-                        </div>
+                </div>
+                    <div class="search-btn-group text-end">
                         <div>
                             <a href="/book/list" id="reset-btn">
                                 <span class="lnr lnr-redo"></span>
                             </a>
                         </div>
+                        <div>
+                            <span class="lnr lnr-magnifier" id="search-btn"></span>
+                        </div>
+
                     </div>
 
                 </li>

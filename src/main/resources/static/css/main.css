@@ -27,11 +27,11 @@
      }
 
      #wrap {
-        background-color: #f8f9fa;
+        background-color: #cfe5e4;
         width: 50%;
         height: 100vh;
-        margin: 40px auto;
-        border: 1px solid #f8f9fa;
+        margin: auto;
+        border: 1px solid #cfe5e4;
         display: flex;
         flex-flow: column;
      }
@@ -82,6 +82,16 @@
         padding-top: 20px;
         box-sizing: border-box;
      }
+
+     #book-wrap #savebook{
+      background-color: #ffc107;
+      cursor: pointer;
+      border: 3px double #664d03;
+      font-size: 15px;
+      padding: 3px;
+      font-weight: 700;
+     }
+ 
 
      /* list-left */
      #book-wrap .img-book {
@@ -145,35 +155,42 @@
      .filter-section,
      .filter-section .filter-area,
      .filter-section .search-area{
-   display: flex !important;
+      display: flex !important;
       flex-flow: row wrap !important;
       justify-content: end !important;
      }
 
-     .filter-section label
 
-     .filter-section .search-area input{
-      padding: 6px 10px !important;
-      border: 1px solid #ced4da !important;
-      border-radius: 0.25rem !important;
+     .filter-section .filter-area select{
+      width: 200px;
+      margin-left: 5px;
+      padding: 0.3rem 2.25rem 0.2rem 0.75rem;
+      font-size: 13px;
      }
 
-     .text-end>div{
-      width: 38px;
-      height: 38px;
-      line-height: 42px;
+     .filter-section .search-area input{
+      width: 200px;
+      margin-left: 5px;
+      padding: 0.3rem 2.25rem 0.2rem 0.75rem;;
+      border: 1px solid #ced4da !important;
+      border-radius: 0.25rem !important;
+      font-size: 13px;
+     }
+
+
+     .search-btn-group>div{
+      width: 30px;
+      height: 30px;
+      line-height: 32px;
+      margin-left: 5px;
       border: 1px solid #ced4da !important;
       border-radius: 0.25rem !important;
       box-shadow: 0.5px 0.5px 0.5px;
       cursor: pointer;
 
-      font-size: 20px;
       text-align: center;
      }
 
-     #savebook {
-      cursor : pointer;
-    }
 
           /* footer  */
 
