@@ -15,7 +15,6 @@
     height: 80px;
     background-color: #088F8F;
     color: #ffc107;
-    font-family: 'NanumBarunGothicBold';
 
 }
 
@@ -37,6 +36,7 @@
     font-size: 30px;
     justify-content: left;
     margin: auto 10px;
+    font-family: 'NanumBarunGothicBold';
     /* padding: 10px; */
 }
 
@@ -218,7 +218,7 @@
 #footer{
     height: 50px;
     padding: 20px;
-    /* background: #c4c4c4; */
+    background: rgb(207, 207, 207);
     position: relative;
 } 
 
