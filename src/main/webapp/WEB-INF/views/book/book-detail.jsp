@@ -5,6 +5,7 @@
 
 <head>
     <%@ include file="../include/static-head.jsp" %>
+
 </head>
 
 <style>
@@ -21,7 +22,6 @@
         font-family: 'Noto Sans KR', sans-serif;
     }
 
-
     body {
         position: relative;
         background: #eee;
@@ -32,185 +32,7 @@
         color: #000;
         font-weight: bold;
     }
-
-    .wrap {
-        width: 50%;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, 0%);
-        background: rgb(255, 255, 255);
-    }
-
-    .detail-page {
-        margin-top: 100px;
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .custom-img {
-        width: 300px;
-        height: 350px;
-        flex-grow: 1;
-        padding-left: 30px;
-    }
-
-    .detail-content {
-        flex-grow: 1;
-        width: 500px;
-    }
-
-    .detail-content li {
-        line-height: 70px;
-        font-weight: 700;
-        font-size: 20px;
-        font-family: 'Noto Sans KR';
-    }
-
-    .book-comment {
-        width: 100%;
-        font-weight: 700;
-        font-size: 20px;
-        font-family: 'Noto Sans KR';
-    }
-
-
-
-    .detail-btn {
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        height: 50px;
-        margin-top: 30px;
-    }
-
-    .detail-btn li {
-        width: 150px;
-    }
-
-    .btn-yellow {
-        background: #fdc324;
-        color: #333 !important;
-        border: 1px solid #fdc324 !important;
-        width: 100px;
-        height: 40px;
-    }
-
-    .btn-custom {
-        font-weight: 700;
-        font-size: 20px;
-        font-family: 'Noto Sans KR';
-    }
-
-    .bookmarkHead {
-        width: 50%;
-        text-align: center;
-        font-weight: 700;
-        font-size: 40px;
-        font-family: 'Noto Sans KR';
-
-    }
-
-    .bookmemoHead {
-        width: 50%;
-        text-align: center;
-        font-weight: 700;
-        font-size: 40px;
-        font-family: 'Noto Sans KR';
-    }
-
-    .mkme-head {
-        border-bottom: 1px solid #000;
-    }
-
-    .bookmark-custom {
-        background: rgb(229, 229, 229, .5);
-        height: 300px;
-        /* margin-left: 3%; */
-        border-right: 1px solid rgb(208, 208, 208);
-        border-left: 1px solid rgb(208, 208, 208);
-    }
-
-    .bookmemo-custom {
-        /* width: 50%; */
-        background: rgb(229, 229, 229, .5);
-        height: 300px;
-        border-right: 1px solid rgb(208, 208, 208);
-    }
-
-    .bookmark-container {
-        width: 50%;
-
-    }
-
-    .bookmemo-container {
-        width: 50%;
-    }
-
-    .bookcomment-container {
-        display: flex;
-        /* margin-bottom: 1000px; */
-    }
-
-    #bookmarkPage-input {
-        border: 1px solid rgb(207, 207, 207);
-    }
-
-    #bookmarkContent-input {
-        border: 1px solid rgb(207, 207, 207);
-    }
-
-    #bookmark-insert-form {
-        position: relative;
-    }
-
-
-    #bookmark-reg-btn {
-        position: absolute;
-        right: 20px;
-        border: 1px solid rgba(000, 000, 000, 0);
-        /* background: rgb(255, 255, 93); */
-        border-radius: 20%;
-    }
-
-    #bookmemoContent-input {
-        border: 1px solid rgb(207, 207, 207);
-    }
-
-    #bookmemo-insert-form {
-        position: relative;
-    }
-    
-    #bookmemo-reg-btn {
-        position: absolute;
-        right: 20px;
-        bottom: -40px;
-        border: 1px solid rgba(000, 000, 000, 0);
-        /* background: rgb(255, 255, 93); */
-        border-radius: 20%;
-    }
-    #bookmark-list {
-        
-    }
-    .bookmark-list-wrap {
-        position: relative;
-        border: 1px solid rgb(180, 180, 180, .5);
-        padding: 30px;
-        height: 300px;
-        margin-right: 25px;
-        background: rgb(255, 249, 213);
-    }
-    .bookmark-btn-event {
-        position: absolute;
-        bottom: -150px;
-        right: 10px;
-        border: 1px solid rgba(000, 000, 000, 0.2);
-        background: rgba(000, 000, 000, 000);
-        color: #000;
-    }
-
 </style>
-
 
 
 <body>
@@ -269,14 +91,16 @@
                             <br>
                             <input type="hidden" name="bookNo" value="${book.bookNo}" readonly>
                             <label class="form-floating mb-3">
-                                페이지  <input type="text" name="bookmarkPage" id="bookmarkPage-input" maxlength="5" size="3">
+                                페이지 <input type="text" name="bookmarkPage" id="bookmarkPage-input" maxlength="5"
+                                    size="3">
                                 <!-- <input class="form-control" id="bookmarkPage-input floatingInput" maxlength="5" type="text" name="bookmarkPage"> -->
                                 <!-- <label for="floatingInput">Page</label> -->
                             </label>
                             <br>
                             <label class="form-floating mb-3">
-                                 <!-- <br><input type="text" id="bookmarkContent-input" name="bookmarkContent" size=""> -->
-                                북마크 내용  <br><textarea name="bookmarkContent" id="bookmarkContent-input" cols="45" rows="5"></textarea>
+                                <!-- <br><input type="text" id="bookmarkContent-input" name="bookmarkContent" size=""> -->
+                                북마크 내용 <br><textarea name="bookmarkContent" id="bookmarkContent-input" cols="45"
+                                    rows="5"></textarea>
                                 <!-- <input class="form-control" type="text" id="bookmarkContent-input floatingInput" name="bookmarkContent"> -->
                                 <!-- <label for="floatingInput">Content</label> -->
                             </label>
@@ -340,7 +164,8 @@
                             <label>
                                 메모 <br>
                                 <!-- <input type="text" id="bookmemoContent-input" name="bookMemoContent"> -->
-                                <textarea name="bookMemoContent" id="bookmemoContent-input" cols="50" rows="5"></textarea>
+                                <textarea name="bookMemoContent" id="bookmemoContent-input" cols="50"
+                                    rows="5"></textarea>
                             </label>
                             <button id="bookmemo-reg-btn" type="button">등록</button>
                         </form>
@@ -403,8 +228,7 @@
                             북마크 번호 : <input type="text" maxlength="5" name="bookmarkNo" readonly>
                         </label>
                         <label>
-                            페이지 : <input id="bookmarkPage-modify" type="text" maxlength="5"
-                                name="bookmarkPage">
+                            페이지 : <input id="bookmarkPage-modify" type="text" maxlength="5" name="bookmarkPage">
                         </label>
                         <label>
                             내용 : <input id="bookmarkContent-modify" type="text" name="bookmarkContent">
@@ -459,187 +283,6 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-    <script>
-        // 북마크 수정
-        const $bmList = document.querySelector('#bookmark-list');
-        const $bform = document.querySelector('#bookmark-form');
-        const [$bfBookNo, $bfBookmarkNo, $bfBookmarkPage, $bfBookConstent, $bfBookmarkButton] = [...$bform
-            .firstElementChild.children
-        ];
-
-        $bmList.onclick = e => {
-            console.log(e.target);
-            const [$bmBookNo, $bmBookmarkNo, $bmBookmarkPage, $bmBookmarkContent,
-                $bookmarkButton
-            ] = [...e.target.parentElement.children]
-            console.log($bmBookNo.firstElementChild);
-            console.log($bmBookmarkNo.firstElementChild);
-            console.log($bmBookmarkPage.firstElementChild);
-            console.log($bmBookmarkContent.firstElementChild);
-
-            $bfBookNo.firstElementChild.value = $bmBookNo.firstElementChild.value;
-            $bfBookmarkNo.firstElementChild.value = $bmBookmarkNo.firstElementChild.textContent;
-            $bfBookmarkPage.firstElementChild.value = $bmBookmarkPage.firstElementChild.textContent;
-            $bfBookConstent.firstElementChild.value = $bmBookmarkContent.firstElementChild.textContent;
-
-            console.log($bfBookNo.firstElementChild.value);
-            console.log($bfBookmarkNo.firstElementChild.value);
-            console.log($bfBookmarkPage.firstElementChild.value);
-            console.log($bfBookConstent.firstElementChild.value);
-            const $bmDelete = document.querySelector('#bookmarkDelete');
-            $bmDelete.value = $bmBookmarkNo.firstElementChild.textContent;
-        }
-
-        // 메모 수정
-        const $mmList = document.querySelector('#memo-list');
-        const $mmform = document.querySelector('#bookmemo-form');
-        const [$mmfBookNo, $mmfBookMemoNo, $mmfBookConstent, $mmfBookmarkButton] = [...$mmform
-            .firstElementChild.children
-        ];
-
-        $mmList.onclick = e => {
-            console.log(e.target);
-            const [$mmBookNo, $mmBookmemoNo, $mmBookmemoContent] = [...e.target.parentElement.children];
-
-
-            // console.log($mmfBookNo.firstElementChild);
-            // console.log($mmfBookMemoNo.firstElementChild);
-            // console.log($mmfBookConstent.firstElementChild);
-            console.log($mmBookNo.firstElementChild.value);
-            console.log($mmBookmemoNo);
-            console.log($mmBookmemoContent.firstElementChild);
-            $mmfBookNo.firstElementChild.value = $mmBookNo.firstElementChild.value;
-            $mmfBookMemoNo.firstElementChild.value = $mmBookmemoNo.firstElementChild.textContent;
-            $mmfBookConstent.firstElementChild.value = $mmBookmemoContent.firstElementChild.textContent;
-
-
-            const $mmDelte = document.querySelector('#bookmemoDelete');
-            $mmDelte.value = $mmBookmemoNo.firstElementChild.textContent;
-        }
-
-        // 북마크 등록 필수값 확인
-        function validateFormValueBookMark() {
-            const $bookmarkPageInput = document.getElementById('bookmarkPage-input');
-            const $bookmarkContentInput = document.getElementById('bookmarkContent-input');
-            let flag = false;
-
-            if ($bookmarkPageInput.value.trim() === '') {
-                alert('페이지는 필수값입니다');
-            } else if ($bookmarkContentInput.value.trim() === '') {
-                alert('북마크 내용은 필수값입니다');
-            } else {
-                flag = true;
-            }
-            return flag;
-        }
-
-        const $bookmarkRegBtn = document.getElementById('bookmark-reg-btn');
-
-        $bookmarkRegBtn.onclick = e => {
-            // 입력값을 제대로 채우지 않았는지 확인
-            if (!validateFormValueBookMark()) {
-                return;
-            }
-            // 필수 입력값을 잘 채웠으면 폼을 서브밋한다.
-            const $bookmarkInsertForm = document.getElementById('bookmark-insert-form');
-            $bookmarkInsertForm.submit();
-        };
-
-
-        // 북마크 수정 필수값 확인
-        function validateFormValueBookMarkModify() {
-            const $bookmarkPageModify = document.getElementById('bookmarkPage-modify');
-            const $bookmarkContentModify = document.getElementById('bookmarkContent-modify');
-            let flag = false;
-
-            if ($bookmarkPageModify.value.trim() === '') {
-                alert('페이지는 필수값입니다');
-            } else if ($bookmarkContentModify.value.trim() === '') {
-                alert('북마크 내용은 필수값입니다');
-            } else {
-                flag = true;
-            }
-            return flag;
-        }
-
-        const $bookmarkModifyBtn = document.getElementById('bookmark-modify-btn');
-
-        $bookmarkModifyBtn.onclick = e => {
-            // 입력값을 제대로 채우지 않았는지 확인
-            if (!validateFormValueBookMarkModify()) {
-                return;
-            }
-            // 필수 입력값을 잘 채웠으면 폼을 서브밋한다.
-            const $bookmarkModifyForm = document.getElementById('bookmark-modify-form');
-            $bookmarkModifyForm.submit();
-        };
-
-
-
-        // 메모 등록 필수값 확인
-        function validateFormValueMemo() {
-            const $bookmemoContentInput = document.getElementById('bookmemoContent-input');
-            let flag = false;
-
-            if ($bookmemoContentInput.value.trim() === '') {
-                alert('메모 내용은 필수값입니다');
-            } else {
-                flag = true;
-            }
-            console.log(flag);
-            return flag;
-        }
-
-        const $bookmemoRegBtn = document.getElementById('bookmemo-reg-btn');
-
-        $bookmemoRegBtn.onclick = e => {
-            // 입력값을 제대로 채우지 않았는지 확인
-            if (!validateFormValueMemo()) {
-                console.log("리턴되라ㅏㅏㅏ");
-                return;
-            }
-            // 필수 입력값을 잘 채웠으면 폼을 서브밋한다.
-            const $bookMemoInsertForm = document.getElementById('bookmemo-insert-form');
-            $bookMemoInsertForm.submit();
-        };
-
-
-        // 메모 수정 필수값 확인
-        function validateFormValueMemoModify() {
-            const $bookmemoContentModify = document.getElementById('bookmemoContent-modify');
-            let flag = false;
-
-            if ($bookmemoContentModify.value.trim() === '') {
-                alert('메모 내용은 필수값입니다');
-            } else {
-                flag = true;
-            }
-            console.log(flag);
-            return flag;
-        }
-
-        const $bookmemoModifyBtn = document.getElementById('bookmemo-modify-btn');
-
-        $bookmemoModifyBtn.onclick = e => {
-            // 입력값을 제대로 채우지 않았는지 확인
-            if (!validateFormValueMemoModify()) {
-                console.log("리턴되라ㅏㅏㅏ");
-                return;
-            }
-            // 필수 입력값을 잘 채웠으면 폼을 서브밋한다.
-            const $bookMemoModifyForm = document.getElementById('bookmemo-modify-form');
-            $bookMemoModifyForm.submit();
-        };
-    </script>
-
-
-
-
 
 
 </body>
