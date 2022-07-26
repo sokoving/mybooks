@@ -219,3 +219,14 @@ function listAccordion() {
             }
         }
 }
+
+// 현재 위치한 페이지에 색깔 칠하기
+function paintPage(curPageNum){
+    const $ul = document.querySelector('.pagination');
+    for (let $li of [...$ul.children]) {
+        if (curPageNum === $li.dataset.pageNum) {
+            $li.classList.add('active');
+            break;
+        }
+    }
+}

@@ -191,6 +191,10 @@
       text-align: center;
      }
 
+     /* 페이징 영역 */
+     #book-wrap ul .pagination{
+      margin: 20px;
+     }
 
           /* footer  */
 

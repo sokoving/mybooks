@@ -216,8 +216,35 @@
                             </div>
                         </div>
                     </c:forEach>
-                </li>
-
+                
+                <!-- 페이지 버튼 영역 -->
+                <div class="list-group-item d-flex justify-content-center">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination pagination-lg pagination-custom">
+    
+                            <c:if test="${pm.prev}">
+                                <li class="page-item"><a class="page-link"
+                                        href="/book/list?pageNum=${pm.beginPage - 1}&amount=${search.amount}&platformId=${search.platformId}&starRate=${search.starRate}&bookTitle=${search.bookTitle}&writer=${search.writer}">
+                                        prev</a></li>
+                            </c:if>
+    
+                            <c:forEach var="n" begin="${pm.beginPage}" end="${pm.endPage}" step="1">
+                                <li data-page-num="${n}" class="page-item">
+                                    <a class="page-link"
+                                        href="/book/list?pageNum=${n}&amount=${search.amount}&platformId=${search.platformId}&starRate=${search.starRate}&bookTitle=${search.bookTitle}&writer=${search.writer}">${n}</a>
+                                </li>
+                            </c:forEach>
+    
+                            <c:if test="${pm.next}">
+                                <li class="page-item"><a class="page-link"
+                                        href="/board/list?pageNum=${pm.endPage + 1}&amount=${search.amount}&platformId=${search.platformId}&starRate=${search.starRate}&bookTitle=${search.bookTitle}&writer=${search.writer}">next</a>
+                                </li>
+                            </c:if>
+    
+                        </ul>
+                    </nav>
+                </div>
+            </li>
             </ul><!-- end all-book -->
             <footer>
                 <h3>Copyright 2021. My Books. all rights reserved.</h3>
@@ -279,6 +306,11 @@
             $searchBtn.addEventListener('click', e => {
                 searchTitleWriter(e, params);
             })
+
+            // 현재 위치한 페이지에 색칠하기
+            const curPageNum = '${pm.search.pageNum}';
+            console.log("현재페이지: ", curPageNum);
+            paintPage(curPageNum);
 
         })();
     </script>
