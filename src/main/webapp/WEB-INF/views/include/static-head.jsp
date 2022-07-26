@@ -26,9 +26,15 @@
 <!-- slick css || https://kenwheeler.github.io/slick/  -->
 <link rel="stylesheet" href="/css/slick.css">
 
+
+<!-- custom css -->
+<link rel="stylesheet" href="/css/bookdetail.css">
 <!-- bootstrap css -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
+
+<!-- custom js -->
+<script src="/js/bookdetail.js" defer></script>
 <!-- bootstrap js -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
 
