@@ -128,10 +128,10 @@
                     <!-- </label> -->
                     <!-- <br> -->
                     <!-- <label> -->
-                        <div class="left" id="border">
+                        <div class="left">
                             <h3>총 페이지</h3>
                         </div>
-                        <div class="right" id="half">
+                        <div class="right">
                             <input type="text" maxlength="5" value="${modibook.totalPage}" name="totalPage">
                         </div>
                         
