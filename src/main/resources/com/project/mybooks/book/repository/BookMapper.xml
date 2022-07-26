@@ -103,10 +103,11 @@
                 FROM prj_book a
                 LEFT OUTER JOIN prj_platform b
                 ON a.platform_id = b.platform_id
-                <if test = "type == 'platformId'">where a.platform_id = #{keyword}</if>
-                <if test = "type == 'bookTitle'">where a.book_title LIKE '%' || #{keyword} || '%'</if>
-                <if test = "type == 'writer'">where a.writer LIKE '%' || #{keyword} || '%'</if>
-                <if test = "type == 'starRate'">where a.starRate = #{keyword}</if>
+                WHERE 1=1
+                <if test = "platformId != 0">AND a.platform_id = #{platformId} </if>
+                <if test = "starRate != 0">AND a.star_Rate = #{starRate}</if>
+                <if test = "bookTitle != null">AND a.book_title LIKE '%' || #{bookTitle} || '%'</if>
+                <if test = "writer != null">AND a.writer LIKE '%' || #{writer} || '%'</if>
                 ORDER BY a.book_no DESC
                 ) v_board
             )
@@ -137,10 +138,11 @@
             SELECT
                     *
             FROM prj_book
-            <if test = "type == 'platformId'">where platform_id = #{keyword}</if>
-            <if test = "type == 'bookTitle'">where book_title LIKE '%' || #{keyword} || '%'</if>
-            <if test = "type == 'writer'">where writer LIKE '%' || #{keyword} || '%'</if>
-            <if test = "type == 'starRate'">where starRate = #{keyword}</if>
+            WHERE 1=1
+            <if test = "platformId != 0">AND platform_id = #{platformId} </if>
+            <if test = "starRate != 0">AND star_Rate = #{starRate}</if>
+            <if test = "bookTitle != null">AND book_title LIKE '%' || #{bookTitle} || '%'</if>
+            <if test = "writer != null">AND writer LIKE '%' || #{writer} || '%'</if>
             )
     </select>
 
