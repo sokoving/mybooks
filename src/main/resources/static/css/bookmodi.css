@@ -69,8 +69,31 @@
         margin: auto;
     }
 
+    .modi-table .pageCount{
+        height: 70px;
+        display: flex;
+        flex-direction: wrap;
+        width: 100%;
+    }
+
+    .modi-table .pageCount .left{
+        background: #ffc107;
+        /* background: red; */
+        width: 20%;
+        padding: 10px;
+    }
+    .modi-table .pageCount .right{
+        width: 30%;
+    }
+    .modi-table .pageCount .left{
+        background: #ffc107;
+        /* background: red; */
+        width: 20%;
+        padding: 10px;
+    }
+
     .modi-table .theend{
-        height: 50px;
+        height: 70px;
         display: flex;
         flex-direction: wrap;
         width: 100%;
@@ -105,6 +128,13 @@
     }
     
     .modi-table .theend .left h3{
+        color: #000;
+        font-size: 24px;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .modi-table .pageCount .left h3{
         color: #000;
         font-size: 24px;
         font-weight: 600;

@@ -109,19 +109,22 @@
                             </select>
                         </div>
                         
-                        <div class="left">
-                            <h3>현재 페이지</h3>
+                        <div class="pageCount">
+                            <div class="left">
+                                <h3>현재 페이지</h3>
+                            </div>
+                            <div class="right">
+                                <input type="number" id="curPage" maxlength="5" value="${modibook.curPage}" name="curPage">
+                            </div>
+    
+                            <div class="left">
+                                <h3>총 페이지</h3>
+                            </div>
+                            <div class="right">
+                                <input type="number" id="totalPage" maxlength="5" value="${modibook.totalPage}" name="totalPage">
+                            </div>
                         </div>
-                        <div class="right">
-                            <input type="number" id="curPage" maxlength="5" value="${modibook.curPage}" name="curPage">
-                        </div>
-
-                        <div class="left">
-                            <h3>총 페이지</h3>
-                        </div>
-                        <div class="right">
-                            <input type="number" id="totalPage" maxlength="5" value="${modibook.totalPage}" name="totalPage">
-                        </div>
+                        
                         
                     <!-- </label> -->
                     <!-- <br> -->
