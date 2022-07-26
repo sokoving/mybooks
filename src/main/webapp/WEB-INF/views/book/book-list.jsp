@@ -129,6 +129,10 @@
                 </c:forEach>
 
             </ul><!-- end all-book -->
+            <footer>
+                <h3>Copyright 2021.  My Books. all rights reserved.</h3>
+                
+            </footer>
         </div> <!-- end book-wrap -->
     </div> <!-- end wrap -->
 
