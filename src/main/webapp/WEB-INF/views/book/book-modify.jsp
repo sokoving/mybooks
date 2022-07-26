@@ -122,7 +122,7 @@
                             <h3>현재 페이지</h3>
                             
                         </div>
-                        <div class="right" id="half">
+                        <div class="right">
                             <input type="text" maxlength="5" value="${modibook.curPage}" name="curPage">
                         </div>
                     <!-- </label> -->
