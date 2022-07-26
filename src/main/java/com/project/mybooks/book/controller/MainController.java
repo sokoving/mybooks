@@ -128,7 +128,7 @@ public class MainController {
     // 6. 삭제기능
     @RequestMapping("/delete")
     public String delete(String bookNo){
-        log.info("mainController req GET - {}", bookNo);
+        log.info("mainController req GET Delete - {}", bookNo);
         boolean delete = bdts.detailDelete(bookNo);
         return delete ? "redirect:/book/list" : "redirect:/";
     }
