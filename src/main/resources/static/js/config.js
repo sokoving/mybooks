@@ -165,6 +165,7 @@ function searchStarRate(e, params){
 
 // 아코디언 이벤트
 function listAccordion() {
+    console.log('!! 아코디언 함수 시작');
     const $accordionBtn = [...document.querySelectorAll('.accordionBtn')];
 
     console.log($accordionBtn);

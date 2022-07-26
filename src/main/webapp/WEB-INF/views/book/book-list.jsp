@@ -220,6 +220,9 @@
             convertTheEndBadge();
             convertImportance();
 
+            
+            // 아코디언 이벤트
+            listAccordio();
 
             // 즐겨찾기 추가, 제거 이벤트
             switchImportance();
@@ -232,6 +235,7 @@
             document.getElementById('s-select').onchange = e => {
                 searchStarRate(e, params);
             }
+
         })();
     </script>
 
