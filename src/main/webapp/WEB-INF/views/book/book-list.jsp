@@ -222,7 +222,7 @@
 
             
             // 아코디언 이벤트
-            listAccordio();
+            listAccordion();
 
             // 즐겨찾기 추가, 제거 이벤트
             switchImportance();
