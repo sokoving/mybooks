@@ -1,39 +1,39 @@
      /* reset */
      a {
-         color: inherit !important;
-         text-decoration: none !important;
-         cursor: pointer;
+        color: inherit !important;
+        text-decoration: none !important;
+        cursor: pointer;
      }
 
      button,
      input {
-         background-color: inherit;
+        background-color: inherit;
      }
 
      /* common style */
      .hide {
-         display: none !important;
+        display: none !important;
      }
 
      body {
-      background-color: #eee !important;
-      color: inherit !important;
-      font-size: 18px !important;
-      font-family: 'NanumSquareRound', sans-serif;
-      }
+        background-color: #eee !important;
+        color: inherit !important;
+        font-size: 18px !important;
+        font-family: 'NanumSquareRound', sans-serif;
+     }
 
-      div #page{
-         padding: 50px !important;
-      }
+     div #page {
+        padding: 50px !important;
+     }
 
      #wrap {
-         background-color: #f8f9fa;
-         width: 70%;
-         height: 100vh;
-         margin: 40px auto;
-         border: 1px solid #f8f9fa;
-         display: flex;
-         flex-flow: column;
+        background-color: #f8f9fa;
+        width: 70%;
+        height: 100vh;
+        margin: 40px auto;
+        border: 1px solid #f8f9fa;
+        display: flex;
+        flex-flow: column;
      }
 
 
@@ -45,16 +45,16 @@
         font-family: 'NanumBarunGothicBold';
      }
 
-     #header .inner-header{
-      padding: 20px;
-      box-sizing: border-box;
-      
+     #header .inner-header {
+        padding: 20px;
+        box-sizing: border-box;
+
      }
 
 
      /* ----------- 책 목록 영역 ----------- */
 
-     #book-wrap ul{
+     #book-wrap ul {
         margin-top: 30px;
 
      }
@@ -66,60 +66,77 @@
         padding-top: 20px;
         box-sizing: border-box;
      }
-     
-         /* list-left */
+
+     /* list-left */
      #book-wrap .img-book {
-         width: 85px;
-         height: 110px;
-         margin-bottom: 3px;
-         border-radius: 0.25rem;
-         overflow: hidden;
+        width: 85px;
+        height: 110px;
+        margin-bottom: 3px;
+        border-radius: 0.25rem;
+        overflow: hidden;
 
-         background: no-repeat center cover fixed;
-         background-position: center;
-         background-size: cover;
-         background-color: #088F8F;
-        }
+        background: no-repeat center cover fixed;
+        background-position: center;
+        background-size: cover;
+        background-color: #088F8F;
+     }
 
-      #book-wrap .importance{
-         cursor: pointer;
-      }
+     #book-wrap .importance {
+        cursor: pointer;
+     }
 
 
-        /* list-center */
-     #book-wrap .title{
+     /* list-center */
+     #book-wrap .title {
         margin-bottom: 3px;
      }
 
      #book-wrap .writer {
         margin-bottom: 5px;
-         color: #6c757d !important;
-         font-size: 0.9em;
+        color: #6c757d !important;
+        font-size: 0.9em;
      }
 
-     #book-wrap .star-rate{
+     #book-wrap .star-rate {
         color: #088F8F;
      }
 
      #book-wrap .page {
-         color: #6c757d !important;
-         font-size: 0.9em;
+        color: #6c757d !important;
+        font-size: 0.9em;
      }
 
-     #book-wrap .comment{
-      color: #6c757d;
+     #book-wrap .comment {
+        color: #6c757d;
      }
 
-         /* list-right */
-     #book-wrap .list-right{
+     /* list-right */
+     #book-wrap .list-right {
         width: 100px;
         text-align: right;
      }
 
-     .accordionBtn {
-         margin-left: 10px;
-         font-size: 1.5em;
-         font-weight: 700;
+     /* 새 글 쓰기 버튼 */
+     .input-book-bg{
+      background-color: #ffc107;
      }
 
+     /* 아코디언 버튼 */
+     .accordionBtn {
+        margin-left: 10px;
+        font-size: 1.5em;
+        font-weight: 700;
+     }
 
+     /* 필터링 영역 */
+     .filter-section,
+     .filter-section .filter-area,
+     .filter-section .search-area{
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: end;
+     }
+
+     .filter-section .search-area input{
+      padding: 3px;
+     }

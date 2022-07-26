@@ -104,65 +104,72 @@
                     <h2 class="fs-3">전체 목록</h2>
                     <span class="accordionBtn lnr lnr-chevron-up"></span>
                 </li>
-                <li class="list-group-item list-group-item-action text-center fs-6 input-book-bg">
+                <li class="list-group-item text-center fs-6 input-book-bg">
                     <a href="/book/write">+ 새 책 등록하기</a>
                 </li>
 
                 <!-- 검색 li -->
-                <li class="list-group-item list-group-item-action text-center fs-6">
-                    <label>
+                <li class="list-group-item list-group-item-action text-center fs-6 filter-section">
+                    <div class="filter-area">
                         <!-- change 이벤트 -->
-                        <select name="platformId" class="form-select" id="p-select">
-                            <option>플랫폼을 선택해주세요</option>
-                            <option value="1" ${search.platformId==1 ? 'selected' : '' }>
-                                카카오 페이지
-                            </option>
-                            <option value="2" ${search.platformId==2 ? 'selected' : '' }>
-                                네이버 시리즈
-                            </option>
-                            <option value="3" ${search.platformId==3 ? 'selected' : '' }>
-                                리디북스
-                            </option>
-                            <option value="4" ${search.platformId==4 ? 'selected' : '' }>
-                                문피아
-                            </option>
-                            <option value="5" ${search.platformId==5 ? 'selected' : '' }>
-                                조아라
-                            </option>
-                            <option value="6" ${search.platformId==6 ? 'selected' : '' }>
-                                미분류
-                            </option>
-                        </select>
-                    </label>
-                    <label>
-                        <select name="starRate" class="form-select" id="s-select">
-                            <option value="0" ${search.starRate==0 ? 'selected' : '' }>
-                                별점을 선택해주세요
-                            </option>
-                            <option value="1" ${search.starRate==1 ? 'selected' : '' }>
-                                ★☆☆☆☆
-                            </option>
-                            <option value="2" ${search.starRate==2 ? 'selected' : '' }>
-                                ★★☆☆☆
-                            </option>
-                            <option value="3" ${search.starRate==3 ? 'selected' : '' }>
-                                ★★★☆☆
-                            </option>
-                            <option value="4" ${search.starRate==4 ? 'selected' : '' }>
-                                ★★★★☆
-                            </option>
-                            <option value="5" ${search.starRate==5 ? 'selected' : '' }>
-                                ★★★★★
-                            </option>
-                        </select>
-                    </label>
+                        <span class="lnr lnr-funnel"></span>
+                        <label>
+                            <select name="platformId" class="form-select" id="p-select">
+                                <option value="0" ${search.platformId==0 ? 'selected' : '' }>플랫폼을 선택해주세요</option>
+                                <option value="1" ${search.platformId==1 ? 'selected' : '' }>
+                                    카카오 페이지
+                                </option>
+                                <option value="2" ${search.platformId==2 ? 'selected' : '' }>
+                                    네이버 시리즈
+                                </option>
+                                <option value="3" ${search.platformId==3 ? 'selected' : '' }>
+                                    리디북스
+                                </option>
+                                <option value="4" ${search.platformId==4 ? 'selected' : '' }>
+                                    문피아
+                                </option>
+                                <option value="5" ${search.platformId==5 ? 'selected' : '' }>
+                                    조아라
+                                </option>
+                                <option value="6" ${search.platformId==6 ? 'selected' : '' }>
+                                    미분류
+                                </option>
+                            </select>
+                        </label>
+                        <label>
+                            <select name="starRate" class="form-select" id="s-select">
+                                <option value="0" ${search.starRate==0 ? 'selected' : '' }>
+                                    별점을 선택해주세요
+                                </option>
+                                <option value="1" ${search.starRate==1 ? 'selected' : '' }>
+                                    ★☆☆☆☆
+                                </option>
+                                <option value="2" ${search.starRate==2 ? 'selected' : '' }>
+                                    ★★☆☆☆
+                                </option>
+                                <option value="3" ${search.starRate==3 ? 'selected' : '' }>
+                                    ★★★☆☆
+                                </option>
+                                <option value="4" ${search.starRate==4 ? 'selected' : '' }>
+                                    ★★★★☆
+                                </option>
+                                <option value="5" ${search.starRate==5 ? 'selected' : '' }>
+                                    ★★★★★
+                                </option>
+                            </select>
+                        </label>
+                    </div>
+
                     <!-- keyup 이벤트 -->
-                    <label>
-                        <input type="text" name="bookTitle" placeholder="제목을 입력해 주세요" value="${search.bookTitle}">
-                    </label>
-                    <label>
-                        <input type="text" name="writer" placeholder="작가를 입력해 주세요" value="${search.writer}">
-                    </label>
+                    <div class="search-area">
+                        <span class="lnr lnr-magnifier"></span>
+                        <label>
+                            <input type="text" id="b-search" name="bookTitle" placeholder="제목으로 검색해 보세요">
+                        </label>
+                        <label>
+                            <input type="text" id="w-search" name="writer" placeholder="작가로 검색해 보세요">
+                        </label>
+                    </div>
                 </li>
 
                 <!-- 전체 책 목록 li -->
@@ -220,7 +227,7 @@
             convertTheEndBadge();
             convertImportance();
 
-            
+
             // 아코디언 이벤트
             listAccordion();
 
