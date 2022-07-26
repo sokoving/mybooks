@@ -173,7 +173,7 @@
                     <option value="5">조아라</option>
                     <option value="6">미분류</option>
                 </select> -->
-                <div id="button">
+                <div id="button" style="padding: 10px;">
                     <button type="button" id="reg-btn" class="btn btn-outline-danger" style="float: right;">등록</button>
                 </div>
                 

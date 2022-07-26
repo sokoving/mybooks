@@ -150,9 +150,10 @@
                     <!-- </label> -->
                 </div>
 
-                <button type="button" id="reg-btn" class="btn btn-outline-danger" style="float: right;">수정완료</button>
 
-
+                <div id="regBtn" style="padding: 10px;">
+                    <button type="button" id="reg-btn" class="btn btn-outline-danger" style="float: right;">수정완료</button>
+                </div>
 
             </form>
             <button type="button" id="list-btn" class="btn btn-secondary btn-sm" onclick="location.href='/book/list/'">이전으로</button>
