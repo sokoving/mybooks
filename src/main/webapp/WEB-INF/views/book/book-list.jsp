@@ -104,7 +104,7 @@
                     <h2 class="fs-3">전체 목록</h2>
                     <span class="accordionBtn lnr lnr-chevron-up"></span>
                 </li>
-                <li class="list-group-item-warning text-center fs-6 input-book-bg">
+                <li class="list-group-item-warning text-center fs-6 input-book-bg" id="savebook">
                     <a href="/book/write">+ 새 책 등록하기</a>
                 </li>
 
@@ -215,6 +215,13 @@
 
     <script src="/js/config.js"></script>
     <script>
+        const $savebook = document.getElementById('savebook');
+
+        $savebook.onclick = e => {
+            location.href="/book/write";
+        }
+        
+
         const params = {
             platformId: '${search.platformId}',
             starRate: '${search.starRate}',
