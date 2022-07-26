@@ -145,13 +145,30 @@
      .filter-section,
      .filter-section .filter-area,
      .filter-section .search-area{
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: end;
+   display: flex !important;
+      flex-flow: row wrap !important;
+      justify-content: end !important;
      }
 
+     .filter-section label
+
      .filter-section .search-area input{
-      padding: 3px;
+      padding: 6px 10px !important;
+      border: 1px solid #ced4da !important;
+      border-radius: 0.25rem !important;
+     }
+
+     .text-end>div{
+      width: 38px;
+      height: 38px;
+      line-height: 42px;
+      border: 1px solid #ced4da !important;
+      border-radius: 0.25rem !important;
+      box-shadow: 0.5px 0.5px 0.5px;
+      cursor: pointer;
+
+      font-size: 20px;
+      text-align: center;
      }
 
      #savebook {

@@ -170,11 +170,15 @@
                                 value="${search.writer}">
                         </label>
                     </div>
-                    <div class="search-btn-group">
-                        <span class="lnr lnr-magnifier" id="search-btn"></span>
-                        <a href="/book/list" id="reset-btn">
-                            <span class="lnr lnr-redo"></span>
-                        </a>
+                    <div class="search-btn-group d-flex align-items-center text-end">
+                        <div>
+                            <span class="lnr lnr-magnifier" id="search-btn"></span>
+                        </div>
+                        <div>
+                            <a href="/book/list" id="reset-btn">
+                                <span class="lnr lnr-redo"></span>
+                            </a>
+                        </div>
                     </div>
 
                 </li>
@@ -225,9 +229,9 @@
         const $savebook = document.getElementById('savebook');
 
         $savebook.onclick = e => {
-            location.href="/book/write";
+            location.href = "/book/write";
         }
-        
+
 
         const params = {
             platformId: '${search.platformId}',
