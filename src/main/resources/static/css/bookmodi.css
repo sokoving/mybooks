@@ -1,5 +1,5 @@
-     /* reset */
-     a {
+    /* reset */
+    a {
         color: inherit !important;
         text-decoration: none !important;
         cursor: pointer;
@@ -57,7 +57,7 @@
     .modi-table .left {
         background: #ffc107;
         width: 20%;
-        padding: 10px;
+        padding-top: 21px;
         border-right: 1px solid rgb(229, 229, 229);
         
     }
@@ -65,6 +65,7 @@
         /* background: green; */
         width: 80%;
         border-bottom: 1px solid rgb(229, 229, 229);
+        padding: 10px;
         margin: auto;
     }
 

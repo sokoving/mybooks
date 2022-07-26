@@ -107,7 +107,10 @@ public class MainController {
     public String modify(String bookNo, Model model){
         log.info("modify GET - 요청이 들어옴- {}", bookNo);
         BookPlatform book = bdts.detailFindBookOne(bookNo);
+
         model.addAttribute("modibook", book);
+        log.info("book - {}", model.getAttribute("modibook"));
+
         return "book/book-modify";
     }
 
