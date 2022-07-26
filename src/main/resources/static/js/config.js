@@ -139,6 +139,25 @@ function switchImportance() {
     }
 }
 
+function listAccordion() {
+    const $accordionBtn = [...document.querySelectorAll('.accordionBtn')];
+
+    console.log($accordionBtn);
+
+    for (let i = 0; i < $accordionBtn.length; i++)
+        $accordionBtn[i].onclick = e => {
+            console.log(e.target);
+            if (e.target == $accordionBtn[i]) {
+                e.target.classList.toggle('lnr-chevron-down');
+                e.target.classList.toggle('lnr-chevron-up');
+                console.log(e.target.parentElement.parentElement.lastElementChild);
+                e.target.parentElement.parentElement.lastElementChild.classList.toggle('d-flex');
+                e.target.parentElement.parentElement.lastElementChild.classList.toggle('d-none');
+            }
+        }
+}
+
+
 
 
 
@@ -152,4 +171,5 @@ function switchImportance() {
     convertTheEndBadge();
     convertImportance();
     switchImportance();
+    listAccordion();
 })();
