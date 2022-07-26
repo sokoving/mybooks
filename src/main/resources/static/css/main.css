@@ -40,16 +40,28 @@
 
      /* ----------- 헤더 영역(작업해야 함) ----------- */
      #header {
-        height: 150px;
+        height: 100px;
         background-color: #088F8F;
         color: #ffc107;
         font-family: 'NanumBarunGothicBold';
+
      }
 
      #header .inner-header{
       padding: 20px;
       box-sizing: border-box;
-      
+      display: flex;
+     }
+
+     #header .lnr{
+      justify-content: left;
+      font-size: 28px;
+      padding: 11px;
+
+     }
+     #header h1 {
+      justify-content: left;
+      padding: 10px;
      }
 
 

@@ -49,7 +49,8 @@
         <!-- 헤더 영역 (작업해야 함)-->
         <header id="header">
             <div class="inner-header">
-                <h1> logo</h1>
+                <span class="lnr lnr-pencil"></span>
+                <h1> My Books</h1>
             </div>
         </header>
 
@@ -85,7 +86,7 @@
                             <div class="platform badge bg-auto" data-platform-id="${im.platformId}">${im.platformName}</div>
                             <div class="the-end badge badge bg-secondary">${im.theEnd}</div>
                         </div>
-                    </li>
+                </li>
                 </c:forEach>
 
             </ul> <!-- end like-book -->
