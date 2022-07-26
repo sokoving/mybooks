@@ -18,7 +18,7 @@
             $bfBookNo.firstElementChild.value = $bmBookNo.firstElementChild.value;
             $bfBookmarkNo.firstElementChild.value = $bmBookmarkNo.firstElementChild.textContent;
             $bfBookmarkPage.firstElementChild.value = $bmBookmarkPage.firstElementChild.textContent;
-            $bfBookConstent.firstElementChild.value = $bmBookmarkContent.firstElementChild.textContent;
+            $bfBookConstent.firstElementChild.value = $bmBookmarkContent.firstElementChild.nextSibling.textContent;
 
             console.log($bfBookNo.firstElementChild.value);
             console.log($bfBookmarkNo.firstElementChild.value);

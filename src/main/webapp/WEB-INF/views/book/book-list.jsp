@@ -82,7 +82,9 @@
                         </div>
 
                         <div class="list-right">
-                            <div class="platform badge bg-auto" data-platform-id="${im.platformId}">${im.platformName}</div>
+                            <div class="platform badge bg-auto" data-platform-id="${im.platformId}">
+                                <a href="${im.platformLink}">${im.platformName}</a>
+                            </div>
                             <div class="the-end badge badge bg-secondary">${im.theEnd}</div>
                         </div>
                     </li>
