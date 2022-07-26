@@ -118,6 +118,11 @@
         width: 100%;
         height: 50px;
     }
+    
+    .modi-table .right input[type=number]{
+        width: 100%;
+        height: 50px;
+    }
 
     .modi-table .right .form-select{
         width: 100%;
