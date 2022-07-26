@@ -88,19 +88,20 @@
 
 
 
+                    <div class="pageCount">
+                        <div class="left">
+                            <h3>현재 회차</h3>
+                        </div>
+                        <div class="right">
+                            <input id="cur-page" maxlength="5" type="number" name="curPage">
+                        </div>
 
-                    <div class="left">
-                        <h3>현재 회차</h3>
-                    </div>
-                    <div class="right">
-                        <input id="cur-page" maxlength="5" type="number" name="curPage">
-                    </div>
-
-                    <div class="left">
-                        <h3>총 회차</h3>
-                    </div>
-                    <div class="right">
-                        <input id="total-page" maxlength="5" type="number" name="totalPage">
+                        <div class="left">
+                            <h3>총 회차</h3>
+                        </div>
+                        <div class="right">
+                            <input id="total-page" maxlength="5" type="number" name="totalPage">
+                        </div>
                     </div>
 
                         <div class="theend">
