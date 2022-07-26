@@ -108,8 +108,9 @@
         font-weight: 700;
         font-size: 40px;
         font-family: 'Noto Sans KR';
-        
+
     }
+
     .bookmemoHead {
         width: 50%;
         text-align: center;
@@ -117,18 +118,95 @@
         font-size: 40px;
         font-family: 'Noto Sans KR';
     }
+
     .mkme-head {
         border-bottom: 1px solid #000;
     }
+
     .bookmark-custom {
-        /* width: 50%;
-        border: 1px solid #000; */
+        background: rgb(229, 229, 229, .5);
+        height: 300px;
+        /* margin-left: 3%; */
+        border-right: 1px solid rgb(208, 208, 208);
+        border-left: 1px solid rgb(208, 208, 208);
     }
+
     .bookmemo-custom {
+        /* width: 50%; */
+        background: rgb(229, 229, 229, .5);
+        height: 300px;
+        border-right: 1px solid rgb(208, 208, 208);
+    }
+
+    .bookmark-container {
+        width: 50%;
+
+    }
+
+    .bookmemo-container {
         width: 50%;
     }
+
+    .bookcomment-container {
+        display: flex;
+        /* margin-bottom: 1000px; */
+    }
+
+    #bookmarkPage-input {
+        border: 1px solid rgb(207, 207, 207);
+    }
+
+    #bookmarkContent-input {
+        border: 1px solid rgb(207, 207, 207);
+    }
+
+    #bookmark-insert-form {
+        position: relative;
+    }
+
+
     #bookmark-reg-btn {
-        width: 100px;
+        position: absolute;
+        right: 20px;
+        border: 1px solid rgba(000, 000, 000, 0);
+        /* background: rgb(255, 255, 93); */
+        border-radius: 20%;
+    }
+
+    #bookmemoContent-input {
+        border: 1px solid rgb(207, 207, 207);
+    }
+
+    #bookmemo-insert-form {
+        position: relative;
+    }
+    
+    #bookmemo-reg-btn {
+        position: absolute;
+        right: 20px;
+        bottom: -40px;
+        border: 1px solid rgba(000, 000, 000, 0);
+        /* background: rgb(255, 255, 93); */
+        border-radius: 20%;
+    }
+    #bookmark-list {
+        
+    }
+    .bookmark-list-wrap {
+        position: relative;
+        border: 1px solid rgb(180, 180, 180, .5);
+        padding: 30px;
+        height: 300px;
+        margin-right: 25px;
+        background: rgb(255, 249, 213);
+    }
+    .bookmark-btn-event {
+        position: absolute;
+        bottom: -150px;
+        right: 10px;
+        border: 1px solid rgba(000, 000, 000, 0.2);
+        background: rgba(000, 000, 000, 000);
+        color: #000;
     }
 
 </style>
@@ -177,117 +255,129 @@
                 </li>
             </ul>
         </div>
-        
+
         <div class="d-flex mkme-head">
             <h1 class="bookmarkHead">북마크</h1>
             <h2 class="bookmemoHead">메모</h2>
         </div>
-        <div class="d-flex">
-            <!-- 북마크 등록 -->
-            <ul class="bookmark-custom">
-                <li>
-                    <form class="d-flex" id="bookmark-insert-form" action="/book/bookmark-save" method="post">
-                        <br>
-                        <input type="hidden" name="bookNo" value="${book.bookNo}" readonly>
-                        <label class="form-floating mb-3">
-                            <input class="form-control" id="bookmarkPage-input floatingInput" maxlength="5" type="text" name="bookmarkPage">
-                            <label for="floatingInput">Page</label>
-                        </label>
-                        <br>
-                        <label class="form-floating mb-3">
-                            <input class="form-control" type="text" id="bookmarkContent-input floatingInput" name="bookmarkContent">
-                            <label for="floatingInput">Content</label>
-                        </label>
-                        <button class="btn btn-warning" id="bookmark-reg-btn" type="button">등록</button>
-                    </form>
-                </li>
-            </ul>
+        <div class="bookcomment-container">
+            <div class="bookmark-container">
+                <!-- 북마크 등록 -->
+                <ul class="bookmark-custom">
+                    <li>
+                        <form id="bookmark-insert-form" action="/book/bookmark-save" method="post">
+                            <br>
+                            <input type="hidden" name="bookNo" value="${book.bookNo}" readonly>
+                            <label class="form-floating mb-3">
+                                페이지  <input type="text" name="bookmarkPage" id="bookmarkPage-input" maxlength="5" size="3">
+                                <!-- <input class="form-control" id="bookmarkPage-input floatingInput" maxlength="5" type="text" name="bookmarkPage"> -->
+                                <!-- <label for="floatingInput">Page</label> -->
+                            </label>
+                            <br>
+                            <label class="form-floating mb-3">
+                                 <!-- <br><input type="text" id="bookmarkContent-input" name="bookmarkContent" size=""> -->
+                                북마크 내용  <br><textarea name="bookmarkContent" id="bookmarkContent-input" cols="45" rows="5"></textarea>
+                                <!-- <input class="form-control" type="text" id="bookmarkContent-input floatingInput" name="bookmarkContent"> -->
+                                <!-- <label for="floatingInput">Content</label> -->
+                            </label>
+                            <br>
+                            <button id="bookmark-reg-btn" type="button">등록</button>
+                            <!-- <button class="btn btn-warning" id="bookmark-reg-btn" type="button"></button> -->
+                        </form>
+                    </li>
+                </ul>
+
+
+                <!-- 북마크 리스트 -->
+                <ul>
+                    <li id="bookmark-list">
+
+                        <c:forEach var="mk" items="${bmkl}">
+                            <div class="bookmark-list-wrap">
+                                <label>
+                                    <input type="hidden" name="bookNo" value="${mk.bookNo}" readonly>
+                                </label>
+                                <label>
+                                    <!--  <input type="text" name="bookmarkNo" value="${mk.bookmarkNo}" readonly> -->
+                                    북마크 번호 <span name="bookmarkNo">${mk.bookmarkNo}</span>
+                                </label>
+                                <label>
+                                    <!-- <input maxlength="5" type="text" name="bookmarkPage" value="${mk.bookmarkPage}"> -->
+                                    페이지 <span name="bookmarkPage">${mk.bookmarkPage}</span>
+                                    <br>
+                                </label>
+                                <label>
+                                    <!-- <input type="text" name="bookmarkContent" value="${mk.bookmarkContent}"> -->
+                                    내용 <br><span name="bookmarkContent">${mk.bookmarkContent}</span>
+                                </label>
+                                <label>
+                                    <input type="hidden" name="regDate" value="${mk.regDate}" readonly>
+                                </label>
+                                <button type="button" class="btn btn-primary bookmark-btn-event" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">
+                                    수정
+                                </button>
+                            </div>
+                        </c:forEach>
+                    </li>
+                </ul>
+
+
+            </div>
+
+
+
+
 
 
             <!-- 메모 등록 -->
-            
-            <ul class="bookmemo-custom">
-                <li>
-                    <form id="bookmemo-insert-form" action="/book/bookmemo-save" method="post">
-                        <br>
-                        <input type="hidden" name="bookNo" value="${book.bookNo}" readonly>
-                        <label>
-                            Content : <input type="text" id="bookmemoContent-input" name="bookMemoContent">
-                        </label>
-                        <button id="bookmemo-reg-btn" type="button">등록</button>
-                    </form>
-                </li>
-            </ul>
+            <div class="bookmeme-container">
+                <ul class="bookmemo-custom">
+                    <li>
+                        <form id="bookmemo-insert-form" action="/book/bookmemo-save" method="post">
+                            <br><br><br>
+                            <input type="hidden" name="bookNo" value="${book.bookNo}" readonly>
+                            <label>
+                                메모 <br>
+                                <!-- <input type="text" id="bookmemoContent-input" name="bookMemoContent"> -->
+                                <textarea name="bookMemoContent" id="bookmemoContent-input" cols="50" rows="5"></textarea>
+                            </label>
+                            <button id="bookmemo-reg-btn" type="button">등록</button>
+                        </form>
+                    </li>
+                </ul>
+
+                <!-- 메모 리스트 -->
+                <ul>
+                    <li id="memo-list">
+                        <c:forEach var="ml" items="${bmml}">
+                            <div>
+                                <label>
+                                    <input type="hidden" name="bookNo" value="${ml.bookNo}" readonly>
+                                </label>
+                                <label>
+                                    <!-- <input type="text" name="bookMemoNo" value="${ml.bookMemoNo}" readonly> -->
+                                    No : <span name="bookMemoNo">${ml.bookMemoNo}</span>
+                                    <br>
+                                </label>
+                                <label>
+                                    <!-- <input type="text" name="bookMemoContent" value="${ml.bookMemoContent}"> -->
+                                    Content : <span name="bookMemoContent">${ml.bookMemoContent}</span>
+                                    <br>
+                                </label>
+                                <label>
+                                    <input type="hidden" name="regDate" value="${ml.regDate}" disabled>
+                                </label>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#memo">
+                                    수정
+                                </button>
+                            </div>
+                        </c:forEach>
+                    </li>
+                </ul>
+            </div>
         </div>
-
-
-
-        <!-- 북마크 리스트 -->
-        <ul>
-            <li id="bookmark-list">
-
-                <c:forEach var="mk" items="${bmkl}">
-                    <div>
-                        <label>
-                            <input type="hidden" name="bookNo" value="${mk.bookNo}" readonly>
-                        </label>
-                        <label>
-                            <!-- <input type="text" name="bookmarkNo" value="${mk.bookmarkNo}" readonly> -->
-                            No : <span name="bookmarkNo">${mk.bookmarkNo}</span>
-                        </label>
-                        <label>
-                            <!-- <input maxlength="5" type="text" name="bookmarkPage" value="${mk.bookmarkPage}"> -->
-                            Page : <span name="bookmarkPage">${mk.bookmarkPage}</span>
-                            <br>
-                        </label>
-                        <label>
-                            <!-- <input type="text" name="bookmarkContent" value="${mk.bookmarkContent}"> -->
-                            Content : <span name="bookmarkContent">${mk.bookmarkContent}</span>
-                        </label>
-                        <label>
-                            <input type="hidden" name="regDate" value="${mk.regDate}" readonly>
-                        </label>
-                        <button type="button" class="btn btn-primary bookmark-btn-event" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-                            수정
-                        </button>
-                    </div>
-                </c:forEach>
-            </li>
-        </ul>
-
-
-        
-
-
-        <!-- 메모 리스트 -->
-        <ul>
-            <li id="memo-list">
-                <c:forEach var="ml" items="${bmml}">
-                    <div>
-                        <label>
-                            <input type="hidden" name="bookNo" value="${ml.bookNo}" readonly>
-                        </label>
-                        <label>
-                            <!-- <input type="text" name="bookMemoNo" value="${ml.bookMemoNo}" readonly> -->
-                            No : <span name="bookMemoNo">${ml.bookMemoNo}</span>
-                            <br>
-                        </label>
-                        <label>
-                            <!--  <input type="text" name="bookMemoContent" value="${ml.bookMemoContent}"> -->
-                            Content : <span name="bookMemoContent">${ml.bookMemoContent}</span>
-                            <br>
-                        </label>
-                        <label>
-                            <input type="hidden" name="regDate" value="${ml.regDate}" disabled>
-                        </label>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#memo">
-                            수정
-                        </button>
-                    </div>
-                </c:forEach>
-            </li>
-        </ul>
     </div>
 
 
@@ -310,14 +400,14 @@
                             <input type="hidden" name="bookNo" readonly>
                         </label>
                         <label>
-                            bookmarkNo : <input type="text" maxlength="5" name="bookmarkNo" readonly>
+                            북마크 번호 : <input type="text" maxlength="5" name="bookmarkNo" readonly>
                         </label>
                         <label>
-                            bookmarkPage : <input id="bookmarkPage-modify" type="text" maxlength="5"
+                            페이지 : <input id="bookmarkPage-modify" type="text" maxlength="5"
                                 name="bookmarkPage">
                         </label>
                         <label>
-                            bookmarkContent : <input id="bookmarkContent-modify" type="text" name="bookmarkContent">
+                            내용 : <input id="bookmarkContent-modify" type="text" name="bookmarkContent">
                         </label>
                         <br>
                 </div>
@@ -393,16 +483,16 @@
             console.log($bmBookmarkContent.firstElementChild);
 
             $bfBookNo.firstElementChild.value = $bmBookNo.firstElementChild.value;
-            $bfBookmarkNo.firstElementChild.value = $bmBookmarkNo.firstElementChild.value;
-            $bfBookmarkPage.firstElementChild.value = $bmBookmarkPage.firstElementChild.value;
-            $bfBookConstent.firstElementChild.value = $bmBookmarkContent.firstElementChild.value;
+            $bfBookmarkNo.firstElementChild.value = $bmBookmarkNo.firstElementChild.textContent;
+            $bfBookmarkPage.firstElementChild.value = $bmBookmarkPage.firstElementChild.textContent;
+            $bfBookConstent.firstElementChild.value = $bmBookmarkContent.firstElementChild.textContent;
 
             console.log($bfBookNo.firstElementChild.value);
             console.log($bfBookmarkNo.firstElementChild.value);
             console.log($bfBookmarkPage.firstElementChild.value);
             console.log($bfBookConstent.firstElementChild.value);
             const $bmDelete = document.querySelector('#bookmarkDelete');
-            $bmDelete.value = $bmBookmarkNo.firstElementChild.value;
+            $bmDelete.value = $bmBookmarkNo.firstElementChild.textContent;
         }
 
         // 메모 수정
@@ -424,12 +514,12 @@
             console.log($mmBookmemoNo);
             console.log($mmBookmemoContent.firstElementChild);
             $mmfBookNo.firstElementChild.value = $mmBookNo.firstElementChild.value;
-            $mmfBookMemoNo.firstElementChild.value = $mmBookmemoNo.firstElementChild.value;
-            $mmfBookConstent.firstElementChild.value = $mmBookmemoContent.firstElementChild.value;
+            $mmfBookMemoNo.firstElementChild.value = $mmBookmemoNo.firstElementChild.textContent;
+            $mmfBookConstent.firstElementChild.value = $mmBookmemoContent.firstElementChild.textContent;
 
 
             const $mmDelte = document.querySelector('#bookmemoDelete');
-            $mmDelte.value = $mmBookmemoNo.firstElementChild.value;
+            $mmDelte.value = $mmBookmemoNo.firstElementChild.textContent;
         }
 
         // 북마크 등록 필수값 확인
