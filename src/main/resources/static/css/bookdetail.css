@@ -1,0 +1,176 @@
+
+.wrap {
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    background: rgb(255, 255, 255);
+}
+
+.detail-page {
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.custom-img {
+    width: 300px;
+    height: 350px;
+    flex-grow: 1;
+    padding-left: 30px;
+}
+
+.detail-content {
+    flex-grow: 1;
+    width: 500px;
+}
+
+.detail-content li {
+    line-height: 70px;
+    font-weight: 700;
+    font-size: 20px;
+    font-family: 'Noto Sans KR';
+}
+
+.book-comment {
+    width: 100%;
+    font-weight: 700;
+    font-size: 20px;
+    font-family: 'Noto Sans KR';
+}
+
+
+
+.detail-btn {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: 50px;
+    margin-top: 30px;
+}
+
+.detail-btn li {
+    width: 150px;
+}
+
+.btn-yellow {
+    background: #fdc324;
+    color: #333 !important;
+    border: 1px solid #fdc324 !important;
+    width: 100px;
+    height: 40px;
+}
+
+.btn-custom {
+    font-weight: 700;
+    font-size: 20px;
+    font-family: 'Noto Sans KR';
+}
+
+.bookmarkHead {
+    width: 50%;
+    text-align: center;
+    font-weight: 700;
+    font-size: 40px;
+    font-family: 'Noto Sans KR';
+
+}
+
+.bookmemoHead {
+    width: 50%;
+    text-align: center;
+    font-weight: 700;
+    font-size: 40px;
+    font-family: 'Noto Sans KR';
+}
+
+.mkme-head {
+    border-bottom: 1px solid #000;
+}
+
+.bookmark-custom {
+    background: rgb(229, 229, 229, .5);
+    height: 300px;
+    /* margin-left: 3%; */
+    border-right: 1px solid rgb(208, 208, 208);
+    border-left: 1px solid rgb(208, 208, 208);
+}
+
+.bookmemo-custom {
+    /* width: 50%; */
+    background: rgb(229, 229, 229, .5);
+    height: 300px;
+    border-right: 1px solid rgb(208, 208, 208);
+}
+
+.bookmark-container {
+    width: 50%;
+
+}
+
+.bookmemo-container {
+    width: 50%;
+}
+
+.bookcomment-container {
+    display: flex;
+    /* margin-bottom: 1000px; */
+}
+
+#bookmarkPage-input {
+    border: 1px solid rgb(207, 207, 207);
+}
+
+#bookmarkContent-input {
+    border: 1px solid rgb(207, 207, 207);
+}
+
+#bookmark-insert-form {
+    position: relative;
+}
+
+
+#bookmark-reg-btn {
+    position: absolute;
+    right: 20px;
+    border: 1px solid rgba(000, 000, 000, 0);
+    /* background: rgb(255, 255, 93); */
+    border-radius: 20%;
+}
+
+#bookmemoContent-input {
+    border: 1px solid rgb(207, 207, 207);
+}
+
+#bookmemo-insert-form {
+    position: relative;
+}
+
+#bookmemo-reg-btn {
+    position: absolute;
+    right: 20px;
+    bottom: -40px;
+    border: 1px solid rgba(000, 000, 000, 0);
+    /* background: rgb(255, 255, 93); */
+    border-radius: 20%;
+}
+#bookmark-list {
+    
+}
+.bookmark-list-wrap {
+    position: relative;
+    border: 1px solid rgb(180, 180, 180, .5);
+    padding: 30px;
+    height: 300px;
+    margin-right: 25px;
+    background: rgb(255, 249, 213);
+}
+.bookmark-btn-event {
+    position: absolute;
+    bottom: -150px;
+    right: 10px;
+    border: 1px solid rgba(000, 000, 000, 0.2);
+    background: rgba(000, 000, 000, 000);
+    color: #000;
+}
