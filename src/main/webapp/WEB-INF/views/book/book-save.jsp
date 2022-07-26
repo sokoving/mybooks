@@ -212,6 +212,7 @@
                     flag = true;
                 }
 
+                
                 if($curPage.value.trim() === '') {
                     $curPage.value = 0;
                 }

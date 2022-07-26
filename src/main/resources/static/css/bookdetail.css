@@ -12,7 +12,14 @@
     margin-top: 100px;
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 100px;
 }
+
+/* .div-null {
+    width: 100%;
+    background: rgb(229, 229, 229, .5);
+    height: 50px;
+} */
 
 .custom-img {
     width: 300px;
@@ -74,7 +81,9 @@
     font-weight: 700;
     font-size: 40px;
     font-family: 'NanumSquareRound', sans-serif;
+    /* background: rgb(229, 229, 229, .5); */
 
+    /* margin-bottom: -0.5rem; */
 }
 
 .bookmemoHead {
@@ -83,7 +92,8 @@
     font-weight: 700;
     font-size: 40px;
     font-family: 'NanumSquareRound', sans-serif;
-}
+    /* background: rgb(229, 229, 229, .5); */
+}   
 
 .mkme-head {
     border-bottom: 1px solid #000;
@@ -92,10 +102,12 @@
 
 .bookmark-custom {
     background: rgb(229, 229, 229, .5);
+    width: 100%;
     height: 300px;
     /* margin-left: 3%; */
     border-right: 1px solid rgb(208, 208, 208);
     border-left: 1px solid rgb(208, 208, 208);
+    
 }
 
 .bookmemo-custom {
@@ -107,11 +119,13 @@
 
 .bookmark-container {
     width: 50%;
+    background: rgb(229, 229, 229, .5);
 
 }
 
 .bookmeme-container {
     width: 50%;
+    background: rgb(229, 229, 229, .5);
     
 }
 
