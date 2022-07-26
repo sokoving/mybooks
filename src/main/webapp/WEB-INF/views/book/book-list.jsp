@@ -60,7 +60,7 @@
             <ul id="like-book" class="list-group">
                 <li class="list-head list-group-item d-flex justify-content-center">
                     <h2 class="fs-3">즐겨찾기 목록</h2>
-                    <span class="accordionBtn lnr lnr-chevron-down"></span>
+                    <span class="accordionBtn lnr lnr-chevron-up"></span>
                 </li>
                 <!--  d-flex list-group-item justify-content-between align-items-start -->
                 <li>
@@ -102,9 +102,9 @@
             <ul id="all-book" class="list-group">
                 <li class="list-head list-group-item d-flex justify-content-center">
                     <h2 class="fs-3">전체 목록</h2>
-                    <span class="accordionBtn lnr lnr-chevron-down"></span>
+                    <span class="accordionBtn lnr lnr-chevron-up"></span>
                 </li>
-                <li class="list-group-item list-group-item-action text-center fs-6">
+                <li class="list-group-item list-group-item-action text-center fs-6 input-book-bg">
                     <a href="/book/write">+ 새 책 등록하기</a>
                 </li>
 
