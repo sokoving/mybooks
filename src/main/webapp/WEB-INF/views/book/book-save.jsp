@@ -45,70 +45,63 @@
 
             <form action="/book/write" method="post" id="write-form">
                 <div class="input-table">
-                    <!-- <div id="form-Container"> -->
-                        <div class="left">
-                            <h3>플랫폼</h3>
-                        </div>
-                        <div class="right">
-                            <select name="platformId" class="form-select" aria-label="Default select example">
-                                <option selected>플랫폼을 선택해주세요</option>
-                                <option value="1">카카오 페이지</option>
-                                <option value="2">네이버 시리즈</option>
-                                <option value="3">리디북스</option>
-                                <option value="4">문피아</option>
-                                <option value="5">조아라</option>
-                                <option value="6">미분류</option>
-                            </select>
 
-                        </div>
-                    <!-- </div> -->
-                    <!-- <div class="img-link"> -->
-                        <div class="left">
-                            <h3>이미지 링크</h3>
-                        </div>
-                        <div class="right">
-                            <input type="text" name="bookImg">
-                        </div>
-                    <!-- </div> -->
-
-                    <!-- <div class="bookname-input"> -->
-                        <div class="left">
-                            <h3>책 제목</h3>
-                        </div>
-                        <div class="right">
-                            <input id="book-name-input" maxlength="50" type="text" name="bookTitle">
-                        </div>
-                    <!-- </div> -->
-
-                    <!-- <div class="writer-input"> -->
-                        <div class="left">
-                            <h3>작가</h3>
-                        </div>
-                        <div class="right">
-                            <input id="writer-input" maxlength="50" type="text" name="writer">
-                        </div>
-                    <!-- </div> -->
+                    <div class="left">
+                        <h3>이미지 링크</h3>
+                    </div>
+                    <div class="right">
+                        <input type="text" name="bookImg">
+                    </div>
 
 
-                    <!-- <div class="curPage-input"> -->
-                        <div class="left">
-                            <h3>현재 회차</h3>
-                        </div>
-                        <div class="right">
-                            <input id="cur-page" maxlength="5" type="number" name="curPage">
-                        </div>
+                    <div class="left">
+                        <h3>플랫폼</h3>
+                    </div>
+                    <div class="right">
+                        <select name="platformId" class="form-select" aria-label="Default select example">
+                            <option selected>플랫폼을 선택해주세요</option>
+                            <option value="1">카카오 페이지</option>
+                            <option value="2">네이버 시리즈</option>
+                            <option value="3">리디북스</option>
+                            <option value="4">문피아</option>
+                            <option value="5">조아라</option>
+                            <option value="6">미분류</option>
+                        </select>
 
-                    <!-- </div> -->
+                    </div>
 
-                    <!-- <div class="totalpage-input"> -->
-                        <div class="left">
-                            <h3>총 회차</h3>
-                        </div>
-                        <div class="right">
-                            <input id="total-page" maxlength="5" type="number" name="totalPage">
-                        </div>
 
-                    <!-- </div> -->
+
+                    <div class="left">
+                        <h3>책 제목</h3>
+                    </div>
+                    <div class="right">
+                        <input id="book-name-input" maxlength="50" type="text" name="bookTitle">
+                    </div>
+
+                    <div class="left">
+                        <h3>작가</h3>
+                    </div>
+                    <div class="right">
+                        <input id="writer-input" maxlength="50" type="text" name="writer">
+                    </div>
+
+
+
+
+                    <div class="left">
+                        <h3>현재 회차</h3>
+                    </div>
+                    <div class="right">
+                        <input id="cur-page" maxlength="5" type="number" name="curPage">
+                    </div>
+
+                    <div class="left">
+                        <h3>총 회차</h3>
+                    </div>
+                    <div class="right">
+                        <input id="total-page" maxlength="5" type="number" name="totalPage">
+                    </div>
 
                         <div class="theend">
                             <div class="left">
@@ -134,22 +127,14 @@
                             <div class="right">
                                 <select name="starRate" class="form-select" aria-label="Default select example">
                                     <option selected>별점을 선택해주세요</option>
-                                    <option value="1">*</option>
-                                    <option value="2">**</option>
-                                    <option value="3">***</option>
-                                    <option value="4">****</option>
-                                    <option value="5">*****</option>
+                                    <option value="1">★☆☆☆☆</option>
+                                    <option value="2">★★☆☆☆</option>
+                                    <option value="3">★★★☆☆</option>
+                                    <option value="4">★★★★☆</option>
+                                    <option value="5">★★★★★</option>
                                 </select>
                             </div>
 
-                            <!--
-                                <select name="starRate">
-                                    <option value="1">*</option>
-                                    <option value="2">**</option>
-                                    <option value="3">***</option>
-                                    <option value="4">****</option>
-                                    <option value="5">*****</option>
-                                </select> -->
 
                         <!-- </div> -->
                         <!-- <div class="bookComment-input"> -->
@@ -166,18 +151,10 @@
                     </ul>
                 </div>
 
-
-
-                <!-- 플랫폼 :
-                <select name="platformId">
-                    <option value="1">카카오 페이지</option>
-                    <option value="2">네이버 시리즈</option>
-                    <option value="3">리디북스</option>
-                    <option value="4">문피아</option>
-                    <option value="5">조아라</option>
-                    <option value="6">미분류</option>
-                </select> -->
-                <button type="button" id="reg-btn" class="btn btn-outline-danger" style="float: right;">등록</button>
+                <div id="button" style="padding: 10px;">
+                    <button type="button" id="reg-btn" class="btn btn-outline-danger" style="float: right;">등록</button>
+                </div>
+                
 
             </form>
 
@@ -192,6 +169,8 @@
 
 
     <script>
+
+
         (function () {
             function validateFormValue() {
 
@@ -201,26 +180,55 @@
 
                 const $curPage = document.getElementById('cur-page');
                 const $totalPage = document.getElementById('total-page');
-
                 console.log('b: ', $bookNameInput.value);
                 console.log('w: ', $writerInput.value);
+                
                 if ($bookNameInput.value.trim() === '') {
                     alert('제목은 필수값입니다');
+                    return false;
                 } else if ($writerInput.value.trim() === '') {
                     alert('작가는 필수값입니다');
-                } else {
-                    flag = true;
-                }
+                    return false;
+                } 
+                
+                
+                // if($curPage.value.trim() === '') {
+                //     $curPage.value = 0;
+                // }
+                // if($totalPage.value.trim() === '') {
+                //     $totalPage.value = 0;
+                // }
+                // return flag;
+                
 
                 
                 if($curPage.value.trim() === '') {
                     $curPage.value = 0;
-                }
+                } else if($curPage.value < 0 ) {
+                    alert('현재 페이지 값을 확인해주세요.');
+                    return false;
+                } 
+
                 if($totalPage.value.trim() === '') {
                     $totalPage.value = 0;
-                }
+                    return false;
+                } else if($totalPage.value < 0){
+                    alert('총 페이지 값을 다시 한번 확인해주세요.');
+                    return false;
+                } 
+                
 
-                return flag;
+
+                if(+$totalPage.value < +$curPage.value){
+                    console.log($totalPage.value);
+                    console.log($curPage.value);
+                    alert('총 페이지 값을 다시 한번 확인해주세요.');
+                    return false;
+                } 
+
+                return true;
+
+
             }
 
 //             function checkStringCnt() {
@@ -246,7 +254,7 @@
 //             }
 
             // 게시물 입력값 검증
-            const $regBtn = document.getElementById('reg-btn');
+        const $regBtn = document.getElementById('reg-btn');
 
             $regBtn.onclick = e => {
                 // 입력값을 제대로 채우지 않았는지 확인

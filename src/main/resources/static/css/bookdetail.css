@@ -1,12 +1,48 @@
 
 .wrap {
-    width: 50%;
+    /* padding-bottom: 50px; */
+    /* margin: 0 auto; */
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, 0%);
     background: rgb(255, 255, 255);
 }
+
+     /* ----------- 헤더 영역(작업해야 함) ----------- */
+
+#header {
+    height: 80px;
+    background-color: #088F8F;
+    color: #ffc107;
+
+}
+
+#header .inner-header{
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    margin: auto 10px;
+}
+
+#header .lnr{
+    justify-content: left;
+    font-size: 23px;
+    margin: auto 10px;
+    /* padding: 11px; */
+
+}
+#header h1 {
+    font-size: 30px;
+    justify-content: left;
+    margin: auto 10px;
+    font-family: 'NanumBarunGothicBold';
+    /* padding: 10px; */
+}
+
+
+
+
 
 .detail-page {
     margin-top: 100px;
@@ -212,4 +248,23 @@
     border: 1px solid rgba(000, 000, 000, 0.2);
     background: rgba(000, 000, 000, 000);
     color: #000;
+}
+
+
+
+/* footer  */
+
+#footer{
+    height: 50px;
+    padding: 20px;
+    background: rgb(207, 207, 207);
+    position: relative;
+} 
+
+
+#footer h3 {
+    color: #999;
+    font-size: 10px;
+    text-align: center;
+
 }

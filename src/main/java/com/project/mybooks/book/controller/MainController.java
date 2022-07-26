@@ -14,11 +14,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,7 +58,7 @@ public class MainController {
         log.info("Main Controller - list GET 요청");
         // search를 적용한 리스트를 가진 맵 불러오기
         List<BookPlatform> bList = bService.findAll2service(search);
-        log.info(bList);
+        log.debug(bList);
 
         // 페이지 정보 생성
         PageMaker pm = new PageMaker(search, bService.getTotal2Service(search));

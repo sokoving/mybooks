@@ -28,7 +28,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- custom js -->
-    <script src="/js/config.js" defer></script>
     <!-- bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
 
@@ -49,7 +48,8 @@
         <!-- 헤더 영역 (작업해야 함)-->
         <header id="header">
             <div class="inner-header">
-                <h1> logo</h1>
+                <span class="lnr lnr-pencil"></span>
+                <h1> My Books</h1>
             </div>
         </header>
 
@@ -59,7 +59,7 @@
         <div id="book-wrap">
             <!-- 즐겨찾기 책 목록(작업해야 함) -->
             <ul id="like-book" class="list-group">
-                <li class="list-head  d-flex justify-content-center">
+                <li class="list-head list-group-item d-flex justify-content-center">
                     <h2 class="fs-3">즐겨찾기 목록</h2>
                     <span class="accordionBtn lnr lnr-chevron-up"></span>
                 </li>
@@ -104,10 +104,75 @@
                     <h2 class="fs-3">전체 목록</h2>
                     <span class="accordionBtn lnr lnr-chevron-up"></span>
                 </li>
-                <li class="list-group-item list-group-item-action text-center fs-6 input-book-bg">
+                <li class="list-group-item-warning text-center fs-6 input-book-bg">
                     <a href="/book/write">+ 새 책 등록하기</a>
                 </li>
 
+                <!-- 검색 li -->
+                <li class="list-group-item list-group-item-action text-center fs-6 filter-section">
+                    <div class="filter-area">
+                        <!-- change 이벤트 -->
+                        <span class="lnr lnr-funnel"></span>
+                        <label>
+                            <select name="platformId" class="form-select" id="p-select">
+                                <option value="0" ${search.platformId==0 ? 'selected' : '' }>플랫폼을 선택해주세요</option>
+                                <option value="1" ${search.platformId==1 ? 'selected' : '' }>
+                                    카카오 페이지
+                                </option>
+                                <option value="2" ${search.platformId==2 ? 'selected' : '' }>
+                                    네이버 시리즈
+                                </option>
+                                <option value="3" ${search.platformId==3 ? 'selected' : '' }>
+                                    리디북스
+                                </option>
+                                <option value="4" ${search.platformId==4 ? 'selected' : '' }>
+                                    문피아
+                                </option>
+                                <option value="5" ${search.platformId==5 ? 'selected' : '' }>
+                                    조아라
+                                </option>
+                                <option value="6" ${search.platformId==6 ? 'selected' : '' }>
+                                    미분류
+                                </option>
+                            </select>
+                        </label>
+                        <label>
+                            <select name="starRate" class="form-select" id="s-select">
+                                <option value="0" ${search.starRate==0 ? 'selected' : '' }>
+                                    별점을 선택해주세요
+                                </option>
+                                <option value="1" ${search.starRate==1 ? 'selected' : '' }>
+                                    ★☆☆☆☆
+                                </option>
+                                <option value="2" ${search.starRate==2 ? 'selected' : '' }>
+                                    ★★☆☆☆
+                                </option>
+                                <option value="3" ${search.starRate==3 ? 'selected' : '' }>
+                                    ★★★☆☆
+                                </option>
+                                <option value="4" ${search.starRate==4 ? 'selected' : '' }>
+                                    ★★★★☆
+                                </option>
+                                <option value="5" ${search.starRate==5 ? 'selected' : '' }>
+                                    ★★★★★
+                                </option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <!-- keyup 이벤트 -->
+                    <div class="search-area">
+                        <span class="lnr lnr-magnifier"></span>
+                        <label>
+                            <input type="text" id="b-search" name="bookTitle" placeholder="제목으로 검색해 보세요">
+                        </label>
+                        <label>
+                            <input type="text" id="w-search" name="writer" placeholder="작가로 검색해 보세요">
+                        </label>
+                    </div>
+                </li>
+
+                <!-- 전체 책 목록 li -->
                 <li>
                     <c:forEach var="bp" items="${bpList}">
                         <div class="list-group-item d-flex justify-content-between align-items-start">
@@ -140,8 +205,50 @@
                 </li>
 
             </ul><!-- end all-book -->
+            <footer>
+                <h3>Copyright 2021.  My Books. all rights reserved.</h3>
+
+            </footer>
         </div> <!-- end book-wrap -->
     </div> <!-- end wrap -->
+
+
+    <script src="/js/config.js"></script>
+    <script>
+        const params = {
+            platformId: '${search.platformId}',
+            starRate: '${search.starRate}',
+            bookTitle: '${search.bookTitle}',
+            writer: '${search.writer}'
+        };
+
+        (function () {
+            // test();
+
+            // 별점, 배지 css 변동 이벤트
+            convertStarRate();
+            convertPlatformBadge();
+            convertTheEndBadge();
+            convertImportance();
+
+
+            // 아코디언 이벤트
+            listAccordion();
+
+            // 즐겨찾기 추가, 제거 이벤트
+            switchImportance();
+
+            // 필터 이벤트
+            console.log(params);
+            document.getElementById('p-select').onchange = e => {
+                searchPlatform(e, params);
+            };
+            document.getElementById('s-select').onchange = e => {
+                searchStarRate(e, params);
+            }
+
+        })();
+    </script>
 
 </body>
 

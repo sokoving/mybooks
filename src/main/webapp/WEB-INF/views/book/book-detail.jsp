@@ -40,6 +40,12 @@
 
 <body>
     <div class="wrap">
+        <header id="header">
+            <div class="inner-header">
+                <span class="lnr lnr-pencil"></span>
+                <h1> My Books</h1>
+            </div>
+        </header>
 
 
         <div class="detail-page">
@@ -284,7 +290,15 @@
                 </div>
             </div>
         </div>
+            <!-- footer -->
+        <div id="footer">
+            <h3>Copyright 2021.  My Books. all rights reserved.</h3>
+        </div>
     </div>
+
+
+
+
 
 
 </body>

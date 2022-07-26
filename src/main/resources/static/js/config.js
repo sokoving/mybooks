@@ -139,7 +139,33 @@ function switchImportance() {
     }
 }
 
+// 플랫폼 필터링 change 이벤트
+function searchPlatform(e, params){
+    // console.log("e: ", e.target.value);
+    const selectVal = e.target.value;
+    console.log('selectVal' + selectVal);
+    location.href = '/book/list?platformId=' + selectVal
+                + '&starRate=' + params.starRate
+                + '&bookTitle=' + params.bookTitle
+                + '&writer=' + params.writer
+                ;
+}
+
+// 별점 필터링 change 이벤트
+function searchStarRate(e, params){
+    // console.log("e: ", e.target.value);
+    const selectVal = e.target.value;
+    console.log('selectVal' + selectVal);
+    location.href = '/book/list?platformId=' + params.platformId
+                + '&starRate=' + selectVal
+                + '&bookTitle=' + params.bookTitle
+                + '&writer=' + params.writer
+    ;
+}
+
+// 아코디언 이벤트
 function listAccordion() {
+    console.log('!! 아코디언 함수 시작');
     const $accordionBtn = [...document.querySelectorAll('.accordionBtn')];
 
     console.log($accordionBtn);
@@ -160,16 +186,3 @@ function listAccordion() {
 
 
 
-
-
-// ------------------ 실행부 ------------------//
-
-(function () {
-    test();
-    convertStarRate();
-    convertPlatformBadge();
-    convertTheEndBadge();
-    convertImportance();
-    switchImportance();
-    listAccordion();
-})();
