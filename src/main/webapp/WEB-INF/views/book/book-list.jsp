@@ -28,7 +28,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- custom js -->
-    
     <!-- bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
 
@@ -61,44 +60,50 @@
             <ul id="like-book" class="list-group">
                 <li class="list-head list-group-item d-flex justify-content-center">
                     <h2 class="fs-3">즐겨찾기 목록</h2>
+                    <span class="accordionBtn lnr lnr-chevron-down"></span>
+                </li>
+                <!--  d-flex list-group-item justify-content-between align-items-start -->
+                <li>
+                    <c:forEach var="im" items="${imList}">
+                        <div class="d-flex list-group-item justify-content-between align-items-start">
+                            <div class="list-left d-flex flex-column">
+                                <div class="img-book"><img class="img-custom" src="${im.bookImg}" alt="책표지"></div>
+                                <div class="importance" data-book-no="${im.bookNo}" data-importance="${im.importance}">
+                                    즐겨찾기
+                                </div>
+                            </div>
+                            <div class="ms-2 me-auto text-break">
+                                <h3 class="title fs-5 fw-bold">
+                                    <a href="/book/detail?bookNo=${im.bookNo}">
+                                        ${im.bookTitle}
+                                    </a>
+                                </h3>
+                                <div class="writer fs-6">${im.writer}</div>
+                                <div class="star-rate mb-1">${im.starRate}</div>
+                                <div class="page fs-6">${im.curPage} / ${im.totalPage}</div>
+                                <div class="comment fs-6"># ${im.bookComment}</div>
+                            </div>
+
+                            <div class="list-right">
+                                <div class="platform badge bg-auto" data-platform-id="${im.platformId}">
+                                    <a href="${im.platformLink}">${im.platformName}</a>
+                                </div>
+                                <div class="the-end badge badge bg-secondary">${im.theEnd}</div>
+                            </div>
+                        </div>
+                    </c:forEach>
                 </li>
 
-                <c:forEach var="im" items="${imList}">
-                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div class="list-left d-flex flex-column ">
-                            <div class="img-book"><img class="img-custom" src="${im.bookImg}" alt="책표지"></div>
-                            <div class="importance" data-book-no="${im.bookNo}" data-importance="${im.importance}">즐겨찾기
-                            </div>
-                        </div>
-                        <div class="ms-2 me-auto text-break">
-                            <h3 class="title fs-5 fw-bold">
-                                <a href="/book/detail?bookNo=${im.bookNo}">
-                                    ${im.bookTitle}
-                                </a>
-                            </h3>
-                            <div class="writer fs-6">${im.writer}</div>
-                            <div class="star-rate mb-1">${im.starRate}</div>
-                            <div class="page fs-6">${im.curPage} / ${im.totalPage}</div>
-                            <div class="comment fs-6"># ${im.bookComment}</div>
-                        </div>
-
-                        <div class="list-right">
-                            <div class="platform badge bg-auto" data-platform-id="${im.platformId}">${im.platformName}
-                            </div>
-                            <div class="the-end badge badge bg-secondary">${im.theEnd}</div>
-                        </div>
-                    </li>
-                </c:forEach>
-
             </ul> <!-- end like-book -->
+
 
 
             <!-- 전체 책 목록 -->
             <ul id="all-book" class="list-group">
                 <li class="list-head list-group-item d-flex justify-content-center">
                     <h2 class="fs-3">전체 목록</h2>
+                    <span class="accordionBtn lnr lnr-chevron-down"></span>
                 </li>
-
                 <li class="list-group-item list-group-item-action text-center fs-6">
                     <a href="/book/write">+ 새 책 등록하기</a>
                 </li>
@@ -161,33 +166,36 @@
                 </li>
 
                 <!-- 전체 책 목록 li -->
-                <c:forEach var="bp" items="${bpList}">
-                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div class="list-left d-flex flex-column ">
-                            <div class="img-book"><img class="img-custom" src="${bp.bookImg}" alt="책표지"></div>
-                            <div class="importance" data-book-no="${bp.bookNo}" data-importance="${bp.importance}">즐겨찾기
+                <li>
+                    <c:forEach var="bp" items="${bpList}">
+                        <div class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="list-left d-flex flex-column ">
+                                <div class="img-book"><img class="img-custom" src="${bp.bookImg}" alt="책표지"></div>
+                                <div class="importance" data-book-no="${bp.bookNo}" data-importance="${bp.importance}">
+                                    즐겨찾기
+                                </div>
                             </div>
-                        </div>
-                        <div class="ms-2 me-auto text-break">
-                            <h3 class="title fs-5 fw-bold">
-                                <a href="/book/detail?bookNo=${bp.bookNo}">
-                                    ${bp.bookTitle}
-                                </a>
-                            </h3>
-                            <div class="writer fs-6">${bp.writer}</div>
-                            <div class="star-rate mb-1">${bp.starRate}</div>
-                            <div class="page fs-6">${bp.curPage} / ${bp.totalPage}</div>
-                            <div class="comment fs-6"># ${bp.bookComment}</div>
-                        </div>
+                            <div class="ms-2 me-auto text-break">
+                                <h3 class="title fs-5 fw-bold">
+                                    <a href="/book/detail?bookNo=${bp.bookNo}">
+                                        ${bp.bookTitle}
+                                    </a>
+                                </h3>
+                                <div class="writer fs-6">${bp.writer}</div>
+                                <div class="star-rate mb-1">${bp.starRate}</div>
+                                <div class="page fs-6">${bp.curPage} / ${bp.totalPage}</div>
+                                <div class="comment fs-6"># ${bp.bookComment}</div>
+                            </div>
 
-                        <div class="list-right">
-                            <div class="platform badge bg-auto" data-platform-id="${bp.platformId}">
-                                <a href="${bp.platformLink}">${bp.platformName}</a>
+                            <div class="list-right">
+                                <div class="platform badge bg-auto" data-platform-id="${bp.platformId}">
+                                    <a href="${bp.platformLink}">${bp.platformName}</a>
+                                </div>
+                                <div class="the-end badge badge bg-secondary">${bp.theEnd}</div>
                             </div>
-                            <div class="the-end badge badge bg-secondary">${bp.theEnd}</div>
                         </div>
-                    </li>
-                </c:forEach>
+                    </c:forEach>
+                </li>
 
             </ul><!-- end all-book -->
         </div> <!-- end book-wrap -->
@@ -205,7 +213,7 @@
 
         (function () {
             // test();
-            
+
             // 별점, 배지 css 변동 이벤트
             convertStarRate();
             convertPlatformBadge();

@@ -144,7 +144,7 @@ function searchPlatform(e, params){
     // console.log("e: ", e.target.value);
     const selectVal = e.target.value;
     console.log('selectVal' + selectVal);
-    location.href = '/book/list?platformId=' + selectVal 
+    location.href = '/book/list?platformId=' + selectVal
                 + '&starRate=' + params.starRate
                 + '&bookTitle=' + params.bookTitle
                 + '&writer=' + params.writer
@@ -163,7 +163,24 @@ function searchStarRate(e, params){
     ;
 }
 
-// 책 제목 
+// 아코디언 이벤트
+function listAccordion() {
+    const $accordionBtn = [...document.querySelectorAll('.accordionBtn')];
+
+    console.log($accordionBtn);
+
+    for (let i = 0; i < $accordionBtn.length; i++)
+        $accordionBtn[i].onclick = e => {
+            console.log(e.target);
+            if (e.target == $accordionBtn[i]) {
+                e.target.classList.toggle('lnr-chevron-down');
+                e.target.classList.toggle('lnr-chevron-up');
+                console.log(e.target.parentElement.parentElement.lastElementChild);
+                e.target.parentElement.parentElement.lastElementChild.classList.toggle('d-flex');
+                e.target.parentElement.parentElement.lastElementChild.classList.toggle('d-none');
+            }
+        }
+}
 
 
 

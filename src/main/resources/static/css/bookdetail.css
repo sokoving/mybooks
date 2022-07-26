@@ -30,14 +30,14 @@
     line-height: 70px;
     font-weight: 700;
     font-size: 20px;
-    font-family: 'Noto Sans KR';
+    font-family: 'NanumSquareRound', sans-serif;
 }
 
 .book-comment {
     width: 100%;
     font-weight: 700;
     font-size: 20px;
-    font-family: 'Noto Sans KR';
+    font-family: 'NanumSquareRound', sans-serif;
 }
 
 
@@ -65,7 +65,7 @@
 .btn-custom {
     font-weight: 700;
     font-size: 20px;
-    font-family: 'Noto Sans KR';
+    font-family: 'NanumSquareRound', sans-serif;
 }
 
 .bookmarkHead {
@@ -73,7 +73,7 @@
     text-align: center;
     font-weight: 700;
     font-size: 40px;
-    font-family: 'Noto Sans KR';
+    font-family: 'NanumSquareRound', sans-serif;
 
 }
 
@@ -82,11 +82,12 @@
     text-align: center;
     font-weight: 700;
     font-size: 40px;
-    font-family: 'Noto Sans KR';
+    font-family: 'NanumSquareRound', sans-serif;
 }
 
 .mkme-head {
     border-bottom: 1px solid #000;
+    display: flex;
 }
 
 .bookmark-custom {
@@ -109,8 +110,13 @@
 
 }
 
-.bookmemo-container {
+.bookmeme-container {
     width: 50%;
+    
+}
+
+.bookmemo-custom {
+    background: rgb(229, 229, 229, .5);
 }
 
 .bookcomment-container {
@@ -155,21 +161,40 @@
     /* background: rgb(255, 255, 93); */
     border-radius: 20%;
 }
-#bookmark-list {
-    
-}
+
 .bookmark-list-wrap {
     position: relative;
     border: 1px solid rgb(180, 180, 180, .5);
     padding: 30px;
-    height: 300px;
+    /* height: 300px; */
     margin-right: 25px;
     background: rgb(255, 249, 213);
 }
 .bookmark-btn-event {
     position: absolute;
-    bottom: -150px;
-    right: 10px;
+    top: 17px;
+    right: 23px;
+    border: 1px solid rgba(000, 000, 000, 0.2);
+    background: rgba(000, 000, 000, 000);
+    color: #000;
+}
+.hide {
+    display: none;
+}
+
+.bookmemo-list-wrap {
+    position: relative;
+    border: 1px solid rgb(180, 180, 180, .5);
+    padding: 30px;
+    /* height: 300px; */
+    margin-right: 25px;
+    background: rgb(255, 249, 213);
+}
+
+.memo-btn-custom {
+    position: absolute;
+    top: 17px;
+    right: 23px;
     border: 1px solid rgba(000, 000, 000, 0.2);
     background: rgba(000, 000, 000, 000);
     color: #000;
