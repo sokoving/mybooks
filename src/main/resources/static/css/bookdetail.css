@@ -2,6 +2,7 @@
 .wrap {
     /* padding-bottom: 50px; */
     /* margin: 0 auto; */
+    width: 50%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -45,10 +46,114 @@
 
 
 .detail-page {
-    margin-top: 100px;
+    width: 100%;
+    margin-top: 70px;
     display: flex;
     flex-wrap: wrap;
+    margin: auto;
 }
+
+.detail-page .content{
+    width: 100%;
+    /* background: red; */
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 10px 10px 0px;
+    margin: 20px 30px;
+
+}
+.detail-page .content .img{
+    display: flex;
+}
+
+.detail-page .content .detail-content {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px 20px;
+
+    border: 1px solid rgb(229, 229, 229, .5);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.detail-page .detail-content .left{
+    width: 30%;
+    background: #cccccc;
+    padding: 10px;
+    border-left: 1px solid rgb(229, 229, 229, .5);
+}
+
+.detail-page .content .detail-content .left h2{
+    color: #000;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.detail-page .detail-content .right{
+    width: 70%;
+    background: #fff;
+    border-bottom: rgb(229, 229, 229, .5);
+    padding: 20px;
+}
+
+.detail-page .detail-content .right h3{
+    color: #000;
+    font-family: 'NanumSquareRound', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+
+}
+
+/* .page left / right */
+.detail-page .detail-content .page {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.detail-page .detail-content .page .left{
+    width: 30%;
+    /* background: yellow; */
+}
+
+.detail-page .detail-content .page .left h3{
+    color: #000;
+    font-family: 'NanumSquareRound', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.detail-page .detail-content .page .right{
+    width: 70%;
+    /* background: grey; */
+
+}
+
+.detail-page .detail-content .page .right h3{
+    color: #000;
+    font-family: 'NanumSquareRound', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+
+/* comment */
+.detail-page .content .book-comment{
+    background: green;
+}
+
+
+/* img */
+.detail-page .content .img {
+    margin: auto;
+}
+
+
 
 .custom-img {
     width: 300px;
@@ -57,16 +162,17 @@
     padding-left: 30px;
 }
 
-.detail-content {
+/* .detail-content {
     flex-grow: 1;
     width: 500px;
-}
+} */
 
 .detail-content li {
+
     line-height: 70px;
     font-weight: 700;
     font-size: 20px;
-    font-family: 'NanumSquareRound', sans-serif;
+
 }
 
 .book-comment {

@@ -59,7 +59,7 @@
         <div id="book-wrap">
             <!-- 즐겨찾기 책 목록(작업해야 함) -->
             <ul id="like-book" class="list-group">
-                <li class="list-head list-group-item d-flex justify-content-center">
+                <li class="list-head list-group-item d-flex justify-content-center" id="accordion">
                     <h2 class="fs-3">즐겨찾기 목록</h2>
                     <span class="accordionBtn lnr lnr-chevron-up"></span>
                 </li>
@@ -215,6 +215,10 @@
 
     <script src="/js/config.js"></script>
     <script>
+
+
+
+
         const $savebook = document.getElementById('savebook');
 
         $savebook.onclick = e => {
