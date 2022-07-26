@@ -26,6 +26,12 @@
         position: relative;
         background: #eee;
     }
+
+    body a {
+        text-decoration: none;
+        color: #000;
+        font-weight: bold;
+    }
 </style>
 
 
