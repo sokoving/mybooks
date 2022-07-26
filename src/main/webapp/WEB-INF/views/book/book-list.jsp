@@ -48,7 +48,8 @@
         <!-- 헤더 영역 (작업해야 함)-->
         <header id="header">
             <div class="inner-header">
-                <h1> logo</h1>
+                <span class="lnr lnr-pencil"></span>
+                <h1> My Books</h1>
             </div>
         </header>
 
@@ -95,7 +96,6 @@
                 </li>
 
             </ul> <!-- end like-book -->
-
 
 
             <!-- 전체 책 목록 -->
@@ -205,6 +205,10 @@
                 </li>
 
             </ul><!-- end all-book -->
+            <footer>
+                <h3>Copyright 2021.  My Books. all rights reserved.</h3>
+
+            </footer>
         </div> <!-- end book-wrap -->
     </div> <!-- end wrap -->
 

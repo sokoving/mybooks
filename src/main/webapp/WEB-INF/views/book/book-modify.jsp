@@ -88,9 +88,6 @@
                             <input id="book-name-input" maxlength="50" type="text" value="${modibook.bookTitle}" name="bookTitle">
                         </div>
                         
-                    <!-- </label> -->
-                    <!-- <br> -->
-                    <!-- <label> -->
                         <div class="left">
                             <h3>작가</h3>
                         </div>
@@ -98,9 +95,6 @@
                             <input id="writer-input" maxlength="50" type="text" value="${modibook.writer}" name="writer">
                         </div>
                         
-                    <!-- </label> -->
-                    <!-- <br> -->
-                    <!-- <label> -->
                         <div class="left">
                             <h3>별점</h3>
                         </div>
@@ -115,24 +109,18 @@
                             </select>
                         </div>
                         
-                    <!-- </label> -->
-                    <!-- <br> -->
-                    <!-- <label> -->
                         <div class="left">
                             <h3>현재 페이지</h3>
-                            
                         </div>
                         <div class="right">
-                            <input type="text" maxlength="5" value="${modibook.curPage}" name="curPage">
+                            <input type="number" id="curPage" maxlength="5" value="${modibook.curPage}" name="curPage">
                         </div>
-                    <!-- </label> -->
-                    <!-- <br> -->
-                    <!-- <label> -->
+
                         <div class="left">
                             <h3>총 페이지</h3>
                         </div>
                         <div class="right">
-                            <input type="text" maxlength="5" value="${modibook.totalPage}" name="totalPage">
+                            <input type="number" id="totalPage" maxlength="5" value="${modibook.totalPage}" name="totalPage">
                         </div>
                         
                     <!-- </label> -->
@@ -162,9 +150,10 @@
                     <!-- </label> -->
                 </div>
 
-                <button type="button" id="reg-btn" class="btn btn-outline-danger" style="float: right;">수정완료</button>
 
-
+                <div id="regBtn" style="padding: 10px;">
+                    <button type="button" id="reg-btn" class="btn btn-outline-danger" style="float: right;">수정완료</button>
+                </div>
 
             </form>
             <button type="button" id="list-btn" class="btn btn-secondary btn-sm" onclick="location.href='/book/list/'">이전으로</button>
@@ -183,18 +172,50 @@
 
                 const $bookNameInput = document.getElementById('book-name-input');
                 const $writerInput = document.getElementById('writer-input');
+
+                const $curPage = document.getElementById('curPage');
+                const $totalPage = document.getElementById('totalPage');
+
                 let flag = false;
 
                 console.log('b: ', $bookNameInput.value);
                 console.log('w: ', $writerInput.value);
                 if ($bookNameInput.value.trim() === '') {
                     alert('제목은 필수값입니다');
+                    return false;
                 } else if ($writerInput.value.trim() === '') {
                     alert('작가는 필수값입니다');
-                } else {
-                    flag = true;
-                }
-                return flag;
+                    return false;
+                } 
+
+                // page값 확인
+
+                if($curPage.value.trim() === '') {
+                    $curPage.value = 0;
+                } else if($curPage.value < 0 ) {
+                    alert('현재 페이지 값을 확인해주세요.');
+                    return false;
+                } 
+
+                if($totalPage.value.trim() === '') {
+                    $totalPage.value = 0;
+                    return false;
+                } else if($totalPage.value < 0){
+                    alert('총 페이지 값(음수)을 다시 한번 확인해주세요.');
+                    return false;
+                } 
+                
+
+                if(+$totalPage.value < +$curPage.value){
+                    console.log($totalPage.value);
+                    console.log($curPage.value);
+                    alert('총 페이지 값(작음)을 다시 한번 확인해주세요.');
+                    return false;
+                } 
+
+                return true;
+
+
             }
 
             // 게시물 입력값 검증
