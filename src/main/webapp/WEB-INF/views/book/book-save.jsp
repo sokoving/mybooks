@@ -96,9 +96,6 @@
                         <input id="cur-page" maxlength="5" type="number" name="curPage">
                     </div>
 
-
-
-
                     <div class="left">
                         <h3>총 회차</h3>
                     </div>
@@ -130,22 +127,14 @@
                             <div class="right">
                                 <select name="starRate" class="form-select" aria-label="Default select example">
                                     <option selected>별점을 선택해주세요</option>
-                                    <option value="1">*</option>
-                                    <option value="2">**</option>
-                                    <option value="3">***</option>
-                                    <option value="4">****</option>
-                                    <option value="5">*****</option>
+                                    <option value="1">★☆☆☆☆</option>
+                                    <option value="2">★★☆☆☆</option>
+                                    <option value="3">★★★☆☆</option>
+                                    <option value="4">★★★★☆</option>
+                                    <option value="5">★★★★★</option>
                                 </select>
                             </div>
 
-                            <!--
-                                <select name="starRate">
-                                    <option value="1">*</option>
-                                    <option value="2">**</option>
-                                    <option value="3">***</option>
-                                    <option value="4">****</option>
-                                    <option value="5">*****</option>
-                                </select> -->
 
                         <!-- </div> -->
                         <!-- <div class="bookComment-input"> -->
@@ -162,17 +151,6 @@
                     </ul>
                 </div>
 
-
-
-                <!-- 플랫폼 :
-                <select name="platformId">
-                    <option value="1">카카오 페이지</option>
-                    <option value="2">네이버 시리즈</option>
-                    <option value="3">리디북스</option>
-                    <option value="4">문피아</option>
-                    <option value="5">조아라</option>
-                    <option value="6">미분류</option>
-                </select> -->
                 <div id="button" style="padding: 10px;">
                     <button type="button" id="reg-btn" class="btn btn-outline-danger" style="float: right;">등록</button>
                 </div>
@@ -234,7 +212,7 @@
                     $totalPage.value = 0;
                     return false;
                 } else if($totalPage.value < 0){
-                    alert('총 페이지 값(음수)을 다시 한번 확인해주세요.');
+                    alert('총 페이지 값을 다시 한번 확인해주세요.');
                     return false;
                 } 
                 
@@ -243,7 +221,7 @@
                 if(+$totalPage.value < +$curPage.value){
                     console.log($totalPage.value);
                     console.log($curPage.value);
-                    alert('총 페이지 값(작음)을 다시 한번 확인해주세요.');
+                    alert('총 페이지 값을 다시 한번 확인해주세요.');
                     return false;
                 } 
 

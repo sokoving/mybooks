@@ -201,7 +201,7 @@
                     $totalPage.value = 0;
                     return false;
                 } else if($totalPage.value < 0){
-                    alert('총 페이지 값(음수)을 다시 한번 확인해주세요.');
+                    alert('총 페이지 값을 다시 한번 확인해주세요.');
                     return false;
                 } 
                 
@@ -209,7 +209,7 @@
                 if(+$totalPage.value < +$curPage.value){
                     console.log($totalPage.value);
                     console.log($curPage.value);
-                    alert('총 페이지 값(작음)을 다시 한번 확인해주세요.');
+                    alert('총 페이지 값을 다시 한번 확인해주세요.');
                     return false;
                 } 
 
