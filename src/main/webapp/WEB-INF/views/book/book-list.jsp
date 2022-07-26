@@ -112,7 +112,6 @@
                 <li class="list-group-item list-group-item-action text-center fs-6 filter-section">
                     <div class="filter-area">
                         <!-- change 이벤트 -->
-                        <span class="lnr lnr-funnel"></span>
                         <label>
                             <select name="platformId" class="form-select" id="p-select">
                                 <option value="0" ${search.platformId==0 ? 'selected' : '' }>플랫폼을 선택해주세요</option>
@@ -162,14 +161,22 @@
 
                     <!-- keyup 이벤트 -->
                     <div class="search-area">
-                        <span class="lnr lnr-magnifier"></span>
                         <label>
-                            <input type="text" id="b-search" name="bookTitle" placeholder="제목으로 검색해 보세요">
+                            <input type="text" id="b-search" name="bookTitle" placeholder="제목으로 검색해 보세요"
+                                value="${search.bookTitle}">
                         </label>
                         <label>
-                            <input type="text" id="w-search" name="writer" placeholder="작가로 검색해 보세요">
+                            <input type="text" id="w-search" name="writer" placeholder="작가로 검색해 보세요"
+                                value="${search.writer}">
                         </label>
                     </div>
+                    <div class="search-btn-group">
+                        <span class="lnr lnr-magnifier" id="search-btn"></span>
+                        <a href="/book/list" id="reset-btn">
+                            <span class="lnr lnr-redo"></span>
+                        </a>
+                    </div>
+
                 </li>
 
                 <!-- 전체 책 목록 li -->
@@ -206,7 +213,7 @@
 
             </ul><!-- end all-book -->
             <footer>
-                <h3>Copyright 2021.  My Books. all rights reserved.</h3>
+                <h3>Copyright 2021. My Books. all rights reserved.</h3>
 
             </footer>
         </div> <!-- end book-wrap -->
@@ -246,6 +253,18 @@
             document.getElementById('s-select').onchange = e => {
                 searchStarRate(e, params);
             }
+
+            // 검색 이벤트(인풋창 엔터)
+            const $txtInput = document.querySelector('.search-area');
+            $txtInput.addEventListener('keyup', e => {
+                if (!e.target.matches('input')) return;
+                searchKeyUp(e, params);
+            })
+            // 검색 이벤트(검색 버튼 클릭)
+            const $searchBtn = document.getElementById('search-btn')
+            $searchBtn.addEventListener('click', e => {
+                searchTitleWriter(e, params);
+            })
 
         })();
     </script>

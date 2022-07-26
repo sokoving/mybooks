@@ -140,28 +140,65 @@ function switchImportance() {
 }
 
 // 플랫폼 필터링 change 이벤트
-function searchPlatform(e, params){
+function searchPlatform(e, params) {
     // console.log("e: ", e.target.value);
     const selectVal = e.target.value;
     console.log('selectVal' + selectVal);
-    location.href = '/book/list?platformId=' + selectVal
-                + '&starRate=' + params.starRate
-                + '&bookTitle=' + params.bookTitle
-                + '&writer=' + params.writer
-                ;
+    location.href = '/book/list?platformId=' + selectVal +
+        '&starRate=' + params.starRate +
+        '&bookTitle=' + params.bookTitle +
+        '&writer=' + params.writer;
 }
 
 // 별점 필터링 change 이벤트
-function searchStarRate(e, params){
+function searchStarRate(e, params) {
     // console.log("e: ", e.target.value);
     const selectVal = e.target.value;
     console.log('selectVal' + selectVal);
-    location.href = '/book/list?platformId=' + params.platformId
-                + '&starRate=' + selectVal
-                + '&bookTitle=' + params.bookTitle
-                + '&writer=' + params.writer
-    ;
+    location.href = '/book/list?platformId=' + params.platformId +
+        '&starRate=' + selectVal +
+        '&bookTitle=' + params.bookTitle +
+        '&writer=' + params.writer;
 }
+
+// 제목 검색 키업 이벤트
+function searchKeyUp(e, params) {
+    // console.log('searchKeyUp 이벤트 발생');
+    // const $bInput = document.getElementById('b-search')
+    // const $wInput = document.getElementById('w-search')
+
+    if (e.key === 'Enter') {
+        searchTitleWriter(e, params);
+        // const titleValue = $bInput.value;
+        // const writerValue = $wInput.value;
+
+        // console.log('titleValue : ' + titleValue);
+        // console.log('writerValue : ' + writerValue);
+
+        // location.href = '/book/list?platformId=' + params.platformId +
+        //     '&starRate=' + params.starRate +
+        //     '&bookTitle=' + titleValue +
+        //     '&writer=' + writerValue;
+    }
+}
+
+function searchTitleWriter(e, params){
+    const $bInput = document.getElementById('b-search')
+    const $wInput = document.getElementById('w-search')
+
+    const titleValue = $bInput.value;
+    const writerValue = $wInput.value;
+
+    console.log('titleValue : ' + titleValue);
+    console.log('writerValue : ' + writerValue);
+
+    location.href = '/book/list?platformId=' + params.platformId +
+        '&starRate=' + params.starRate +
+        '&bookTitle=' + titleValue +
+        '&writer=' + writerValue;
+}
+
+
 
 // 아코디언 이벤트
 function listAccordion() {
@@ -182,7 +219,3 @@ function listAccordion() {
             }
         }
 }
-
-
-
-
