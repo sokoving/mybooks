@@ -180,7 +180,7 @@
                                     </label>
                                     <label>
                                         <!--  <input type="text" name="bookmarkNo" value="${mk.bookmarkNo}" readonly> -->
-                                        <span class="hide" name="bookmarkNo"># ${mk.bookmarkNo}</span>
+                                        <span class="hide" name="bookmarkNo">${mk.bookmarkNo}</span>
                                     </label>
                                     <label>
                                         <!-- <input maxlength="5" type="text" name="bookmarkPage" value="${mk.bookmarkPage}"> -->
@@ -237,7 +237,7 @@
                                     </label>
                                     <label>
                                         <!-- <input type="text" name="bookMemoNo" value="${ml.bookMemoNo}" readonly> -->
-                                        <!-- <span name="bookMemoNo"># ${ml.bookMemoNo}</span> -->
+                                        <span name="bookMemoNo" hidden>${ml.bookMemoNo}</span>
                                         <br>
                                     </label>
                                     <label>
