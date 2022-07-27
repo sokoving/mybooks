@@ -99,7 +99,7 @@
                         </div>
 
                         <div class="left">
-                            <h3>총 회차</h3>
+                            <h3>전체 회차</h3>
                         </div>
                         <div class="right">
                             <input id="total-page" maxlength="5" type="number" name="totalPage">

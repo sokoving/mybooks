@@ -143,7 +143,7 @@ function switchImportance() {
 function searchPlatform(e, params) {
     // console.log("e: ", e.target.value);
     const selectVal = e.target.value;
-    console.log('selectVal' + selectVal);
+//    console.log('selectVal' + selectVal);
     location.href = '/book/list?platformId=' + selectVal +
         '&starRate=' + params.starRate +
         '&bookTitle=' + params.bookTitle +
@@ -154,7 +154,7 @@ function searchPlatform(e, params) {
 function searchStarRate(e, params) {
     // console.log("e: ", e.target.value);
     const selectVal = e.target.value;
-    console.log('selectVal' + selectVal);
+//    console.log('selectVal' + selectVal);
     location.href = '/book/list?platformId=' + params.platformId +
         '&starRate=' + selectVal +
         '&bookTitle=' + params.bookTitle +
@@ -169,16 +169,6 @@ function searchKeyUp(e, params) {
 
     if (e.key === 'Enter') {
         searchTitleWriter(e, params);
-        // const titleValue = $bInput.value;
-        // const writerValue = $wInput.value;
-
-        // console.log('titleValue : ' + titleValue);
-        // console.log('writerValue : ' + writerValue);
-
-        // location.href = '/book/list?platformId=' + params.platformId +
-        //     '&starRate=' + params.starRate +
-        //     '&bookTitle=' + titleValue +
-        //     '&writer=' + writerValue;
     }
 }
 

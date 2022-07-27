@@ -55,8 +55,9 @@
                 </div>
 
                 <div class="detail-content">
+                    <!-- ${book.theEnd} 추가하기 -->
                     <div class="left">
-                        <h2>플랫폼</h2> 
+                        <h2>플랫폼</h2>
                     </div>
                     <div class="right">
                         <h3>${book.platformName}</h3>
@@ -65,7 +66,8 @@
                         <h2>제목</h2>
                     </div>
                     <div class="right">
-                        <h3>${book.bookTitle} (${book.theEnd})</h3>
+                        <h3>${book.bookTitle}</h3>
+
                     </div>
                     <div class="left">
                         <h2>작가</h2>
@@ -80,18 +82,18 @@
                         <h3>${book.starRate}</h3>
                     </div>
                     <!-- <div class="page"> -->
-                        <div class="left">
-                            <h2>현제페이지</h2>
-                        </div>
-                        <div class="right">
-                            <h3>${book.curPage}</h3>
-                        </div>
-                        <div class="left">
-                            <h2>전체페이지</h2>
-                        </div>
-                        <div class="right">
-                            <h3>${book.totalPage}</h3>
-                        </div>
+                    <div class="left">
+                        <h2>현재 회차</h2>
+                    </div>
+                    <div class="right">
+                        <h3>${book.curPage}</h3>
+                    </div>
+                    <div class="left">
+                        <h2>전체 회차</h2>
+                    </div>
+                    <div class="right">
+                        <h3>${book.totalPage}</h3>
+                    </div>
                     <!-- </div> -->
                 </div>
 
@@ -100,28 +102,34 @@
                     <div class="bookComment">
                         <h4>${book.bookComment}</h4>
                     </div>
-                        
+
                 </div>
 
 
             </div>
-            
+
 
 
             <ul class="modi-remo-list detail-btn">
                 <li>
                     <a href="/book/modify?bookNo=${book.bookNo}" class="btn-atag">
-                        <button type="button" class="btn btn-warning btn-yellow btn-custom"><h3>수정</h3></button>
+                        <button type="button" class="btn btn-warning btn-yellow btn-custom">
+                            <h3>수정</h3>
+                        </button>
                     </a>
                 </li>
                 <li>
                     <a href="/book/delete?bookNo=${book.bookNo}" class="btn-atag">
-                        <button type="button" class="btn btn-warning btn-yellow btn-custom"><h3>삭제</h3></button>
+                        <button type="button" class="btn btn-warning btn-yellow btn-custom">
+                            <h3>삭제</h3>
+                        </button>
                     </a>
                 </li>
                 <li>
                     <a href="/book/list" class="btn-atag">
-                        <button type="button" class="btn btn-warning btn-yellow btn-custom"><h3>목록</h3></button>
+                        <button type="button" class="btn btn-warning btn-yellow btn-custom">
+                            <h3>목록</h3>
+                        </button>
                     </a>
                 </li>
             </ul>
@@ -132,7 +140,7 @@
         <div class="mkme-head">
             <div class="bookmark-container">
                 <h1 class="bookmarkHead">북마크</h1>
-                <div >
+                <div>
                     <!-- 북마크 등록 -->
                     <ul class="bookmark-custom">
                         <li>
@@ -172,7 +180,7 @@
                                     </label>
                                     <label>
                                         <!--  <input type="text" name="bookmarkNo" value="${mk.bookmarkNo}" readonly> -->
-                                        <span class="hide" name="bookmarkNo">${mk.bookmarkNo}</span>
+                                        <span class="hide" name="bookmarkNo"># ${mk.bookmarkNo}</span>
                                     </label>
                                     <label>
                                         <!-- <input maxlength="5" type="text" name="bookmarkPage" value="${mk.bookmarkPage}"> -->
@@ -186,8 +194,8 @@
                                     <label>
                                         <input type="hidden" name="regDate" value="${mk.regDate}" readonly>
                                     </label>
-                                    <button type="button" class="btn bookmark-btn-event"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <button type="button" class="btn bookmark-btn-event" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal">
                                         편집
                                     </button>
                                 </div>
@@ -202,7 +210,7 @@
             <div class="bookmeme-container">
                 <h2 class="bookmemoHead">메모</h2>
                 <!-- 메모 등록 -->
-                <div >
+                <div>
                     <ul class="bookmemo-custom">
                         <li>
                             <form id="bookmemo-insert-form" action="/book/bookmemo-save" method="post">
@@ -229,7 +237,7 @@
                                     </label>
                                     <label>
                                         <!-- <input type="text" name="bookMemoNo" value="${ml.bookMemoNo}" readonly> -->
-                                        <span name="bookMemoNo">${ml.bookMemoNo}</span>
+                                        <span name="bookMemoNo"># ${ml.bookMemoNo}</span>
                                         <br>
                                     </label>
                                     <label>
@@ -250,6 +258,10 @@
                     </ul>
                 </div>
             </div>
+        </div>
+        <!-- footer -->
+        <div id="footer">
+            <h3>Copyright 2021. My Books. all rights reserved.</h3>
         </div>
     </div>
 
@@ -330,11 +342,9 @@
                 </div>
             </div>
         </div>
-            <!-- footer -->
-        <div id="footer">
-            <h3>Copyright 2021.  My Books. all rights reserved.</h3>
-        </div>
+
     </div>
+
 
 
 
