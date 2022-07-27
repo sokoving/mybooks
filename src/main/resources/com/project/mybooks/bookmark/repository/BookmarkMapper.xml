@@ -50,7 +50,7 @@
         SELECT *
         FROM prj_bookmark
         WHERE book_no = #{bookNo}
-        ORDER BY BOOKMARK_PAGE
+        ORDER BY BOOKMARK_PAGE desc, bookmark_no
     </select>
 
     <select id="findOne" resultMap="bookmarkMap">
