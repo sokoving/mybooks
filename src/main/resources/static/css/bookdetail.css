@@ -46,17 +46,149 @@
 
 
 .detail-page {
-    margin-top: 100px;
+    width: 100%;
+    margin-top: 70px;
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 100px;
+    margin: auto;
 }
 
-/* .div-null {
+.detail-page .content{
     width: 100%;
-    background: rgb(229, 229, 229, .5);
-    height: 50px;
-} */
+    /* background: red; */
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 10px 10px 0px;
+    margin: 20px 30px;
+
+}
+.detail-page .content .img{
+    display: flex;
+}
+
+.detail-page .content .detail-content {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px 20px;
+
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 1px 5px 9px 1px #e6e6e6
+}
+
+.detail-page .detail-content .left{
+    width: 30%;
+    height: 60px;
+    background: #cccccc;
+    padding: 10px;
+    border-left: 1px solid #cccccc;
+}
+
+.detail-page .content .detail-content .left h2{
+    color: #000;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.detail-page .detail-content .right{
+    height: 60px;
+    width: 70%;
+    background: #fff;
+    border-bottom: #cccccc;
+    padding: 20px;
+}
+
+.detail-page .detail-content .right h3{
+    color: #000;
+    font-family: 'NanumSquareRound', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+
+}
+
+/* .page left / right */
+.detail-page .detail-content .page {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.detail-page .detail-content .page .left{
+    width: 30%;
+    /* background: yellow; */
+}
+
+.detail-page .detail-content .page .left h3{
+    color: #000;
+    font-family: 'NanumSquareRound', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.detail-page .detail-content .page .right{
+    width: 70%;
+    /* background: grey; */
+
+}
+
+.detail-page .detail-content .page .right h3{
+    color: #000;
+    font-family: 'NanumSquareRound', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+
+/* book comment */
+.detail-page .content .book-comment{
+
+    /* background: green; */
+    width: 100%;
+    border: 1px solid #cccccc;
+    padding: 20px 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.detail-page .content .book-comment h2 {
+    color: #000;
+    font-family: 'NanumSquareRound', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+.detail-page .content .book-comment .a::after{
+    content: "";
+        display: block;
+        width: 70%;
+        border-bottom: 1px solid #bcbcbc;
+        margin: 20px auto;
+
+}
+
+.detail-page .content .book-comment .bookComment {
+    border-radius: 10px;
+}
+
+.detail-page .content .book-comment .bookComment h4{
+    width: 100%;
+    font-weight: 700;
+    font-size: 30px;
+    font-family: 'NanumSquareRound', sans-serif;
+}
+
+/* img */
+.detail-page .content .img {
+    margin: auto;
+}
+
+
 
 .custom-img {
     width: 300px;
@@ -65,26 +197,16 @@
     padding-left: 30px;
 }
 
-.detail-content {
+/* .detail-content {
     flex-grow: 1;
     width: 500px;
-}
+} */
 
 .detail-content li {
     line-height: 70px;
     font-weight: 700;
     font-size: 20px;
-    font-family: 'NanumSquareRound', sans-serif;
 }
-
-.book-comment {
-    width: 100%;
-    font-weight: 700;
-    font-size: 20px;
-    font-family: 'NanumSquareRound', sans-serif;
-}
-
-
 
 .detail-btn {
     display: flex;
@@ -106,7 +228,7 @@
     height: 40px;
 }
 
-.btn-custom {
+.btn-custom h3{
     font-weight: 700;
     font-size: 20px;
     font-family: 'NanumSquareRound', sans-serif;
@@ -118,9 +240,7 @@
     font-weight: 700;
     font-size: 40px;
     font-family: 'NanumSquareRound', sans-serif;
-    /* background: rgb(229, 229, 229, .5); */
 
-    /* margin-bottom: -0.5rem; */
 }
 
 .bookmemoHead {
@@ -129,8 +249,7 @@
     font-weight: 700;
     font-size: 40px;
     font-family: 'NanumSquareRound', sans-serif;
-    /* background: rgb(229, 229, 229, .5); */
-}   
+}
 
 .mkme-head {
     border-bottom: 1px solid #000;
@@ -144,7 +263,6 @@
     /* margin-left: 3%; */
     border-right: 1px solid rgb(208, 208, 208);
     border-left: 1px solid rgb(208, 208, 208);
-    
 }
 
 .bookmemo-custom {
@@ -163,7 +281,7 @@
 .bookmeme-container {
     width: 50%;
     background: rgb(229, 229, 229, .5);
-    
+
 }
 
 .bookmemo-custom {

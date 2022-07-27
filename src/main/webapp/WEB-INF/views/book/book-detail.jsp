@@ -49,39 +49,79 @@
 
 
         <div class="detail-page">
-            <div>
-                <img src="${book.bookImg}" class="rounded mx-auto d-block custom-img" alt="책 표지">
+            <div class="content">
+                <div class="img">
+                    <img src="${book.bookImg}" class="rounded mx-auto d-block custom-img" alt="책 표지">
+                </div>
+
+                <div class="detail-content">
+                    <div class="left">
+                        <h2>플랫폼</h2> 
+                    </div>
+                    <div class="right">
+                        <h3>${book.platformName}</h3>
+                    </div>
+                    <div class="left">
+                        <h2>제목</h2>
+                    </div>
+                    <div class="right">
+                        <h3>${book.bookTitle} (${book.theEnd})</h3>
+                    </div>
+                    <div class="left">
+                        <h2>작가</h2>
+                    </div>
+                    <div class="right">
+                        <h3>${book.writer}</h3>
+                    </div>
+                    <div class="left">
+                        <h2>별점</h2>
+                    </div>
+                    <div class="right">
+                        <h3>${book.starRate}</h3>
+                    </div>
+                    <!-- <div class="page"> -->
+                        <div class="left">
+                            <h2>현제페이지</h2>
+                        </div>
+                        <div class="right">
+                            <h3>${book.curPage}</h3>
+                        </div>
+                        <div class="left">
+                            <h2>전체페이지</h2>
+                        </div>
+                        <div class="right">
+                            <h3>${book.totalPage}</h3>
+                        </div>
+                    <!-- </div> -->
+                </div>
+
+                <div class="book-comment">
+                    <h2 class="a">한줄평</h2>
+                    <div class="bookComment">
+                        <h4>${book.bookComment}</h4>
+                    </div>
+                        
+                </div>
+
+
             </div>
-
-            <ul class="detail-content">
-                <li>플랫폼: ${book.platformName} </li>
-                <li>제목: ${book.bookTitle} (${book.theEnd})</li>
-                <li>작가: ${book.writer}</li>
-                <li>별점: ${book.starRate}</li>
-                <li> ${book.curPage}/${book.totalPage}</li>
-            </ul>
-
-            <ul class="book-comment">
-                <li>한줄평 : <br>
-                    ${book.bookComment}
-                </li>
-            </ul>
+            
 
 
             <ul class="modi-remo-list detail-btn">
                 <li>
                     <a href="/book/modify?bookNo=${book.bookNo}" class="btn-atag">
-                        <button type="button" class="btn btn-warning btn-yellow btn-custom">수정</button>
+                        <button type="button" class="btn btn-warning btn-yellow btn-custom"><h3>수정</h3></button>
                     </a>
                 </li>
                 <li>
                     <a href="/book/delete?bookNo=${book.bookNo}" class="btn-atag">
-                        <button type="button" class="btn btn-warning btn-yellow btn-custom">삭제</button>
+                        <button type="button" class="btn btn-warning btn-yellow btn-custom"><h3>삭제</h3></button>
                     </a>
                 </li>
                 <li>
                     <a href="/book/list" class="btn-atag">
-                        <button type="button" class="btn btn-warning btn-yellow btn-custom">목록</button>
+                        <button type="button" class="btn btn-warning btn-yellow btn-custom"><h3>목록</h3></button>
                     </a>
                 </li>
             </ul>
