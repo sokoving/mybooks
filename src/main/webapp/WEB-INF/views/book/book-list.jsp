@@ -191,7 +191,7 @@
                     <c:forEach var="bp" items="${bpList}">
                         <div class="list-group-item d-flex justify-content-between align-items-start">
                             <div class="list-left d-flex flex-column ">
-                                <div class="img-book"><img class="img-custom" src="${bp.bookImg}" alt="책표지"></div>
+                                <div class="img-book"><img class="img-custom" src="${bp.bookImg}"></div>
                                 <div class="importance" data-book-no="${bp.bookNo}" data-importance="${bp.importance}">
                                     즐겨찾기
                                 </div>
