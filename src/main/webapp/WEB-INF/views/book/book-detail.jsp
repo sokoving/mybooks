@@ -96,7 +96,7 @@
                 </div>
 
                 <div class="book-comment">
-                    <h2>한줄평</h2>
+                    <h2 class="a">한줄평</h2>
                     <div class="bookComment">
                         <h4>${book.bookComment}</h4>
                     </div>
@@ -111,17 +111,17 @@
             <ul class="modi-remo-list detail-btn">
                 <li>
                     <a href="/book/modify?bookNo=${book.bookNo}" class="btn-atag">
-                        <button type="button" class="btn btn-warning btn-yellow btn-custom">수정</button>
+                        <button type="button" class="btn btn-warning btn-yellow btn-custom"><h3>수정</h3></button>
                     </a>
                 </li>
                 <li>
                     <a href="/book/delete?bookNo=${book.bookNo}" class="btn-atag">
-                        <button type="button" class="btn btn-warning btn-yellow btn-custom">삭제</button>
+                        <button type="button" class="btn btn-warning btn-yellow btn-custom"><h3>삭제</h3></button>
                     </a>
                 </li>
                 <li>
                     <a href="/book/list" class="btn-atag">
-                        <button type="button" class="btn btn-warning btn-yellow btn-custom">목록</button>
+                        <button type="button" class="btn btn-warning btn-yellow btn-custom"><h3>목록</h3></button>
                     </a>
                 </li>
             </ul>

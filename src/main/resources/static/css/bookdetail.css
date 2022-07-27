@@ -72,16 +72,18 @@
     flex-wrap: wrap;
     margin: 10px 20px;
 
-    border: 1px solid rgb(229, 229, 229, .5);
+    border: 1px solid #cccccc;
     border-radius: 10px;
     overflow: hidden;
+    box-shadow: 1px 5px 9px 1px #e6e6e6
 }
 
 .detail-page .detail-content .left{
     width: 30%;
+    height: 60px;
     background: #cccccc;
     padding: 10px;
-    border-left: 1px solid rgb(229, 229, 229, .5);
+    border-left: 1px solid #cccccc;
 }
 
 .detail-page .content .detail-content .left h2{
@@ -92,9 +94,10 @@
 }
 
 .detail-page .detail-content .right{
+    height: 60px;
     width: 70%;
     background: #fff;
-    border-bottom: rgb(229, 229, 229, .5);
+    border-bottom: #cccccc;
     padding: 20px;
 }
 
@@ -142,11 +145,43 @@
 }
 
 
-/* comment */
+/* book comment */
 .detail-page .content .book-comment{
-    background: green;
+    
+    /* background: green; */
+    width: 100%;
+    border: 1px solid #cccccc;
+    padding: 20px 20px;
+    border-radius: 10px;
+    margin-top: 20px;
 }
 
+.detail-page .content .book-comment h2 {
+    color: #000;
+    font-family: 'NanumSquareRound', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+.detail-page .content .book-comment .a::after{
+    content: "";
+        display: block;
+        width: 70%;
+        border-bottom: 1px solid #bcbcbc;
+        margin: 20px auto;
+
+}
+
+.detail-page .content .book-comment .bookComment {
+    border-radius: 10px;
+}
+
+.detail-page .content .book-comment .bookComment h4{
+    width: 100%;
+    font-weight: 700;
+    font-size: 30px;
+    font-family: 'NanumSquareRound', sans-serif;
+}
 
 /* img */
 .detail-page .content .img {
@@ -172,15 +207,9 @@
     line-height: 70px;
     font-weight: 700;
     font-size: 20px;
-
 }
 
-.book-comment {
-    width: 100%;
-    font-weight: 700;
-    font-size: 20px;
-    font-family: 'NanumSquareRound', sans-serif;
-}
+
 
 
 
@@ -204,7 +233,7 @@
     height: 40px;
 }
 
-.btn-custom {
+.btn-custom h3{
     font-weight: 700;
     font-size: 20px;
     font-family: 'NanumSquareRound', sans-serif;
