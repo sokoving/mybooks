@@ -26,6 +26,8 @@
         <!-- bootstrap css -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
+        
+        
         <!-- custom js -->
         <!-- <script src="/js/config.js" defer></script> -->
         <!-- bootstrap js -->
@@ -59,8 +61,8 @@
                     </div>
                     <div class="right">
                         <select name="platformId" class="form-select" aria-label="Default select example">
-                            <option selected>플랫폼을 선택해주세요</option>
-                            <option value="1">카카오 페이지</option>
+                            <option value="0" disabled>플랫폼을 선택해주세요</option>
+                            <option value="1" selected>카카오 페이지</option>
                             <option value="2">네이버 시리즈</option>
                             <option value="3">리디북스</option>
                             <option value="4">문피아</option>
@@ -127,8 +129,8 @@
 
                             <div class="right">
                                 <select name="starRate" class="form-select" aria-label="Default select example">
-                                    <option selected>별점을 선택해주세요</option>
-                                    <option value="1">★☆☆☆☆</option>
+                                    <option disabled>별점을 선택해주세요</option>
+                                    <option value="1" selected>★☆☆☆☆</option>
                                     <option value="2">★★☆☆☆</option>
                                     <option value="3">★★★☆☆</option>
                                     <option value="4">★★★★☆</option>
@@ -191,17 +193,8 @@
                     alert('작가는 필수값입니다');
                     return false;
                 } 
+        
                 
-                
-                // if($curPage.value.trim() === '') {
-                //     $curPage.value = 0;
-                // }
-                // if($totalPage.value.trim() === '') {
-                //     $totalPage.value = 0;
-                // }
-                // return flag;
-                
-
                 if($curPage.value.trim() === '') {
                     $curPage.value = 0;
                 } else if($curPage.value < 0 ) {
@@ -231,27 +224,6 @@
 
             }
 
-//             function checkStringCnt() {
-
-//                 let flag = false;
-
-//                 const $bookNameInput = document.getElementById('book-name-input');
-//                 const $writerinput = document.getElementById('writer-input');
-//                 const $curPage = document.getElementById('cur-page');
-//                 const $totalPage = document.getElementById('total-page');
-//                 const $bookComment = document.getElementById('book-comment');
-
-                
-// while(true){
-//                 if ($bookNameInput.value.lenght > 50) {
-//                     alert("제목은 50글자 이하로 입력해주세요");
-
-//                 } else {
-//                     flag = true;
-//                 }
-//             }
-//                 return flag;
-//             }
 
             // 게시물 입력값 검증
         const $regBtn = document.getElementById('reg-btn');
@@ -261,9 +233,13 @@
                 if (!validateFormValue()) {
                     return;
                 }
-                // if (!checkStringCnt()) {
-                //     return;
+
+                // const $formSelect = document.querySelector('.form-select');
+                // console.log($formSelect.value); 
+                // if($formSelect.value === 0) {
+                //     $formSelect.selectedIndex = 1;
                 // }
+                // console.log($formSelect.value);
 
                 // 필수 입력값을 잘 채웠으면 폼을 서브밋한다.
                 const $form = document.getElementById('write-form');
