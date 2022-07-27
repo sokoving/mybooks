@@ -71,6 +71,22 @@
             return flag;
         }
 
+        function bookmarkPageCheck() {
+            let flag = false
+            const $bookmarkPageInput = document.getElementById('bookmarkPage-input');
+            console.log($bookmarkPageInput);
+            const $bookmarkCheckPage = document.querySelector('.bookmark-check-page');
+            console.log($bookmarkCheckPage);
+            if(+$bookmarkPageInput.value > +$bookmarkCheckPage.textContent) {
+                alert('없는 회차입니다.');
+            } else {
+                flag = true;
+            }
+            return flag;
+        }
+
+
+
         const $bookmarkRegBtn = document.getElementById('bookmark-reg-btn');
 
         $bookmarkRegBtn.onclick = e => {
@@ -78,10 +94,17 @@
             if (!validateFormValueBookMark()) {
                 return;
             }
+            if(!bookmarkPageCheck()) {
+                console.log('페이지확인 들어옴');
+                return;
+            }
             // 필수 입력값을 잘 채웠으면 폼을 서브밋한다.
             const $bookmarkInsertForm = document.getElementById('bookmark-insert-form');
             $bookmarkInsertForm.submit();
         };
+
+        
+
 
 
         // 북마크 수정 필수값 확인
@@ -100,6 +123,20 @@
             return flag;
         }
 
+        function bookmarkModifyPageCheck() {
+            let flag = false
+            const $bookmarkPageModify = document.getElementById('bookmarkPage-modify');
+            console.log($bookmarkPageInput);
+            const $bookmarkCheckPage = document.querySelector('.bookmark-check-page');
+            console.log($bookmarkCheckPage.textContent);
+            if(+$bookmarkPageModify.value > +$bookmarkCheckPage.textContent) {
+                alert('없는 회차입니다.');
+            } else {
+                flag = true;
+            }
+            return flag;
+        }
+
         const $bookmarkModifyBtn = document.getElementById('bookmark-modify-btn');
 
         $bookmarkModifyBtn.onclick = e => {
@@ -107,6 +144,9 @@
             if (!validateFormValueBookMarkModify()) {
                 return;
             }
+            // if (!bookmarkModifyPageCheck()) {
+            //     return;
+            // }
             // 필수 입력값을 잘 채웠으면 폼을 서브밋한다.
             const $bookmarkModifyForm = document.getElementById('bookmark-modify-form');
             $bookmarkModifyForm.submit();

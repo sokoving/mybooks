@@ -92,7 +92,7 @@
                         <h2>전체 회차</h2>
                     </div>
                     <div class="right">
-                        <h3>${book.totalPage}</h3>
+                        <h3 class="bookmark-check-page">${book.totalPage}</h3>
                     </div>
                     <!-- </div> -->
                 </div>
@@ -237,7 +237,7 @@
                                     </label>
                                     <label>
                                         <!-- <input type="text" name="bookMemoNo" value="${ml.bookMemoNo}" readonly> -->
-                                        <span name="bookMemoNo"># ${ml.bookMemoNo}</span>
+                                        <!-- <span name="bookMemoNo"># ${ml.bookMemoNo}</span> -->
                                         <br>
                                     </label>
                                     <label>
